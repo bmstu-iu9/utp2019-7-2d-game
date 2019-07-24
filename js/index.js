@@ -60,28 +60,45 @@ var blocks = [];
 /* Парсинг уровня из map.js */
 parseMap();
 
+var stage = 0; // Стадия в анимации
+var direction = "";
+
 function physics(){
     /*  
         Функция физика - отвечает за анимацию,
         передвижение перса
     */
     if(rightPressed){
-        if(hero.src == "images/mommy2right.png"){
+        if(stage == 0){
             hero.src = "images/mommy1right.png";
+            stage = 1;
         } else {
             hero.src = "images/mommy2right.png";
+            stage = 0;
         }
-        heroX += 2;
+        heroX += 1;
+        direction = "right";
     }
     
     if(leftPressed){
-        if(hero.src == "images/mommy2left.png"){
-            //Вот сюда даже не падает почему то
+        if(stage == 0){
             hero.src = "images/mommy1left.png";
+            stage = 1;
+        } else {
+            hero.src = "images/mommy2left.png";
+            stage = 0;
+        }
+        direction = "left";
+        heroX -= 1;
+    }
+
+    if(!rightPressed && !leftPressed && stage != 0){
+        if(direction == "right"){
+            hero.src = "images/mommy2right.png";
         } else {
             hero.src = "images/mommy2left.png";
         }
-        heroX -= 2;
+        stage = 0;
     }
 }
 
