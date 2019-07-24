@@ -28,7 +28,7 @@ function draw(){
 
 /* Парсер карты */
 function parseMap(){
-	//Если G это земля и определяем ее координаты
+	//Если G это земля , определяем ее координаты
 	for (var i = 0; i < map.length ; i++){
 		for (var j = 0 ; j < map[i].length ; j++){
 			if (map[i][j] == ' '){
@@ -44,4 +44,6 @@ function parseMap(){
 	}
 }
 
-//var interval = setInterval(draw , 1);
+//draw();
+
+var interval = setInterval(draw , 1);
