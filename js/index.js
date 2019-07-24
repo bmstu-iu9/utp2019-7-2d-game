@@ -14,12 +14,12 @@ bg.src = "images/back.svg";
 //Список существующих блоков
 var blocks = [];
 
+parseMap();
+
 /* Отрисовка */
 function draw(){
 	ctx.clearRect(0 , 0 , canvas.width , canvas.height);
 	ctx.drawImage(bg , 0 , 0);
-	
-	parseMap();
 
 	for (var i = 0 ; i < blocks.length ; i++){
 		ctx.drawImage(gnd , blocks[i].x , blocks[i].y);
@@ -28,7 +28,7 @@ function draw(){
 
 /* Парсер карты */
 function parseMap(){
-	//Если G ты это земля и определяем ее координаты
+	//Если G это земля и определяем ее координаты
 	for (var i = 0; i < map.length ; i++){
 		for (var j = 0 ; j < map[i].length ; j++){
 			if (map[i][j] == ' '){
@@ -44,4 +44,4 @@ function parseMap(){
 	}
 }
 
-var interval = setInterval(draw , 1);
+//var interval = setInterval(draw , 1);
