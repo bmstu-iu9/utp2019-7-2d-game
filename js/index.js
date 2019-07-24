@@ -9,7 +9,7 @@ var gnd = new Image();
 var bg = new Image();
 
 gnd.src = "images/ground.png";
-bg.src = "images/back.svg";
+bg.src = "images/back.png";
 
 //Список существующих блоков
 var blocks = [];
@@ -35,7 +35,14 @@ function parseMap(){
 				continue;
 			}
 			else if (map[i][j] == 'G'){
-				var o = {} ;
+				var o = {};
+				o.id = 'G';
+				o.x = j * 32;
+				o.y = i * 32;
+			}
+			else if (map[i][j] == 'B'){
+				var o = {};
+				o.id = 'B';
 				o.x = j * 32;
 				o.y = i * 32;
 			}
@@ -44,6 +51,6 @@ function parseMap(){
 	}
 }
 
-//draw();
+bg.onload = () => draw();
 
-var interval = setInterval(draw , 1);
+//var interval = setInterval(draw , 1);
