@@ -22,9 +22,17 @@ hero.src = "images/mommy2right.png"; //Начальное положение в 
 var heroX = 10;
 var heroY = ( canvas.height / 2 ) - 8;
 
+/* Гравитация героя */
+var heroDY = 0;
+
+/* На земле ли перс */
+var heroOnGround = false;
+var ground = ( canvas.height / 2 ) - 8;
+
 /* Нажатия клавиш */
 var rightPressed = false;
 var leftPressed = false;
+var spacePressed = false;
 
 /* События */
 document.addEventListener("keydown", keyDownHandler, true);
@@ -39,6 +47,9 @@ function keyDownHandler(e){
         case 37:
             leftPressed = true;
             break;
+        case 32:
+            spacePressed = true;
+            break;
     }
 }
 
@@ -50,6 +61,9 @@ function keyUpHandler(e){
             break;
         case 37:
             leftPressed = false;
+            break;
+        case 32:
+            spacePressed = false;
             break;
     }
 }
@@ -92,6 +106,25 @@ function physics(){
         heroX -= 1;
     }
 
+    //Если координаты по ординате больше земли
+    //то координаты персонажа делаем равной земле и гравитация = 0
+    if(heroY >= ground){
+        heroOnGround = true;
+        heroY = ground;
+        heroDY = 0;
+    }else{
+        heroOnGround = false;
+    }
+
+    //Если нажат space и персонаж на земле то гравитация
+    //равна 5
+    if(spacePressed && heroOnGround){
+        heroDY = 5;
+    }
+
+    //если не нажата ни одна клавиша и перс не в состоянии покоя 
+    //то оставить его в состоянии покоя
+    //в направление куда смотрел
     if(!rightPressed && !leftPressed && stage != 0){
         if(direction == "right"){
             hero.src = "images/mommy2right.png";
@@ -107,6 +140,7 @@ function draw(){
     ctx.clearRect(0 , 0 , canvas.width , canvas.height);
     ctx.drawImage(bg , 0 , 0);
 
+    //Блоки размером по умолчанию
     for (var i = 0 ; i < blocks.length ; i++){
         if (blocks[i].id == 'G'){
             ctx.drawImage(gnd , blocks[i].x , blocks[i].y);
@@ -118,6 +152,16 @@ function draw(){
     }
 
     physics();
+    
+    //Смещение по ординате
+    heroY -= heroDY;
+
+    //Если персонаж не на земле уменьшать гравитацию на 0.1
+    //Можно эксперементировать со значениями
+    if(!heroOnGround){
+        heroDY -= 0.1;
+    }
+
     ctx.drawImage(hero , heroX , heroY);
 }
 
