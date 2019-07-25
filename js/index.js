@@ -20,14 +20,14 @@ hero.src = "images/mainpersright.png"; //Начальное положение �
 
 /* Координаты перса */
 var heroX = 10;
-var heroY = ( canvas.height / 2 ) - 8;
+var heroY = ( canvas.height / 2 ) - 18;
 
 /* Гравитация героя */
 var heroDY = 0;
 
 /* На земле ли перс */
 var heroOnGround = false;
-var ground = ( canvas.height / 2 ) - 8;
+var ground = ( canvas.height / 2 ) - 18;
 
 /* Нажатия клавиш */
 var rightPressed = false;
@@ -75,6 +75,8 @@ var blocks = [];
 parseMap();
 
 var stage = 0; // Стадия в анимации
+var prevStage = 0;
+
 var direction = "";
 
 function physics(){
@@ -84,31 +86,46 @@ function physics(){
     */
     if(rightPressed){
         if(stage == 0){
-            hero.src = "images/mainpersright.png";
+            hero.src = "images/maingonextright.png";
+            prevStage = 0;
             stage = 1;
-        } else if (stage == 1){
-          hero.src = "images/maingonextright.png";
+        } else if (stage == 1 && prevStage == 0){
+          hero.src = "images/maingoright.png";
           stage = 2;
-        } else {
-            hero.src = "images/maingoright.png";
+          prevStage = 1;
+        } else if(stage == 2){
+            hero.src = "images/maingonextright.png";
+            stage = 1;
+            prevStage = 2;
+        } else if(stage == 1 && prevStage == 2){
+            hero.src = "images/mainpersright.png";
+            prevStage = 0;
             stage = 0;
         }
-        heroX += 1;
+        heroX += 1.5;
         direction = "right";
     }
 
     if(leftPressed){
         if(stage == 0){
-            hero.src = "images/mainpers.png";
-            stage = 1;
-        } else if (stage == 1) {
             hero.src = "images/maingonext.png";
-            stage = 2;
-        } else {
-          hero.src = "images/maingo.png"
+            prevStage = 0;
+            stage = 1;
+        } else if (stage == 1 && prevStage == 0){
+          hero.src = "images/maingo.png";
+          stage = 2;
+          prevStage = 1;
+        } else if(stage == 2){
+            hero.src = "images/maingonext.png";
+            stage = 1;
+            prevStage = 2;
+        } else if(stage == 1 && prevStage == 2){
+            hero.src = "images/mainpers.png";
+            prevStage = 0;
+            stage = 0;
         }
+        heroX -= 1.5;
         direction = "left";
-        heroX -= 1;
     }
 
     //Если координаты по ординате больше земли
@@ -167,7 +184,7 @@ function draw(){
         heroDY -= 0.1;
     }
 
-    ctx.drawImage(hero , heroX , heroY);
+    ctx.drawImage(hero , heroX , heroY , 80 , 80);
 }
 
 /* Парсер карты */
