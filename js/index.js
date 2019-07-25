@@ -16,7 +16,7 @@ gnd.src = "images/ground.png";
 bg.src = "images/back.png";
 fire.src = "images/fire.png"
 spikes.src = "images/spikes.png"
-hero.src = "images/mommy2right.png"; //Начальное положение в покое
+hero.src = "images/mainpersright.png"; //Начальное положение в покое
 
 /* Координаты перса */
 var heroX = 10;
@@ -78,29 +78,34 @@ var stage = 0; // Стадия в анимации
 var direction = "";
 
 function physics(){
-    /*  
+    /*
         Функция физика - отвечает за анимацию,
         передвижение перса
     */
     if(rightPressed){
         if(stage == 0){
-            hero.src = "images/mommy1right.png";
+            hero.src = "images/mainpersright.png";
             stage = 1;
+        } else if (stage == 1){
+          hero.src = "images/maingonextright.png";
+          stage = 2;
         } else {
-            hero.src = "images/mommy2right.png";
+            hero.src = "images/maingoright.png";
             stage = 0;
         }
         heroX += 1;
         direction = "right";
     }
-    
+
     if(leftPressed){
         if(stage == 0){
-            hero.src = "images/mommy1left.png";
+            hero.src = "images/mainpers.png";
             stage = 1;
+        } else if (stage == 1) {
+            hero.src = "images/maingonext.png";
+            stage = 2;
         } else {
-            hero.src = "images/mommy2left.png";
-            stage = 0;
+          hero.src = "images/maingo.png"
         }
         direction = "left";
         heroX -= 1;
@@ -122,14 +127,14 @@ function physics(){
         heroDY = 5;
     }
 
-    //если не нажата ни одна клавиша и перс не в состоянии покоя 
+    //если не нажата ни одна клавиша и перс не в состоянии покоя
     //то оставить его в состоянии покоя
     //в направление куда смотрел
     if(!rightPressed && !leftPressed && stage != 0){
         if(direction == "right"){
-            hero.src = "images/mommy2right.png";
+            hero.src = "images/mainpersright.png";
         } else {
-            hero.src = "images/mommy2left.png";
+            hero.src = "images/mainpers.png";
         }
         stage = 0;
     }
@@ -152,7 +157,7 @@ function draw(){
     }
 
     physics();
-    
+
     //Смещение по ординате
     heroY -= heroDY;
 
@@ -170,7 +175,7 @@ function parseMap(){
     //Если G - это земля
     //Если S - это шипы
     //Если F - это факел
-    /* 
+    /*
      Если пробел , пропускаем ;
      Если видим какой -то блок , то определяем какой это блок
      и создаем под него объект и кидаем в список блоков blocks
@@ -203,6 +208,6 @@ function parseMap(){
     }
 }
 
-//Отрисовка динамических объектов в игре 
+//Отрисовка динамических объектов в игре
 //Частота обновления 1мс
 var interval = setInterval(draw , 1);
