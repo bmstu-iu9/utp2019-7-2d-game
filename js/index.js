@@ -19,15 +19,14 @@ spikes.src = "images/spikes.png"
 hero.src = "images/mainpersright.png"; //Начальное положение в покое
 
 /* Координаты перса */
-var heroX = 10;
-var heroY = ( canvas.height / 2 ) - 18;
+var heroX = 0;
+var heroY = 336;
 
 /* Гравитация героя */
 var heroDY = 0;
 
 /* На земле ли перс */
 var heroOnGround = false;
-var ground = ( canvas.height / 2 ) - 18;
 
 /* Нажатия клавиш */
 var rightPressed = false;
@@ -128,15 +127,7 @@ function physics(){
         direction = "left";
     }
 
-    //Если координаты по ординате больше земли
-    //то координаты персонажа делаем равной земле и гравитация = 0
-    if(heroY >= ground){
-        heroOnGround = true;
-        heroY = ground;
-        heroDY = 0;
-    }else{
-        heroOnGround = false;
-    }
+    collision();
 
     //Если нажат space и персонаж на земле то гравитация
     //равна 5
@@ -154,6 +145,19 @@ function physics(){
             hero.src = "images/mainpers.png";
         }
         stage = 0;
+    }
+}
+
+/* Взаимодействие с блоками */
+function collision(){
+    var j = ~~((heroX + 40) / 32);
+    var i = ~~((heroY + 80) / 32);
+
+    if(map[i][j] == 'G'){
+        heroOnGround = true;
+        heroDY = 0;
+    }else{
+        heroOnGround = false;
     }
 }
 
