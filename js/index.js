@@ -84,28 +84,32 @@ function physics(){
         передвижение перса
     */
     if(rightPressed){
-        if(stage == 0){
-            hero.src = "images/maingonextright.png";
-            prevStage = 0;
-            stage = 1;
-        } else if (stage == 1 && prevStage == 0){
-          hero.src = "images/maingoright.png";
-          stage = 2;
-          prevStage = 1;
-        } else if(stage == 2){
-            hero.src = "images/maingonextright.png";
-            stage = 1;
-            prevStage = 2;
-        } else if(stage == 1 && prevStage == 2){
-            hero.src = "images/mainpersright.png";
-            prevStage = 0;
-            stage = 0;
-        }
-        var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
+
+    	var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
     	var i = ~~((heroY + 80) / 32);
     	
     	if(map[i - 1][j + 1] != 'G'){
         	heroX += 1.5;
+        	if(stage == 0){
+            	hero.src = "images/maingonextright.png";
+            	prevStage = 0;
+            	stage = 1;
+        	} else if (stage == 1 && prevStage == 0){
+          		hero.src = "images/maingoright.png";
+          		stage = 2;
+          		prevStage = 1;
+        	} else if(stage == 2){
+            	hero.src = "images/maingonextright.png";
+            	stage = 1;
+            	prevStage = 2;
+        	} else if(stage == 1 && prevStage == 2){
+            	hero.src = "images/mainpersright.png";
+            	prevStage = 0;
+            	stage = 0;
+        	}
+    	}else {
+    		hero.src = "images/mainpersright.png";
+    		stage = 0;
     	}
     	//ctx.drawImage(gnd ,  (j + 1) * 32 , (i) * 32);
     	direction = "right";
@@ -113,30 +117,34 @@ function physics(){
     }
 
     if(leftPressed){
-        if(stage == 0){
-            hero.src = "images/maingonext.png";
-            prevStage = 0;
-            stage = 1;
-        } else if (stage == 1 && prevStage == 0){
-          hero.src = "images/maingo.png";
-          stage = 2;
-          prevStage = 1;
-        } else if(stage == 2){
-            hero.src = "images/maingonext.png";
-            stage = 1;
-            prevStage = 2;
-        } else if(stage == 1 && prevStage == 2){
-            hero.src = "images/mainpers.png";
+    	var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((heroY + 80) / 32);
+
+    	if(map[i - 1 ][j] != 'G'){
+        	heroX -= 1.5;
+        	if(stage == 0){
+            	hero.src = "images/maingonext.png";
+            	prevStage = 0;
+            	stage = 1;
+        	} else if (stage == 1 && prevStage == 0){
+          		hero.src = "images/maingo.png";
+          		stage = 2;
+          		prevStage = 1;
+        	} else if(stage == 2){
+            	hero.src = "images/maingonext.png";
+            	stage = 1;
+            	prevStage = 2;
+        	} else if(stage == 1 && prevStage == 2){
+            	hero.src = "images/mainpers.png";
+            	prevStage = 0;
+            	stage = 0;
+        	}
+
+    	}else { 
+    		hero.src = "images/mainpers.png";
             prevStage = 0;
             stage = 0;
-        }
-        var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((heroY + 80) / 32);
-    	
-    	if(map[i - 1][j] != 'G'){
-        	heroX -= 1.5;
     	}
-    	
     
         direction = "left";
     }
@@ -204,6 +212,7 @@ function draw(){
         heroDY -= 0.1;
     }
 
+    //ctx.drawRectange();
     ctx.drawImage(hero , heroX , heroY , 80 , 80);
 }
 
