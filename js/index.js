@@ -101,8 +101,15 @@ function physics(){
             prevStage = 0;
             stage = 0;
         }
-        heroX += 1.5;
-        direction = "right";
+        var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((heroY + 80) / 32);
+    	
+    	if(map[i - 1][j + 1] != 'G'){
+        	heroX += 1.5;
+    	}
+    	//ctx.drawImage(gnd ,  (j + 1) * 32 , (i) * 32);
+    	direction = "right";
+
     }
 
     if(leftPressed){
@@ -123,7 +130,14 @@ function physics(){
             prevStage = 0;
             stage = 0;
         }
-        heroX -= 1.5;
+        var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((heroY + 80) / 32);
+    	
+    	if(map[i - 1][j] != 'G'){
+        	heroX -= 1.5;
+    	}
+    	
+    
         direction = "left";
     }
 
