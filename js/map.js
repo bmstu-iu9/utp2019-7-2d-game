@@ -18,7 +18,7 @@ var map = [
     'GGG       GGGGGG           GGGGGGGGGGGGG',
     '                                        ',
     '                                        ',
-    '                                        ',
+    '           @                            ',
     'GGGGGGG   GGGGGGGGGGGG    GGGGGGGGGGGGGG',
     'GGGGGGGSSSGGGGGGGGGGGG    GGGGGGGGGGGGGG',
     'GGGGGGGGGGGGGGGGGGGGGGSSSSGGGGGGGGGGGGGG',

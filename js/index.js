@@ -20,7 +20,7 @@ hero.src = "images/mainpersright.png"; //Начальное положение �
 
 /* Координаты перса */
 var heroX = 0;
-var heroY = 336;
+var heroY = 0;
 
 /* Гравитация героя */
 var heroDY = 0;
@@ -36,6 +36,8 @@ var spacePressed = false;
 /* События */
 document.addEventListener("keydown", keyDownHandler, true);
 document.addEventListener("keyup", keyUpHandler, true);
+//document.addEventListener("resize", resize, true); //динамическое изменения размера окна
+
 
 function keyDownHandler(e){
     /* Функция для первого события keydown */
@@ -227,6 +229,7 @@ function parseMap(){
     //Если G - это земля
     //Если S - это шипы
     //Если F - это факел
+    //Если @ - это место появления героя
     /*
      Если пробел , пропускаем ;
      Если видим какой -то блок , то определяем какой это блок
@@ -254,6 +257,10 @@ function parseMap(){
                 o.id = 'F';
                 o.x = j * 32;
                 o.y = i * 32;
+            }
+            else if (map[i][j] == '@'){
+            	heroX = j * 32;
+            	heroY = i * 32 - 80;
             }
             blocks.push(o);
         }
