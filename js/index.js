@@ -18,7 +18,8 @@ fire.src = "images/fire.png"
 spikes.src = "images/spikes.png"
 hero.src = "images/mainpersright.png"; //Начальное положение в покое
 
-var mainHero = new HeroClass(hero); // создание и инициализация объекта главный герой
+var indi = new HeroClass(hero); // создание и инициализация объекта главный герой
+//indi - имя главного героя
 
 /* Нажатия клавиш */
 var rightPressed = false;
@@ -68,10 +69,7 @@ var blocks = [];
 parseMap(map);
 
 
-var stage = 0; // Стадия в анимации
-var prevStage = 0;
 
-var direction = "";
 
 function physics(){
     /*
@@ -80,105 +78,105 @@ function physics(){
     */
     if(rightPressed){
 
-    	var j = ~~((mainHero.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((mainHero.y + 80) / 32);
+    	var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((indi.y + 80) / 32);
 
     	if(map[i - 1][j + 1] != 'G'){
-        	mainHero.x += 1.5;
-        	if(stage == 0){
-            	mainHero.hero.src = "images/maingonextright.png";
-            	prevStage = 0;
-            	stage = 1;
-        	} else if (stage == 1 && prevStage == 0){
-          		mainHero.hero.src = "images/maingoright.png";
-          		stage = 2;
-          		prevStage = 1;
-        	} else if(stage == 2){
-            	mainHero.hero.src = "images/maingonextright.png";
-            	stage = 1;
-            	prevStage = 2;
-        	} else if(stage == 1 && prevStage == 2){
-            	mainHero.hero.src = "images/mainpersright.png";
-            	prevStage = 0;
-            	stage = 0;
+        	indi.x += 1.5;
+        	if(indi.stage == 0){
+            	indi.hero.src = "images/maingonextright.png";
+            	indi.prevStage = 0;
+            	indi.stage = 1;
+        	} else if (indi.stage == 1 && indi.prevStage == 0){
+          		indi.hero.src = "images/maingoright.png";
+          		indi.stage = 2;
+          		indi.prevStage = 1;
+        	} else if(indi.stage == 2){
+            	indi.hero.src = "images/maingonextright.png";
+            	indi.stage = 1;
+            	indi.prevStage = 2;
+        	} else if(indi.stage == 1 && indi.prevStage == 2){
+            	indi.hero.src = "images/mainpersright.png";
+            	indi.prevStage = 0;
+            	indi.stage = 0;
         	}
     	}else {
-    		mainHero.hero.src = "images/mainpersright.png";
-    		prevStage = 0;
-    		stage = 0;
+    		indi.hero.src = "images/mainpersright.png";
+    		indi.prevStage = 0;
+    		indi.stage = 0;
     	}
 
-    	direction = "right";
+    	indi.direction = "right";
 
     }
 
     if(leftPressed){
-    	var j = ~~((mainHero.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((mainHero.y + 80) / 32);
+    	var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((indi.y + 80) / 32);
 
     	if(map[i - 1 ][j] != 'G'){
-        	mainHero.x -= 1.5;
-        	if(stage == 0){
-            	mainHero.hero.src = "images/maingonext.png";
-            	prevStage = 0;
-            	stage = 1;
-        	} else if (stage == 1 && prevStage == 0){
-          		mainHero.hero.src = "images/maingo.png";
-          		stage = 2;
-          		prevStage = 1;
-        	} else if(stage == 2){
-            	mainHero.hero.src = "images/maingonext.png";
-            	stage = 1;
-            	prevStage = 2;
-        	} else if(stage == 1 && prevStage == 2){
-            	mainHero.hero.src = "images/mainpers.png";
-            	prevStage = 0;
-            	stage = 0;
+        	indi.x -= 1.5;
+        	if(indi.stage == 0){
+            	indi.hero.src = "images/maingonext.png";
+            	indi.prevStage = 0;
+            	indi.stage = 1;
+        	} else if (indi.stage == 1 && indi.prevStage == 0){
+          		indi.hero.src = "images/maingo.png";
+          		indi.stage = 2;
+          		indi.prevStage = 1;
+        	} else if(indi.stage == 2){
+            	indi.hero.src = "images/maingonext.png";
+            	indi.stage = 1;
+            	indi.prevStage = 2;
+        	} else if(indi.stage == 1 && indi.prevStage == 2){
+            	indi.hero.src = "images/mainpers.png";
+            	indi.prevStage = 0;
+            	indi.stage = 0;
         	}
 
     	}else {
-    		mainHero.hero.src = "images/mainpers.png";
-            prevStage = 0;
-            stage = 0;
+    		indi.hero.src = "images/mainpers.png";
+            indi.prevStage = 0;
+            indi.stage = 0;
     	}
 
-        direction = "left";
+        indi.direction = "left";
     }
 
     collision();
 
     //Если нажат space и персонаж на земле то гравитация
     //равна 5
-    if(spacePressed && mainHero.OnGround){
-        mainHero.heroDY = 5;
+    if(spacePressed && indi.OnGround){
+        indi.heroDY = 5;
     }
 
 
     //если не нажата ни одна клавиша и перс не в состоянии покоя
     //то оставить его в состоянии покоя
     //в направление куда смотрел
-    if(!rightPressed && !leftPressed && stage != 0){
-        if(direction == "right"){
-            mainHero.hero.src = "images/mainpersright.png";
+    if(!rightPressed && !leftPressed && indi.stage != 0){
+        if(indi.direction == "right"){
+            indi.hero.src = "images/mainpersright.png";
         } else {
-            mainHero.hero.src = "images/mainpers.png";
+            indi.hero.src = "images/mainpers.png";
         }
-        stage = 0;
+        indi.stage = 0;
     }
 }
 
 /* Взаимодействие с блоками */
 function collision(){
-    var j = ~~((mainHero.x + 40) / 32); //Целочисленное деление )) Нашел в инете
+    var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
                                    //поэксперементируете с 40 и 80 поймете на что влияют
-    var i = ~~((mainHero.y + 80) / 32);
+    var i = ~~((indi.y + 80) / 32);
 
     if(map[i][j] == 'G'){
         //Здесь думаю все понятно
-        mainHero.OnGround = true;
-        heroDY = 0;
+        indi.OnGround = true;
+        indi.heroDY = 0;
     }else{
-        mainHero.OnGround = false;
+        indi.OnGround = false;
     }
 }
 
@@ -201,20 +199,20 @@ function draw(){
     physics();
 
     //Смещение по ординате
-    mainHero.y -= mainHero.heroDY;
+    indi.y -= indi.heroDY;
 
     //Если персонаж не на земле уменьшать гравитацию на 0.1
     //Можно эксперементировать со значениями
-    if(!mainHero.OnGround){
-    	var j = ~~((mainHero.x + 40) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((mainHero.y + 80) / 32);
+    if(!indi.OnGround){
+    	var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((indi.y + 80) / 32);
     	if (map[i - 2][j] != 'G'){
-        	mainHero.heroDY -= 0.1;
-    	}else mainHero.heroDY = -0.1;
+        	indi.heroDY -= 0.1;
+    	}else indi.heroDY = -0.1;
     }
 
     //ctx.drawRectange();
-    ctx.drawImage(mainHero.hero , mainHero.x , mainHero.x , 80 , 80);
+    ctx.drawImage(indi.hero , indi.x , indi.y , 80 , 80);
 }
 
 

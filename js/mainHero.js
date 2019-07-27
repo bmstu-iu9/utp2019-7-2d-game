@@ -1,5 +1,4 @@
-'use strict';
-HeroClass = function(hero) {
+var HeroClass = function(hero) {
 
   this.hero = hero;
 
@@ -12,4 +11,8 @@ HeroClass = function(hero) {
 
   /* На земле ли перс */
   this.OnGround = false;
+
+  this.stage = 0; // Стадия в анимации
+  this.prevStage = 0;
+  this.direction = "";
 };
