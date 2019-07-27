@@ -39,6 +39,7 @@ function parseMap(map){
               o.id = 'C';
               o.x = j * 32;
               o.y = i * 32;
+              curLevel.allCoins++;
             }
             else if (map[i][j] == '@'){
             	indi.x = j * 32;

@@ -4,7 +4,7 @@
 var indi = new HeroClass(hero); // создание и инициализация объекта главный герой
 //indi - имя главного героя
 
-
+var curLevel = new LevelClass(1); //текущий уровень
 
 
 /* Парсинг уровня из map.js */
@@ -28,7 +28,8 @@ function draw(){
         } else if (blocks[i].id == 'C') {
             ctx.drawImage(fire , blocks[i].x , blocks[i].y);  //нужно будет заменить на изображение монеты
             if ((blocks[i].x + 10 >= indi.x  && blocks[i].x - 10 <= indi.x) && (blocks[i].y + 10 >= indi.y  || blocks[i].y - 10 <= indi.y)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
-              blocks.splice(i, 1);
+              blocks.splice(i, 1); //удаляем блок из массива
+              curLevel.currentCoins++;
             }
         }
     }
@@ -48,8 +49,14 @@ function draw(){
     	}else indi.heroDY = -0.1;
     }
 
-    //ctx.drawRectange();
     ctx.drawImage(indi.hero , indi.x , indi.y , 80 , 80);
+
+    ctx.strokeStyle = "white";
+    ctx.font = 'bold 25px sans-serif';
+    ctx.strokeText("Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins, 20, 45);
+    // if (curLevel.currentCoins==curLevel.allCoins) {
+    //   alert("Уровень "+curLevel.number+" пройден");
+    // }
 }
 
 
