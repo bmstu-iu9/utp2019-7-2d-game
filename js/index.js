@@ -71,6 +71,7 @@ parseMap(map);
 
 
 
+
 function physics(){
     /*
         Функция физика - отвечает за анимацию,

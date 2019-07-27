@@ -34,8 +34,8 @@ function parseMap(map){
                 o.y = i * 32;
             }
             else if (map[i][j] == '@'){
-            	heroX = j * 32;
-            	heroY = i * 32 - 80;
+            	indi.x = j * 32;
+            	indi.y = i * 32 - 80;
             }
             blocks.push(o);
         }
