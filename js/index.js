@@ -18,15 +18,7 @@ fire.src = "images/fire.png"
 spikes.src = "images/spikes.png"
 hero.src = "images/mainpersright.png"; //Начальное положение в покое
 
-/* Координаты перса */
-var heroX = 0;
-var heroY = 0;
-
-/* Гравитация героя */
-var heroDY = 0;
-
-/* На земле ли перс */
-var heroOnGround = false;
+var mainHero = new HeroClass(hero); // создание и инициализация объекта главный герой
 
 /* Нажатия клавиш */
 var rightPressed = false;
@@ -73,7 +65,8 @@ function keyUpHandler(e){
 var blocks = [];
 
 /* Парсинг уровня из map.js */
-parseMap();
+parseMap(map);
+
 
 var stage = 0; // Стадия в анимации
 var prevStage = 0;
@@ -87,68 +80,68 @@ function physics(){
     */
     if(rightPressed){
 
-    	var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((heroY + 80) / 32);
-    	
+    	var j = ~~((mainHero.x + 30) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((mainHero.y + 80) / 32);
+
     	if(map[i - 1][j + 1] != 'G'){
-        	heroX += 1.5;
+        	mainHero.x += 1.5;
         	if(stage == 0){
-            	hero.src = "images/maingonextright.png";
+            	mainHero.hero.src = "images/maingonextright.png";
             	prevStage = 0;
             	stage = 1;
         	} else if (stage == 1 && prevStage == 0){
-          		hero.src = "images/maingoright.png";
+          		mainHero.hero.src = "images/maingoright.png";
           		stage = 2;
           		prevStage = 1;
         	} else if(stage == 2){
-            	hero.src = "images/maingonextright.png";
+            	mainHero.hero.src = "images/maingonextright.png";
             	stage = 1;
             	prevStage = 2;
         	} else if(stage == 1 && prevStage == 2){
-            	hero.src = "images/mainpersright.png";
+            	mainHero.hero.src = "images/mainpersright.png";
             	prevStage = 0;
             	stage = 0;
         	}
     	}else {
-    		hero.src = "images/mainpersright.png";
+    		mainHero.hero.src = "images/mainpersright.png";
     		prevStage = 0;
     		stage = 0;
     	}
-    	
+
     	direction = "right";
 
     }
 
     if(leftPressed){
-    	var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((heroY + 80) / 32);
+    	var j = ~~((mainHero.x + 30) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((mainHero.y + 80) / 32);
 
     	if(map[i - 1 ][j] != 'G'){
-        	heroX -= 1.5;
+        	mainHero.x -= 1.5;
         	if(stage == 0){
-            	hero.src = "images/maingonext.png";
+            	mainHero.hero.src = "images/maingonext.png";
             	prevStage = 0;
             	stage = 1;
         	} else if (stage == 1 && prevStage == 0){
-          		hero.src = "images/maingo.png";
+          		mainHero.hero.src = "images/maingo.png";
           		stage = 2;
           		prevStage = 1;
         	} else if(stage == 2){
-            	hero.src = "images/maingonext.png";
+            	mainHero.hero.src = "images/maingonext.png";
             	stage = 1;
             	prevStage = 2;
         	} else if(stage == 1 && prevStage == 2){
-            	hero.src = "images/mainpers.png";
+            	mainHero.hero.src = "images/mainpers.png";
             	prevStage = 0;
             	stage = 0;
         	}
 
-    	}else { 
-    		hero.src = "images/mainpers.png";
+    	}else {
+    		mainHero.hero.src = "images/mainpers.png";
             prevStage = 0;
             stage = 0;
     	}
-    
+
         direction = "left";
     }
 
@@ -156,19 +149,19 @@ function physics(){
 
     //Если нажат space и персонаж на земле то гравитация
     //равна 5
-    if(spacePressed && heroOnGround){
-        heroDY = 5;
+    if(spacePressed && mainHero.OnGround){
+        mainHero.heroDY = 5;
     }
-   
+
 
     //если не нажата ни одна клавиша и перс не в состоянии покоя
     //то оставить его в состоянии покоя
     //в направление куда смотрел
     if(!rightPressed && !leftPressed && stage != 0){
         if(direction == "right"){
-            hero.src = "images/mainpersright.png";
+            mainHero.hero.src = "images/mainpersright.png";
         } else {
-            hero.src = "images/mainpers.png";
+            mainHero.hero.src = "images/mainpers.png";
         }
         stage = 0;
     }
@@ -176,16 +169,16 @@ function physics(){
 
 /* Взаимодействие с блоками */
 function collision(){
-    var j = ~~((heroX + 40) / 32); //Целочисленное деление )) Нашел в инете
+    var j = ~~((mainHero.x + 40) / 32); //Целочисленное деление )) Нашел в инете
                                    //поэксперементируете с 40 и 80 поймете на что влияют
-    var i = ~~((heroY + 80) / 32);
+    var i = ~~((mainHero.y + 80) / 32);
 
     if(map[i][j] == 'G'){
         //Здесь думаю все понятно
-        heroOnGround = true;
+        mainHero.OnGround = true;
         heroDY = 0;
     }else{
-        heroOnGround = false;
+        mainHero.OnGround = false;
     }
 }
 
@@ -208,64 +201,22 @@ function draw(){
     physics();
 
     //Смещение по ординате
-    heroY -= heroDY;
+    mainHero.y -= mainHero.heroDY;
 
     //Если персонаж не на земле уменьшать гравитацию на 0.1
     //Можно эксперементировать со значениями
-    if(!heroOnGround){
-    	var j = ~~((heroX + 40) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((heroY + 80) / 32);
+    if(!mainHero.OnGround){
+    	var j = ~~((mainHero.x + 40) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((mainHero.y + 80) / 32);
     	if (map[i - 2][j] != 'G'){
-        	heroDY -= 0.1;
-    	}else heroDY = -0.1;
+        	mainHero.heroDY -= 0.1;
+    	}else mainHero.heroDY = -0.1;
     }
 
     //ctx.drawRectange();
-    ctx.drawImage(hero , heroX , heroY , 80 , 80);
+    ctx.drawImage(mainHero.hero , mainHero.x , mainHero.x , 80 , 80);
 }
 
-/* Парсер карты */
-function parseMap(){
-    //Если G - это земля
-    //Если S - это шипы
-    //Если F - это факел
-    //Если @ - это место появления героя
-    /*
-     Если пробел , пропускаем ;
-     Если видим какой -то блок , то определяем какой это блок
-     и создаем под него объект и кидаем в список блоков blocks
-    */
-    for (var i = 0; i < map.length ; i++){
-        for (var j = 0 ; j < map[i].length ; j++){
-            if (map[i][j] == ' '){
-                continue;
-            }
-            else if (map[i][j] == 'G'){
-                var o = {};
-                o.id = 'G';
-                o.x = j * 32;
-                o.y = i * 32;
-            }
-            else if (map[i][j] == 'S'){
-                var o = {};
-                o.id = 'S';
-                o.x = j * 32;
-                o.y = i * 32;
-            }
-            else if (map[i][j] == 'F'){
-                var o = {};
-                o.id = 'F';
-                o.x = j * 32;
-                o.y = i * 32;
-            }
-            else if (map[i][j] == '@'){
-            	heroX = j * 32;
-            	heroY = i * 32 - 80;
-            }
-            blocks.push(o);
-        }
-    }
-}
 
 //Отрисовка динамических объектов в игре
 //Частота обновления 1мс
