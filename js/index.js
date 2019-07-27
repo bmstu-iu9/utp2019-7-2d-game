@@ -109,9 +109,10 @@ function physics(){
         	}
     	}else {
     		hero.src = "images/mainpersright.png";
+    		prevStage = 0;
     		stage = 0;
     	}
-    	//ctx.drawImage(gnd ,  (j + 1) * 32 , (i) * 32);
+    	
     	direction = "right";
 
     }
@@ -156,6 +157,7 @@ function physics(){
     if(spacePressed && heroOnGround){
         heroDY = 5;
     }
+   
 
     //если не нажата ни одна клавиша и перс не в состоянии покоя
     //то оставить его в состоянии покоя
@@ -209,7 +211,11 @@ function draw(){
     //Если персонаж не на земле уменьшать гравитацию на 0.1
     //Можно эксперементировать со значениями
     if(!heroOnGround){
-        heroDY -= 0.1;
+    	var j = ~~((heroX + 40) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((heroY + 80) / 32);
+    	if (map[i - 2][j] != 'G'){
+        	heroDY -= 0.1;
+    	}else heroDY = -0.1;
     }
 
     //ctx.drawRectange();
