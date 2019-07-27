@@ -1,32 +1,9 @@
 'use strict';
 
-/* Канвас и контекст 2D */
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
-
-/* Картинки */
-var gnd = new Image();
-var bg = new Image();
-var hero = new Image();
-var spikes = new Image();
-var fire = new Image();
-var coin = new Image();
-
-/* Источники картинок */
-gnd.src = "images/ground.png";
-bg.src = "images/back.png";
-fire.src = "images/fire.png"
-spikes.src = "images/spikes.png";
-hero.src = "images/mainpersright.png"; //Начальное положение в покое
-coin.src = "images/fire.png";  //пока не нарисована монета, будет использоваться факел
 
 var indi = new HeroClass(hero); // создание и инициализация объекта главный герой
 //indi - имя главного героя
 
-/* Нажатия клавиш */
-var rightPressed = false;
-var leftPressed = false;
-var spacePressed = false;
 
 /* События */
 document.addEventListener("keydown", keyDownHandler, true);
@@ -64,121 +41,11 @@ function keyUpHandler(e){
     }
 }
 
-//Список статик-блоков блоков
-var blocks = [];
 
 /* Парсинг уровня из map.js */
 parseMap(map);
 
 
-function physics(){
-    /*
-        Функция физика - отвечает за анимацию,
-        передвижение перса
-    */
-    if(rightPressed){
-
-    	var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((indi.y + 80) / 32);
-
-    	if(map[i - 1][j + 1] != 'G'){
-        	indi.x += 1.5;
-        	if(indi.stage == 0){
-            	indi.hero.src = "images/maingonextright.png";
-            	indi.prevStage = 0;
-            	indi.stage = 1;
-        	} else if (indi.stage == 1 && indi.prevStage == 0){
-          		indi.hero.src = "images/maingoright.png";
-          		indi.stage = 2;
-          		indi.prevStage = 1;
-        	} else if(indi.stage == 2){
-            	indi.hero.src = "images/maingonextright.png";
-            	indi.stage = 1;
-            	indi.prevStage = 2;
-        	} else if(indi.stage == 1 && indi.prevStage == 2){
-            	indi.hero.src = "images/mainpersright.png";
-            	indi.prevStage = 0;
-            	indi.stage = 0;
-        	}
-    	}else {
-    		indi.hero.src = "images/mainpersright.png";
-    		indi.prevStage = 0;
-    		indi.stage = 0;
-    	}
-
-    	indi.direction = "right";
-
-    }
-
-    if(leftPressed){
-    	var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((indi.y + 80) / 32);
-
-    	if(map[i - 1 ][j] != 'G'){
-        	indi.x -= 1.5;
-        	if(indi.stage == 0){
-            	indi.hero.src = "images/maingonext.png";
-            	indi.prevStage = 0;
-            	indi.stage = 1;
-        	} else if (indi.stage == 1 && indi.prevStage == 0){
-          		indi.hero.src = "images/maingo.png";
-          		indi.stage = 2;
-          		indi.prevStage = 1;
-        	} else if(indi.stage == 2){
-            	indi.hero.src = "images/maingonext.png";
-            	indi.stage = 1;
-            	indi.prevStage = 2;
-        	} else if(indi.stage == 1 && indi.prevStage == 2){
-            	indi.hero.src = "images/mainpers.png";
-            	indi.prevStage = 0;
-            	indi.stage = 0;
-        	}
-
-    	}else {
-    		indi.hero.src = "images/mainpers.png";
-            indi.prevStage = 0;
-            indi.stage = 0;
-    	}
-
-        indi.direction = "left";
-    }
-
-    collision();
-
-    //Если нажат space и персонаж на земле то гравитация
-    //равна 5
-    if(spacePressed && indi.OnGround){
-        indi.heroDY = 5;
-    }
-
-
-    //если не нажата ни одна клавиша и перс не в состоянии покоя
-    //то оставить его в состоянии покоя
-    //в направление куда смотрел
-    if(!rightPressed && !leftPressed && indi.stage != 0){
-        if(indi.direction == "right"){
-            indi.hero.src = "images/mainpersright.png";
-        } else {
-            indi.hero.src = "images/mainpers.png";
-        }
-        indi.stage = 0;
-    }
-}
-
-/* Взаимодействие с блоками */
-function collision(){
-    var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
-                                   //поэксперементируете с 40 и 80 поймете на что влияют
-    var i = ~~((indi.y + 80) / 32);
-
-    if(map[i][j] == 'G'){
-        //Здесь думаю все понятно
-        indi.OnGround = true;
-        indi.heroDY = 0;
-    }else{
-        indi.OnGround = false;
-    }
-}
 
 /* Отрисовка динамических объектов */
 function draw(){
@@ -195,7 +62,7 @@ function draw(){
             ctx.drawImage(fire , blocks[i].x , blocks[i].y);
         } else if (blocks[i].id == 'C') {
             ctx.drawImage(fire , blocks[i].x , blocks[i].y);  //нужно будет заменить на изображение монеты
-            if ((blocks[i].x + 10 >= indi.x  && blocks[i].x - 10 <= indi.x) && (blocks[i].y + 10 >= indi.y  || blocks[i].y - 10 <= indi.y)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно  
+            if ((blocks[i].x + 10 >= indi.x  && blocks[i].x - 10 <= indi.x) && (blocks[i].y + 10 >= indi.y  || blocks[i].y - 10 <= indi.y)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
               blocks.splice(i, 1);
             }
         }

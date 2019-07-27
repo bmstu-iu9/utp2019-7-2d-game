@@ -15,4 +15,19 @@ var HeroClass = function(hero) {
   this.stage = 0; // Стадия в анимации
   this.prevStage = 0;
   this.direction = "";
+
+  /* Взаимодействие с блоками */
+  this.collision = function() {
+    var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
+                                   //поэксперементируете с 40 и 80 поймете на что влияют
+    var i = ~~((indi.y + 80) / 32);
+
+    if(map[i][j] == 'G'){
+        //Здесь думаю все понятно
+        this.OnGround = true;
+        this.heroDY = 0;
+    }else{
+        this.OnGround = false;
+    }
+  }
 };
