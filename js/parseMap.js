@@ -42,7 +42,7 @@ function parseMap(map){
               curLevel.allCoins++;
             }
             else if (map[i][j] == '@'){
-            	indi.x = j * 32;
+            	indi.x = j * 32 - 30;
             	indi.y = i * 32 - 80;
             }
             blocks.push(o);
