@@ -88,10 +88,11 @@ function physics(){
     if(rightPressed){
 
     	var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((heroY + 80) / 32);
-    	
-    	if(map[i - 1][j + 1] != 'G'){
+    	var i = ~~((heroY + 75) / 32);
+    	 
+    	if(map[i][j + 1] != 'G' && map[i - 1][j + 1] != 'G'){
         	heroX += 1.5;
+
         	if(stage == 0){
             	hero.src = "images/maingonextright.png";
             	prevStage = 0;
@@ -121,9 +122,10 @@ function physics(){
 
     if(leftPressed){
     	var j = ~~((heroX + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((heroY + 80) / 32);
+    	var i = ~~((heroY + 75) / 32);
 
-    	if(map[i - 1 ][j] != 'G'){
+    	if(map[i - 1 ][j] != 'G' && map[i][j] != 'G' ){
+
         	heroX -= 1.5;
         	if(stage == 0){
             	hero.src = "images/maingonext.png";
@@ -219,9 +221,14 @@ function draw(){
         	heroDY -= 0.1;
     	}else heroDY = -0.1;
     }
-
-    //ctx.drawRectange();
+    
     ctx.drawImage(hero , heroX , heroY , 80 , 80);
+    ctx.clearRect(heroX, heroY, 1, 80);
+    ctx.clearRect(heroX, heroY, 80, 1);
+    ctx.clearRect(heroX + 79, heroY, 1, 80);
+    ctx.clearRect(heroX, heroY + 79, 80, 1);
+
+
 }
 
 /* Парсер карты */
@@ -259,7 +266,7 @@ function parseMap(){
                 o.y = i * 32;
             }
             else if (map[i][j] == '@'){
-            	heroX = j * 32;
+            	heroX = j * 32 - 40;
             	heroY = i * 32 - 80;
             }
             blocks.push(o);
