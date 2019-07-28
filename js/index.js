@@ -223,11 +223,6 @@ function draw(){
     }
     
     ctx.drawImage(hero , heroX , heroY , 80 , 80);
-    ctx.clearRect(heroX, heroY, 1, 80);
-    ctx.clearRect(heroX, heroY, 80, 1);
-    ctx.clearRect(heroX + 79, heroY, 1, 80);
-    ctx.clearRect(heroX, heroY + 79, 80, 1);
-
 
 }
 
