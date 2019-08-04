@@ -6,9 +6,9 @@ function physics(){
     if(rightPressed){
 
     	var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((indi.y + 80) / 32);
+    	var i = ~~((indi.y + 75) / 32);
 
-    	if(map[i - 1][j + 1] != 'G'){
+    	if(map[i - 1][j + 1] != 'G' && map[i][j + 1] != 'G'){
         	indi.x += 1.5;
         	if(indi.stage == 0){
             	indi.hero.src = "images/maingonextright.png";
@@ -39,9 +39,9 @@ function physics(){
 
     if(leftPressed){
     	var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-    	var i = ~~((indi.y + 80) / 32);
+    	var i = ~~((indi.y + 75) / 32);
 
-    	if(map[i - 1 ][j] != 'G'){
+    	if(map[i - 1][j] != 'G' && map[i][j] != 'G'){
         	indi.x -= 1.5;
         	if(indi.stage == 0){
             	indi.hero.src = "images/maingonext.png";
