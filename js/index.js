@@ -27,9 +27,10 @@ function draw(){
             ctx.drawImage(fire , blocks[i].x , blocks[i].y);
         } else if (blocks[i].id == 'C') {
             ctx.drawImage(fire , blocks[i].x , blocks[i].y);  //нужно будет заменить на изображение монеты
-            if ((blocks[i].x + 10 >= indi.x  && blocks[i].x - 10 <= indi.x) && (blocks[i].y + 10 >= indi.y  || blocks[i].y - 10 <= indi.y)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
+            if ((blocks[i].x + 30 >= indi.x+indi.hero.width/2  && blocks[i].x - 30 <= indi.x+indi.hero.width/2) && (blocks[i].y + 30 >= indi.y+indi.hero.height/2  && blocks[i].y - 30 <= indi.y+indi.hero.height/2)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
               blocks.splice(i, 1); //удаляем блок из массива
               curLevel.currentCoins++;
+              //i--;
             }
         }
     }
