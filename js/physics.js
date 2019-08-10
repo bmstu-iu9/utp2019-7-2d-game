@@ -70,7 +70,7 @@ function physics(){
     if(leftPressed){
     	var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
     	var i = ~~((indi.y + 75) / 32);
-    	if (((indi.y + 16) %  32 < 3) ||  ((indi.y + 16) %  32 > 29))  {
+    	if (((indi.y + 16) %  32 < 1) ||  ((indi.y + 16) %  32 > 31))  {
 	    	if(map[i - 1][j] != 'G' && map[i][j] != 'G'){
 	        	indi.x -= 1.5;
 	        	if(indi.stage == 0){

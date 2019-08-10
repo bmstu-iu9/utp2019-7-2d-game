@@ -20,7 +20,7 @@ var HeroClass = function(hero) {
   this.collision = function() {
     var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
                                    //поэксперементируете с 40 и 80 поймете на что влияют
-    var i = ~~((indi.y + 80) / 32);
+    var i = ~~((indi.y + 81) / 32);
 
     if(map[i][j] == 'G'){
         //Здесь думаю все понятно
