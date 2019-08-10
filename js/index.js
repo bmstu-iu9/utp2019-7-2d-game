@@ -36,8 +36,7 @@ function draw(){
 
     physics();
 
-    //Смещение по ординате
-    indi.y -= indi.heroDY;
+ 
 
     //Если персонаж не на земле уменьшать гравитацию на 0.1
     //Можно эксперементировать со значениями
@@ -49,11 +48,15 @@ function draw(){
     	}else indi.heroDY = -0.1;
     }
 
+    //Смещение по ординате
+    indi.y -= indi.heroDY;
+
     ctx.drawImage(indi.hero , indi.x , indi.y , 80 , 80);
 
     ctx.strokeStyle = "white";
     ctx.font = 'bold 25px sans-serif';
     ctx.strokeText("Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins, 20, 45);
+    //ctx.strokeText("Y: "+indi.y, 20, 200);
     // if (curLevel.currentCoins==curLevel.allCoins) {
     //   alert("Уровень "+curLevel.number+" пройден");
     // }
