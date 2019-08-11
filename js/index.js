@@ -18,7 +18,7 @@ function draw(){
 
     //Блоки размером по умолчанию
     for (var i = 0 ; i < blocks.length ; i++){
-        if (blocks[i].id == 'G'){
+        if (blocks[i].id == 'G' || blocks[i].id == 'g'){
             ctx.drawImage(gnd , blocks[i].x , blocks[i].y);
         } else if (blocks[i].id == 'S'){
             ctx.drawImage(spikes , blocks[i].x , blocks[i].y);
@@ -54,7 +54,7 @@ function draw(){
     if(indi.heroDY < 0){ 
         var j = ~~((indi.x + 40) / 32); 
         var i = ~~((indi.y - indi.heroDY + 80) / 32);
-        if (map[i][j] == 'G'){
+        if (map[i][j] == 'G' || map[i][j] == 'g'){
             indi.heroDY = 0;
             indi.OnGround = true;
         }

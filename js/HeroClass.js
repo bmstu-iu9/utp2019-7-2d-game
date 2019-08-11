@@ -18,15 +18,14 @@ var HeroClass = function(hero) {
 
   /* Взаимодействие с блоками */
   this.collision = function() {
-    var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
+    var j = ~~((indi.x + 45) / 32); //Целочисленное деление )) Нашел в инете
                                    //поэксперементируете с 40 и 80 поймете на что влияют
     var i = ~~((indi.y + 81) / 32);
-
-    if(map[i][j] == 'G'){
+    if (map[i][j] == 'G' || (map[i][j] == 'g' && this.y + 80 <= i * 32)) {
         //Здесь думаю все понятно
         this.OnGround = true;
         this.heroDY = 0;
-    }else{
+    } else{
         this.OnGround = false;
     }
   }
