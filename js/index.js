@@ -3,12 +3,15 @@
 
 var indi = new HeroClass(hero); // создание и инициализация объекта главный герой
 //indi - имя главного героя
+indi.width = 160;
+indi.height = 256;
 
 var curLevel = new LevelClass(1); //текущий уровень
 
 
 /* Парсинг уровня из map.js */
 parseMap(map);
+
 
 
 /* Отрисовка динамических объектов */
@@ -18,7 +21,7 @@ function draw(){
 
     //Блоки размером по умолчанию
     for (var i = 0 ; i < blocks.length ; i++){
-        if (blocks[i].id == 'G' || blocks[i].id == 'g'){
+        if (blocks[i].id == 'G'){
             ctx.drawImage(gnd , blocks[i].x , blocks[i].y);
         } else if (blocks[i].id == 'S'){
             ctx.drawImage(spikes , blocks[i].x , blocks[i].y);
@@ -34,47 +37,23 @@ function draw(){
         }
     }
 
-
-    physics();
-
- 
-
-    //Если персонаж не на земле уменьшать гравитацию на 0.1
-    //Можно эксперементировать со значениями
-    if(!indi.OnGround){
-    	var j = ~~((indi.x + 40) / 32);
-    	var i = ~~((indi.y + 80) / 32);
-    	if(i >= 2){
-            if (map[i - 2][j] != 'G') {
-        	   indi.heroDY -= 0.1;
-    	   }else indi.heroDY = -0.1;
-        }else{
-            indi.heroDY = -0.1;
-        }
-    }
-
+    run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
     //Смещение по ординате
-    
-    if(indi.heroDY < 0){ 
-        var j = ~~((indi.x + 40) / 32); 
-        var i = ~~((indi.y - indi.heroDY + 80) / 32);
-        if (map[i][j] == 'G' || map[i][j] == 'g'){
-            indi.heroDY = 0;
-            indi.OnGround = true;
-        }
-    }
-    
-
     indi.y -= indi.heroDY;
 
-
-
-    ctx.drawImage(indi.hero , indi.x , indi.y , 80 , 80);
+    //Если персонаж не на земле уменьшать гравитацию на 0.1(новый вариант 0.01)
+    //Можно эксперементировать со значениями
+    if(!indi.OnGround){
+    	var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
+    	var i = ~~((indi.y + 80) / 32);
+    	if (map[i - 2][j] != 'G'){
+        	indi.heroDY -= 0.01;
+    	}else indi.heroDY = -0.01;
+    }
 
     ctx.strokeStyle = "white";
     ctx.font = 'bold 25px sans-serif';
     ctx.strokeText("Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins, 20, 45);
-    
     // if (curLevel.currentCoins==curLevel.allCoins) {
     //   alert("Уровень "+curLevel.number+" пройден");
     // }

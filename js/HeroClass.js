@@ -15,17 +15,22 @@ var HeroClass = function(hero) {
   this.stage = 0; // Стадия в анимации
   this.prevStage = 0;
   this.direction = "";
+  /*ориентация персонажа "l" - left , "r" - right */
+  this.orientation = "r";
+  this.posision = 0; // номер анимации
+  this.airTime=0; // время в воздухе
 
   /* Взаимодействие с блоками */
   this.collision = function() {
-    var j = ~~((indi.x + 45) / 32); //Целочисленное деление )) Нашел в инете
+    var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
                                    //поэксперементируете с 40 и 80 поймете на что влияют
-    var i = ~~((indi.y + 81) / 32);
-    if (map[i][j] == 'G' || (map[i][j] == 'g' && this.y + 80 <= i * 32)) {
+    var i = ~~((indi.y + 80) / 32);
+
+    if(map[i][j] == 'G'){
         //Здесь думаю все понятно
         this.OnGround = true;
         this.heroDY = 0;
-    } else{
+    }else{
         this.OnGround = false;
     }
   }
