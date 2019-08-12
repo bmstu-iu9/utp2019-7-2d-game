@@ -44,9 +44,13 @@ function draw(){
     if(!indi.OnGround){
     	var j = ~~((indi.x + 40) / 32);
     	var i = ~~((indi.y + 80) / 32);
-    	if (map[i - 2][j] != 'G') {
-        	indi.heroDY -= 0.1;
-    	}else indi.heroDY = -0.1;
+    	if(i >= 2){
+            if (map[i - 2][j] != 'G') {
+        	   indi.heroDY -= 0.1;
+    	   }else indi.heroDY = -0.1;
+        }else{
+            indi.heroDY = -0.1;
+        }
     }
 
     //Смещение по ординате
