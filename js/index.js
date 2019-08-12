@@ -46,9 +46,13 @@ function draw(){
     if(!indi.OnGround){
     	var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
     	var i = ~~((indi.y + 80) / 32);
-    	if (map[i - 2][j] != 'G'){
-        	indi.heroDY -= 0.01;
-    	}else indi.heroDY = -0.01;
+    	if(i >= 2){   
+           if (map[i - 2][j] != 'G'){
+        	   indi.heroDY -= 0.01;
+    	   }else indi.heroDY = -0.01;
+        } else {
+            indi.heroDY = -0.01;
+        }
     }
 
     ctx.strokeStyle = "white";
