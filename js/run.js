@@ -13,65 +13,6 @@ function run(){
     TestR.src = "images/HeroR.png";
 
 
-    function IsCoin(Object) {
-      var j = ~~( Object.x / 32); //Целочисленное деление )) Нашел в инете
-      var i = ~~( Object.y / 32);
-      if ((map[ i ] [ j ] == 'C') || (map[ i + 1 ] [ j ] == 'C')) {
-        // TestL.src = "images/coin.png";
-        // map[ i ] [ j ] = ' ';
-        for (var i = 0; i < blocks.length; i++) {
-          // if ((blocks[i].x == j * 32) && ((blocks[i].y == i * 32 ) || (blocks[i].y == (i + 1) * 32 ))){
-          if ((blocks[i].id == 'C')&&(blocks[i].x==j*32)) {
-            blocks.splice(i,1);
-            curLevel.currentCoins++;
-            i--;
-          }
-        }
-      }
-    }
-
-    IsCoin(indi);
-
-
-    function OnGround(Object) {
-      var j = ~~( Object.x / 32); //Целочисленное деление )) Нашел в инете
-      var i = ~~( Object.y  / 32);
-      if ((map[ i + 2 ] [ j ] == 'G') || (map[ i + 2 ] [ j + 1 ] == 'G')) {
-        if (Object.heroDY <= 0) {
-          Object.y = i *32;
-        }
-        return true;
-      }else {
-        return false;
-      }
-    }
-
-    function OnLeft(Object){
-      var j = ~~((Object.x - 1) / 32); //Целочисленное деление )) Нашел в инете
-      var i = ~~(Object.y / 32);
-      var i2 = ~~((Object.y - 1) / 32);
-      return ( (map[ i + 1  ] [ j  ] == 'G') || (map[ i ] [ j  ] == 'G') || (map[ i2 + 2 ] [ j  ] == 'G') );
-    }
-
-
-    function OnRight(Object){
-      var j = ~~((Object.x + 1) / 32); //Целочисленное деление )) Нашел в инете
-      var i = ~~(Object.y / 32);
-      var i2 = ~~((Object.y - 1) / 32);
-      return ( (map[ i + 1 ] [ j + 1 ] == 'G') || (map[ i] [ j + 1 ] == 'G') || (map[ i2 + 2 ] [ j + 1 ] == 'G') );
-    }
-
-
-    function OnCeil(Object){
-      var j = ~~(Object.x / 32); //Целочисленное деление )) Нашел в инете
-      var i = ~~(Object.y / 32);
-      var i2 = ~~((Object.y + 1) / 32);
-      if (i >= 1) {
-        return ((map[ i  ] [ j ] == 'G') || (map[ i ] [ j + 1 ] == 'G'));
-      } else {
-        return true;
-      }
-    }
 
     var er = false; //флажок для вырожденных ситуаций
 
@@ -109,13 +50,13 @@ function run(){
               ctx.drawImage(TestR , (indi.x + indi.dX) , (indi.y + indi.dY) );
           }
           indi.posision += 0.03; // смена картинок для бега
-          if ( (indi.x + indi.dX) <899 - indi.width) {
+          // if ( (indi.x + indi.dX) <899 - indi.width) {
             indi.x ++;
-          }else {
-            indi.x ++;
-            indi.dX --;
-            backGroundParse(1,0);
-          }
+          // }else {
+            // indi.x ++;
+            // indi.dX /--;
+            // backGroundParse(1,0);
+          // }
           indi.orientation = "r"; // смена ориентации
         }else {
           // if (airTime>30) {
@@ -142,13 +83,13 @@ function run(){
               ctx.drawImage(TestL , (indi.x + indi.dX) , (indi.y + indi.dY) );
           }
           indi.posision -= 0.03; // смена картинок для бега
-          if ( (indi.x+ indi.dX) > 300) {
+          // if ( (indi.x+ indi.dX) > 300) {
             indi.x --;
-          }else {
-            indi.x --;
-            indi.dX ++;
-            backGroundParse(-1,0);
-          }
+          // }else {
+            // indi.x --;
+            // indi.dX ++;
+            // backGroundParse(-1,0);
+          // }
           indi.orientation = "l"; // смена ориентации
         } else {
           // ctx.drawImage(indi.hero ,640 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"
@@ -203,15 +144,18 @@ function run(){
     }
 
     indi.y -= indi.heroDY;
-    if ((indi.y+ indi.dY) > 540) {
-      backGroundParse(0, - indi.heroDY);
-      indi.dY += indi.heroDY;
+    if (indi.x > ((Level * 1280) + 1152) ) {
+      Level++;
     }
-
-
-    if ((indi.y+ indi.dY) < 150) {
-      backGroundParse(0, - indi.heroDY);
-      indi.dY += indi.heroDY;
-    }
+    // if ((indi.y+ indi.dY) > 540) {
+    //   backGroundParse(0, - indi.heroDY);
+    //   indi.dY += indi.heroDY;
+    // }
+    //
+    //
+    // if ((indi.y+ indi.dY) < 150) {
+    //   backGroundParse(0, - indi.heroDY);
+    //   indi.dY += indi.heroDY;
+    // }
 
 }

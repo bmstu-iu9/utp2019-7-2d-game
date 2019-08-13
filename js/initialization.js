@@ -9,6 +9,7 @@ var hero = new Image();
 var spikes = new Image();
 var fire = new Image();
 var coin = new Image();
+var Level = 0;
 
 /* Источники картинок */
 gnd.src = "images/ground.png";
@@ -25,3 +26,4 @@ var spacePressed = false;
 
 //Список статик-блоков блоков
 var blocks = [];
+var bots = [];

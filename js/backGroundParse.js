@@ -4,4 +4,9 @@ function backGroundParse(dX,dY){
     blocks[i].x -= dX;
     blocks[i].y -= dY;
   }
+  for (var i = 0; i < bots.length; i++) {
+    bots[i].x -= dX;
+    bots[i].y -= dY;
+  }
+
 }

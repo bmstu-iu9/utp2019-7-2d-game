@@ -1,5 +1,5 @@
 /* Парсер карты */
-function parseMap(map){
+function parseMap(map,x,y){
     //Если G - это земля
     //Если S - это шипы
     //Если F - это факел
@@ -12,50 +12,49 @@ function parseMap(map){
      и создаем под него объект и кидаем в список блоков blocks
     */
 
-    for (var i = 0; i < map.length ; i++){
-        for (var j = 0 ; j < map[i].length ; j++){
+    for (var i = y; i < ((y + 720 ) / 32) ; i++){
+        for (var j = x ; j <( (x + 1280) / 32) ; j++){
             if (map[i][j] == ' '){
                 continue;
             }
             else if (map[i][j] == 'G'){
                 var o = {};
                 o.id = 'G';
-                o.x = j * 32;
-                o.y = i * 32;
+                o.x = (j * 32) % 1280 ;
+                o.y = (i * 32) % 720;
             }
             else if (map[i][j] == 'S'){
                 var o = {};
                 o.id = 'S';
-                o.x = j * 32;
-                o.y = i * 32;
+                o.x = (j * 32) % 1280 ;
+                o.y = (i * 32 ) % 720;
             }
             else if (map[i][j] == 'F'){
                 var o = {};
                 o.id = 'F';
-                o.x = j * 32;
-                o.y = i * 32;
-                // continue;
+                o.x = (j * 32 ) % 1280 ;
+                o.y = (i * 32) % 720;
             }
             else if (map[i][j] == 'C') {
               var o = {};
               o.id = 'C';
-              o.x = j * 32;
-              o.y = i * 32;
+              o.x = (j * 32 ) % 1280 ;
+              o.y = (i * 32 ) % 720;
               curLevel.allCoins++;
             }
             else if (map[i][j] == 'g'){
                 var o = {};
                 o.id = 'g';
-                o.x = j * 32;
-                o.y = i  * 32;
+                o.x = (j * 32) % 1280 ;
+                o.y = (i  * 32 ) % 720;
             }
             else if (map[i][j] == '@'){
-            	indi.x = j * 32 - 32;
-            	indi.y = i * 32 - 64;
+            	indi.x = (j * 32 ) % 1280;
+            	indi.y = (i * 32)  % 720;
               var o = {};
               o.id = 'g';
-              o.x = j * 32;
-              o.y = i  * 32;
+              o.x = (j * 32 ) % 1280;
+              o.y = (i  * 32 ) % 720;
             }
             blocks.push(o);
         }
