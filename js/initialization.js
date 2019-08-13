@@ -16,7 +16,7 @@ bg.src = "images/back.png";
 fire.src = "images/fire.png"
 spikes.src = "images/spikes.png";
 hero.src = "images/runR.png"; //Начальное положение в покое
-coin.src = "images/fire.png";  //пока не нарисована монета, будет использоваться факел
+coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
 
 /* Нажатия клавиш */
 var rightPressed = false;

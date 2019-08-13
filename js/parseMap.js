@@ -34,6 +34,7 @@ function parseMap(map){
                 o.id = 'F';
                 o.x = j * 32;
                 o.y = i * 32;
+                // continue;
             }
             else if (map[i][j] == 'C') {
               var o = {};
@@ -49,8 +50,12 @@ function parseMap(map){
                 o.y = i  * 32;
             }
             else if (map[i][j] == '@'){
-            	indi.x = j * 32 - 30;
-            	indi.y = i * 32 - 80;
+            	indi.x = j * 32 - 32;
+            	indi.y = i * 32 - 64;
+              var o = {};
+              o.id = 'g';
+              o.x = j * 32;
+              o.y = i  * 32;
             }
             blocks.push(o);
         }

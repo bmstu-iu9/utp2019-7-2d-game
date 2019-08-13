@@ -5,6 +5,8 @@ var HeroClass = function(hero) {
   /* координаты героя */
   this.x = 0;
   this.y = 0;
+  this.dX = 0;
+  this.dY = 0;
 
   /* Гравитация героя */
   this.heroDY = 0;
@@ -18,20 +20,6 @@ var HeroClass = function(hero) {
   /*ориентация персонажа "l" - left , "r" - right */
   this.orientation = "r";
   this.posision = 0; // номер анимации
-  this.airTime=0; // время в воздухе
+  this.airTime=0; // время в воздухe
 
-  /* Взаимодействие с блоками */
-  this.collision = function() {
-    var j = ~~((indi.x + 40) / 32); //Целочисленное деление )) Нашел в инете
-                                   //поэксперементируете с 40 и 80 поймете на что влияют
-    var i = ~~((indi.y + 80) / 32);
-
-    if(map[i][j] == 'G'){
-        //Здесь думаю все понятно
-        this.OnGround = true;
-        this.heroDY = 0;
-    }else{
-        this.OnGround = false;
-    }
-  }
 };
