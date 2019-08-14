@@ -17,20 +17,20 @@ var map = [
     'G     G          @    FFF  FFF  FFF    GG                              GGG     G',
     'G           C    G     FFF  FFF  FFF   GG     GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
     'GGG       GGGGGG        FFF  FFF  FFF  GG                                      G',
-    'G            G           FFF  FFF  FFF GG                                      G',
-    'G                       FFF  FFF  FFF  GGG                                     G',
-    'G                      FFF  FFF  FFF   GG                                      G',
-    'GGGGGGGgggGGGGGGGGGGGGFFF GGGG  FFF    gg   GG                                 G',
-    'GGGGGGGgggGGGGGGGGGGGGFF  GGGGGGFF     gg                                      G',
-    'GGGGGGGgggGGGGGGGGGGGGSSSSGGGGGGGGGGGGGGG                                      G',
-    'GGGGGGGgggGGGGGGGGGGGGGGGGGGGGGGGG      GGG                                    G',
+    'G      F F   G           FFF  FFF  FFF GG                                      G',
+    'G       F               FFF  FFF  FFF  GGG                              F      G',
+    'G      F F             FFF  FFF  FFF   GG                               F      G',
+    'GGGGGGGgggGGGGGGGGGGGGFFF GGGG  FFF    gg   GG                       F  F  F   G',
+    'GGGGGGGgggGGGGGGGGGGGGFF  GGGGGGFF     gg                             F F F    G',
+    'GGGGGGGgggGGGGGGGGGGGGSSSSGGGGGGGGGGGGGGG                              FFF     G',
+    'GGGGGGGgggGGGGGGGGGGGGGGGGGGGGGGGG      GGG                             F      G',
     'GGGGGGGgggGGGGGGGGGGGGGGGGGGGGGGGGG     G                                      G',
-    'GGGGGGGgggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-    '      G   G                                                                     ',
-    '      G   G                                                                     ',
-    '      G   G                                                                     ',
-    '      GSSSG                                                                     ',
-    '      GGGGG                                                                     '
+    'GGGGGGGgggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggGGGGGG',
+    'GGGGGGGgggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggGGGGGGG',
+    'GGGGGGGgggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggGGGGGGGG',
+    'GGGGGGGggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggGGGGGGGGG',
+    'GGGGGGGSSSggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
 ];
 
 
