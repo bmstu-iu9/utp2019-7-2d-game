@@ -15,15 +15,20 @@ function run(DD){
 
     if (! OnGround(indi) ) { //проверка на нахождение в воздухе
       if (OnCeil(indi) && (indi.heroDY >= 0) ){
-        indi.heroDY = -0.01;
+        indi.heroDY = -0.02;
       }
       indi.airTime ++;
-        indi.heroDY -= 0.01;
+        indi.heroDY -= 0.02;
     }else {
       indi.airTime = 0;
       if (indi.heroDY < 0) {
         indi.heroDY = 0;
       }
+    }
+
+    if (InBlock(indi,'g')) {
+      BlockChange((indi.x + 16) ,(indi.y + 16),' ' , 1);
+      BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1);
     }
 
     //Ждем разверток для анимации,пока что так
@@ -87,7 +92,7 @@ function run(DD){
     //Если нажат space и персонаж на земле то гравитация
     //равна 5 (новый вариант 1.6)
     if(spacePressed && OnGround(indi) && !OnCeil(indi)){
-        indi.heroDY = 1.6;
+        indi.heroDY = 2;
         indi.airTime = 0; // начало прыжка
     }
 

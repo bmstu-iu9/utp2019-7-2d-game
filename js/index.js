@@ -60,13 +60,17 @@ function draw(){
       //Смещение по ординате
       botRules(DD);
 
-
+      for (var i = 0 ; i < blocksAfter.length ; i++){
+        if (blocksAfter[i].id == 'g') {
+            ctx.drawImage(gnd , blocksAfter[i].x , blocksAfter[i].y);
+        }
+      }
 
 
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
       ctx.strokeText("Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins, 20, 45);
-    
+
       // if (curLevel.currentCoins==curLevel.allCoins) {
       //   alert("Уровень "+curLevel.number+" пройден");
     // }

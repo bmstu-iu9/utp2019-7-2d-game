@@ -27,4 +27,5 @@ var spacePressed = false;
 
 //Список статик-блоков блоков
 var blocks = [];
+var blocksAfter = []; 
 var bots = [];

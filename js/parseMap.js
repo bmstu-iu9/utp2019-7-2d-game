@@ -20,55 +20,55 @@ function parseMap(map){
             else if (map[i][j] == 'G'){
                 var o = {};
                 o.id = 'G';
-                // o.x = (j * 32) % 1280 ;
-                // o.y = (i * 32) % 720;
                 o.x = j * 32;
                 o.y = i * 32;
+                o.i = i;
+                o.j = j;
             }
             else if (map[i][j] == 'S'){
                 var o = {};
                 o.id = 'S';
-                // o.x = (j * 32) % 1280 ;
-                // o.y = (i * 32 ) % 720;
                 o.x = j * 32;
                 o.y = i * 32;
+                o.i = i;
+                o.j = j;
             }
             else if (map[i][j] == 'F'){
                 var o = {};
                 o.id = 'F';
-                // o.x = (j * 32 ) % 1280 ;
-                // o.y = (i * 32) % 720;
                 o.x = j * 32;
                 o.y = i * 32;
+                o.i = i;
+                o.j = j;
             }
             else if (map[i][j] == 'C') {
               var o = {};
               o.id = 'C';
-              // o.x = (j * 32 ) % 1280 ;
-              // o.y = (i * 32 ) % 720;
               o.x = j * 32;
               o.y = i * 32;
+              o.i = i;
+              o.j = j;
               curLevel.allCoins++;
             }
             else if (map[i][j] == 'g'){
                 var o = {};
                 o.id = 'g';
-                // o.x = (j * 32) % 1280 ;
-                // o.y = (i  * 32 ) % 720;
                 o.x = j * 32;
                 o.y = i * 32;
+                o.i = i;
+                o.j = j;
+                blocksAfter.push(o);
+                continue;
             }
             else if (map[i][j] == '@'){
-            	// indi.x = (j * 32 ) % 1280;
-            	// indi.y = (i * 32)  % 720;
-              indi.x = j * 32 - 32 ;
+              indi.x = j * 32  ;
             	indi.y = i * 32 - 64;
               var o = {};
-              o.id = 'g';
-              // o.x = (j * 32 ) % 1280;
-              // o.y = (i  * 32 ) % 720;
+              o.id = '@';
               o.x = j * 32;
               o.y = i * 32;
+              o.i = i;
+              o.j = j;
             }
             blocks.push(o);
         }

@@ -28,7 +28,7 @@ function botRules(DD){
 
   function moveU(b){
     if (OnGround(b) && !OnCeil(b)) {
-      b.heroDY = 1.6;
+      b.heroDY = 2;
     }
   }
 
@@ -38,7 +38,7 @@ function botRules(DD){
     }
     b.y -= b.heroDY;
     if (! OnGround(b)) {
-      b.heroDY -= 0.01;
+      b.heroDY -= 0.02;
     }else {
       b.heroDY = 0;
     }
@@ -50,6 +50,16 @@ function goBotLeft(){
     moveL(bot);
   }
   if ( OnLeft(bot) ) {
+      moveU(bot);
+  }
+}
+
+
+function goBotRight(){
+  if (!OnRight(bot)) {
+    moveR(bot);
+  }
+  if ( OnRight(bot) ) {
       moveU(bot);
   }
 }
