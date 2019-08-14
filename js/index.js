@@ -10,25 +10,28 @@ indi.height = 64;
 var curLevel = new LevelClass(1); //текущий уровень
 botGenerate();
 var nextLevel = 0;
+var DD = new Array(2);
+DD[0]=0;
+DD[1]=0;
 var T = 0;
 /* Парсинг уровня из map.js */
 
-
+parseMap(map,0,0);
 
 
 /* Отрисовка динамических объектов */
 function draw(){
-    if (nextLevel == Level) {
-      T = 0
-      blocks = [];
-      parseMap(map,Level * 1280,Level * 720);
-      nextLevel++;
-    }
+    // if (nextLevel == Level) {
+    //   T = 0
+    //   blocks = [];
+    //   parseMap(map,Level * 1280,Level * 720);
+    //   nextLevel++;
+    // }
 
-    if (T < 100) {
-      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
-      T++;
-    } else {
+    // if (T < 100) {
+    //   ctx.clearRect(0 , 0 , canvas.width , canvas.height);
+    //   T++;
+    // } else {
 
 
       ctx.clearRect(0 , 0 , canvas.width , canvas.height);
@@ -45,7 +48,7 @@ function draw(){
           } else if (blocks[i].id == 'C') {
               ctx.drawImage(coin, blocks[i].x , blocks[i].y);  //нужно будет заменить на изображение монеты
               if ((blocks[i].x + 30 >= (indi.x + indi.dX)+indi.hero.width  && blocks[i].x - 30 <= (indi.x + indi.dX)+indi.hero.width/2) && (blocks[i].y + 30 >= (indi.y + indi.dY)+indi.hero.height/2  && blocks[i].y - 30 <= (indi.y + indi.dY)+indi.hero.height/2)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
-                blocks[i].id='G';
+                // blocks[i].id='G';
                 // blocks.slice(i, 1); //удаляем блок из массива
                 // curLevel.currentCoins++;
                 // i--;
@@ -53,9 +56,9 @@ function draw(){
           }
       }
       // botRules()
-      run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+      run(DD); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
       //Смещение по ординате
-      botRules();
+      botRules(DD);
 
 
 
@@ -63,10 +66,11 @@ function draw(){
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
       ctx.strokeText("Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins, 20, 45);
+    
       // if (curLevel.currentCoins==curLevel.allCoins) {
       //   alert("Уровень "+curLevel.number+" пройден");
     // }
-  }
+  // }
 }
 
 

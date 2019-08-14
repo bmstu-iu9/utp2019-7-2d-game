@@ -1,4 +1,4 @@
-function run(){
+function run(DD){
     /*
         Функция физика - отвечает за анимацию,
         передвижение перса
@@ -50,13 +50,14 @@ function run(){
               ctx.drawImage(TestR , (indi.x + indi.dX) , (indi.y + indi.dY) );
           }
           indi.posision += 0.03; // смена картинок для бега
-          // if ( (indi.x + indi.dX) <899 - indi.width) {
+          if ( (indi.x + indi.dX) < 899 - indi.width) {
             indi.x ++;
-          // }else {
-            // indi.x ++;
-            // indi.dX /--;
-            // backGroundParse(1,0);
-          // }
+          }else {
+            indi.x ++;
+            indi.dX --;
+            DD[0] --;
+            backGroundParse(1,0);
+          }
           indi.orientation = "r"; // смена ориентации
         }else {
           // if (airTime>30) {
@@ -83,13 +84,14 @@ function run(){
               ctx.drawImage(TestL , (indi.x + indi.dX) , (indi.y + indi.dY) );
           }
           indi.posision -= 0.03; // смена картинок для бега
-          // if ( (indi.x+ indi.dX) > 300) {
+          if ( (indi.x+ indi.dX) > 300) {
             indi.x --;
-          // }else {
-            // indi.x --;
-            // indi.dX ++;
-            // backGroundParse(-1,0);
-          // }
+          }else {
+            indi.x --;
+            indi.dX ++;
+            DD[0] ++;
+            backGroundParse(-1,0);
+          }
           indi.orientation = "l"; // смена ориентации
         } else {
           // ctx.drawImage(indi.hero ,640 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"
@@ -142,20 +144,21 @@ function run(){
         ctx.drawImage(indi.hero ,800 ,256 ,160 ,200 , indi.x , indi.y , 30 , 75);
       }
     }
-
     indi.y -= indi.heroDY;
-    if (indi.x > ((Level * 1280) + 1152) ) {
-      Level++;
+    // if (indi.x > ((Level * 1280) + 1152) ) {
+    //   Level++;
+    // }
+    if ((indi.y+ indi.dY) > 540) {
+      backGroundParse(0, - indi.heroDY);
+      indi.dY += indi.heroDY;
+      DD[1] += indi.heroDY;
     }
-    // if ((indi.y+ indi.dY) > 540) {
-    //   backGroundParse(0, - indi.heroDY);
-    //   indi.dY += indi.heroDY;
-    // }
-    //
-    //
-    // if ((indi.y+ indi.dY) < 150) {
-    //   backGroundParse(0, - indi.heroDY);
-    //   indi.dY += indi.heroDY;
-    // }
+
+
+    if ((indi.y+ indi.dY) < 150) {
+      backGroundParse(0, - indi.heroDY);
+      indi.dY += indi.heroDY;
+      DD[1] += indi.heroDY;
+    }
 
 }

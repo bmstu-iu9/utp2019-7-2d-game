@@ -1,5 +1,5 @@
 /* Парсер карты */
-function parseMap(map,x,y){
+function parseMap(map){
     //Если G - это земля
     //Если S - это шипы
     //Если F - это факел
@@ -12,49 +12,63 @@ function parseMap(map,x,y){
      и создаем под него объект и кидаем в список блоков blocks
     */
 
-    for (var i = y; i < ((y + 720 ) / 32) ; i++){
-        for (var j = x ; j <( (x + 1280) / 32) ; j++){
+    for (var i = 0 ; i < map.length ; i++){
+        for (var j = 0 ; j < map[i].length ; j++){
             if (map[i][j] == ' '){
                 continue;
             }
             else if (map[i][j] == 'G'){
                 var o = {};
                 o.id = 'G';
-                o.x = (j * 32) % 1280 ;
-                o.y = (i * 32) % 720;
+                // o.x = (j * 32) % 1280 ;
+                // o.y = (i * 32) % 720;
+                o.x = j * 32;
+                o.y = i * 32;
             }
             else if (map[i][j] == 'S'){
                 var o = {};
                 o.id = 'S';
-                o.x = (j * 32) % 1280 ;
-                o.y = (i * 32 ) % 720;
+                // o.x = (j * 32) % 1280 ;
+                // o.y = (i * 32 ) % 720;
+                o.x = j * 32;
+                o.y = i * 32;
             }
             else if (map[i][j] == 'F'){
                 var o = {};
                 o.id = 'F';
-                o.x = (j * 32 ) % 1280 ;
-                o.y = (i * 32) % 720;
+                // o.x = (j * 32 ) % 1280 ;
+                // o.y = (i * 32) % 720;
+                o.x = j * 32;
+                o.y = i * 32;
             }
             else if (map[i][j] == 'C') {
               var o = {};
               o.id = 'C';
-              o.x = (j * 32 ) % 1280 ;
-              o.y = (i * 32 ) % 720;
+              // o.x = (j * 32 ) % 1280 ;
+              // o.y = (i * 32 ) % 720;
+              o.x = j * 32;
+              o.y = i * 32;
               curLevel.allCoins++;
             }
             else if (map[i][j] == 'g'){
                 var o = {};
                 o.id = 'g';
-                o.x = (j * 32) % 1280 ;
-                o.y = (i  * 32 ) % 720;
+                // o.x = (j * 32) % 1280 ;
+                // o.y = (i  * 32 ) % 720;
+                o.x = j * 32;
+                o.y = i * 32;
             }
             else if (map[i][j] == '@'){
-            	indi.x = (j * 32 ) % 1280;
-            	indi.y = (i * 32)  % 720;
+            	// indi.x = (j * 32 ) % 1280;
+            	// indi.y = (i * 32)  % 720;
+              indi.x = j * 32 - 32 ;
+            	indi.y = i * 32 - 64;
               var o = {};
               o.id = 'g';
-              o.x = (j * 32 ) % 1280;
-              o.y = (i  * 32 ) % 720;
+              // o.x = (j * 32 ) % 1280;
+              // o.y = (i  * 32 ) % 720;
+              o.x = j * 32;
+              o.y = i * 32;
             }
             blocks.push(o);
         }

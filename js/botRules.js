@@ -1,4 +1,4 @@
-function botRules(){
+function botRules(DD){
   bot = bots[0];
   photo = new Image();
   // photo.src= "images/bot1R.png";
@@ -54,11 +54,11 @@ function goBotLeft(){
   }
 }
 
-moveD(bot);
+// moveD(bot);
 // goBotLeft(bot);
 
-
-ctx.drawImage(bot.hero,bot.x  ,bot.y );
-
+  // if ( DD[0] == 0 ) {
+ctx.drawImage(bot.hero,299 + DD[0] ,299 + DD[1]);
+// }
 
 }

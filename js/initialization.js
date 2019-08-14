@@ -11,6 +11,7 @@ var fire = new Image();
 var coin = new Image();
 var Level = 0;
 
+
 /* Источники картинок */
 gnd.src = "images/ground.png";
 bg.src = "images/back.png";
