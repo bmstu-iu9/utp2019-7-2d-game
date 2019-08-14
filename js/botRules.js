@@ -54,11 +54,13 @@ function goBotLeft(){
   }
 }
 
-// moveD(bot);
-// goBotLeft(bot);
+moveD(bot);
+goBotLeft(bot);
 
   // if ( DD[0] == 0 ) {
-ctx.drawImage(bot.hero,299 + DD[0] ,299 + DD[1]);
+ctx.drawImage(bot.hero,bot.x + DD[0] ,bot.y + DD[1]);
+// ctx.drawImage(bot.hero,bot.x,bot.y);
+
 // }
 
 }

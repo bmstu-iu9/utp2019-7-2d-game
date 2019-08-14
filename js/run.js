@@ -13,9 +13,6 @@ function run(DD){
     TestR.src = "images/HeroR.png";
 
 
-
-    var er = false; //флажок для вырожденных ситуаций
-
     if (! OnGround(indi) ) { //проверка на нахождение в воздухе
       if (OnCeil(indi) && (indi.heroDY >= 0) ){
         indi.heroDY = -0.01;
@@ -29,34 +26,27 @@ function run(DD){
       }
     }
 
-
+    //Ждем разверток для анимации,пока что так
     if(rightPressed && leftPressed){
       er = true
       // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80);
-      ctx.drawImage(TestR , (indi.x + indi.dX) , (indi.y + indi.dY) );
+      ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
     }else {
       if(rightPressed){
         er = true;
-        // var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-      	// var i = ~~((indi.y + 75) / 32);
-        // if(map[i - 1][j + 1] != 'G' && map[i][j + 1] != 'G'){
         if (! OnRight(indi) ) {
           indi.hero.src = "images/runR.png";
           if (indi.airTime<100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
             // ctx.drawImage(indi.hero ,((~~indi.posision) * 160) % 960 ,0 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация бега
-            ctx.drawImage(TestR , (indi.x + indi.dX) , (indi.y + indi.dY) );
+            ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
           }else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация падения
-              ctx.drawImage(TestR , (indi.x + indi.dX) , (indi.y + indi.dY) );
+              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
           }
           indi.posision += 0.03; // смена картинок для бега
-          if ( (indi.x + indi.dX) < 899 - indi.width) {
-            indi.x ++;
-          }else {
-            indi.x ++;
-            indi.dX --;
-            DD[0] --;
-            backGroundParse(1,0);
+          indi.x ++;
+          if ( (indi.x + DD[0]) >= 899 - indi.width) {
+            backGroundParse(1,0,DD); //сдвиг фона
           }
           indi.orientation = "r"; // смена ориентации
         }else {
@@ -64,38 +54,29 @@ function run(DD){
           //   indi.y += 2;
           // }
           // ctx.drawImage(indi.hero ,160 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"
-          ctx.drawImage(TestR , (indi.x + indi.dX), (indi.y + indi.dY) );
+          ctx.drawImage(TestR , (indi.x + DD[0]), (indi.y + DD[1]) );
         }
       }
       if(leftPressed){
         er = true;
-        // var j = ~~((indi.x + 30) / 32); //Целочисленное деление )) Нашел в инете
-      	// var i = ~~((indi.y + 75) / 32);
-        // var j = ~~(Object.x / 32); //Целочисленное деление )) Нашел в инете
-        // var i = ~~(Object.y / 32);
-        // if(map[i - 1][j] != 'G' && map[i][j] != 'G'){
         if (! OnLeft(indi) ){
           indi.hero.src = "images/runL.png";
           if (indi.airTime < 100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
             // ctx.drawImage(indi.hero ,800 - ((~~indi.posision) * 160) % 960 ,0 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация бега
-            ctx.drawImage(TestL , (indi.x + indi.dX) , (indi.y + indi.dY) );
+            ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
           }else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация падения
-              ctx.drawImage(TestL , (indi.x + indi.dX) , (indi.y + indi.dY) );
+              ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
           }
           indi.posision -= 0.03; // смена картинок для бега
-          if ( (indi.x+ indi.dX) > 300) {
-            indi.x --;
-          }else {
-            indi.x --;
-            indi.dX ++;
-            DD[0] ++;
-            backGroundParse(-1,0);
+          indi.x --;
+          if ( (indi.x+ DD[0]) <= 300) {
+            backGroundParse(-1,0,DD);
           }
           indi.orientation = "l"; // смена ориентации
         } else {
           // ctx.drawImage(indi.hero ,640 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"
-          ctx.drawImage(TestL , (indi.x + indi.dX) , (indi.y + indi.dY) );
+          ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
         }
       }
   }
@@ -117,48 +98,39 @@ function run(DD){
             indi.hero.src = "images/runR.png";
             if (indi.airTime<125) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
               // ctx.drawImage(indi.hero ,0 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
-              ctx.drawImage(TestR , (indi.x + indi.dX) , (indi.y + indi.dY) );
+              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
             } else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // падение в состоянии покоя
-              ctx.drawImage(TestR , (indi.x + indi.dX) , (indi.y + indi.dY) );
+              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
             }
         } else {
             indi.hero.src = "images/runL.png";
               if (indi.airTime<125) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
                 // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
-                ctx.drawImage(TestL , (indi.x + indi.dX) , (indi.y + indi.dY) );
+                ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
               } else {
                 // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // падение в состоянии покоя
-                ctx.drawImage(TestL , (indi.x + indi.dX) , (indi.y + indi.dY) );
+                ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
               }
         }
-       // indi.stage = 0;
     }
 
 
-    if (!er) { //при ошибке - покой
-      ctx.drawImage(indi.hero , indi.x , indi.y , 30 , 75);
-      if(indi.orientation == "r"){
-        ctx.drawImage(indi.hero ,0 ,256 ,160 ,200 , indi.x , indi.y , 30 , 75);
-      } else {
-        ctx.drawImage(indi.hero ,800 ,256 ,160 ,200 , indi.x , indi.y , 30 , 75);
-      }
-    }
     indi.y -= indi.heroDY;
+
+
     // if (indi.x > ((Level * 1280) + 1152) ) {
     //   Level++;
     // }
-    if ((indi.y+ indi.dY) > 540) {
-      backGroundParse(0, - indi.heroDY);
-      indi.dY += indi.heroDY;
-      DD[1] += indi.heroDY;
+
+
+    if ((indi.y+ DD[1]) > 540) {
+      backGroundParse(0, - indi.heroDY,DD);
     }
 
 
-    if ((indi.y+ indi.dY) < 150) {
-      backGroundParse(0, - indi.heroDY);
-      indi.dY += indi.heroDY;
-      DD[1] += indi.heroDY;
+    if ((indi.y+ DD[1]) < 150) {
+      backGroundParse(0, - indi.heroDY,DD);
     }
 
 }
