@@ -1,22 +1,20 @@
 function BlockChange(ii,jj,W,code){
-  var Array ;
-  switch (code) {
+  var arr ;
+  switch (code) { // выбор по коду 0 - до , 1 - после
     case 0:
-      Array = blocks;
+      arr = blocks;
       break;
-    case 0:
-      Array = blocksAfter;
+    case 1:
+      arr = blocksAfter;
       break;
     default:
-      Array = blocks;
+      arr = blocks;
   }
   var jT = ~~(ii / 32); //Целочисленное деление )) Нашел в инете
   var iT = ~~(jj / 32)
-  for (var i = 0; i < blocksAfter.length; i++) {
-    if ( (blocksAfter[i].i ==  iT )  &&  (blocksAfter[i].j ==  jT )) {
-    if (map[ iT  ] [ jT ] = 'g'){
-      blocksAfter[i].id = ' ';
+  for (var i = 0; i < arr.length; i++) {
+    if ( (arr[i].i ==  iT )  &&  (arr[i].j ==  jT )) { //нахождение данного
+      arr[i].id = W; //смена id
     }
   }
-}
 }

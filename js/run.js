@@ -26,9 +26,9 @@ function run(DD){
       }
     }
 
-    if (InBlock(indi,'g')) {
-      BlockChange((indi.x + 16) ,(indi.y + 16),' ' , 1);
-      BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1);
+    if (InBlock(indi,'g')) {  //проверка на Фейк-блок и его последующее уничтожениеж
+      BlockChange((indi.x + 16) ,(indi.y + 16),' ' , 1); //смена по коду  0 - до , 1 - после
+      BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1); //смена по коду  0 - до , 1 - после
     }
 
     //Ждем разверток для анимации,пока что так
@@ -96,7 +96,7 @@ function run(DD){
         indi.airTime = 0; // начало прыжка
     }
 
-
+    //отрисовка сосояния покоя
     if(!rightPressed && !leftPressed){
       er = true;
         if(indi.orientation == "r"){
@@ -120,7 +120,7 @@ function run(DD){
         }
     }
 
-
+    //гравитационное смещение
     indi.y -= indi.heroDY;
 
 
@@ -128,12 +128,12 @@ function run(DD){
     //   Level++;
     // }
 
-
+    // коректировка фона по высоте
     if ((indi.y+ DD[1]) > 540) {
       backGroundParse(0, - indi.heroDY,DD);
     }
 
-
+    // коректировка фона по высоте
     if ((indi.y+ DD[1]) < 150) {
       backGroundParse(0, - indi.heroDY,DD);
     }

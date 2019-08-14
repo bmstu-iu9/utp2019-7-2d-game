@@ -50,7 +50,7 @@ function parseMap(map){
               o.j = j;
               curLevel.allCoins++;
             }
-            else if (map[i][j] == 'g'){
+            else if (map[i][j] == 'g'){ // Фейк-блок
                 var o = {};
                 o.id = 'g';
                 o.x = j * 32;

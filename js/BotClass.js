@@ -1,17 +1,17 @@
 var BotClass = function(n,x,y) {
 
   this.hero = new Image();
-  this.number = n;
-  /* координаты героя */
+  this.number = n; //тип
+  /* координаты бота */
   this.x = x;
   this.y = y;
   this.dX = 0;
   this.dY = 0;
 
-  /* Гравитация героя */
+  /* Гравитация бота */
   this.heroDY = 0;
 
-  /* На земле ли перс */
+  /* На земле ли бот */
   this.OnGround = false;
 
   this.stage = 0; // Стадия в анимации

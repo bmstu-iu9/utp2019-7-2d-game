@@ -10,9 +10,6 @@ indi.height = 64;
 var curLevel = new LevelClass(1); //текущий уровень
 botGenerate();
 var nextLevel = 0;
-var DD = new Array(2);
-DD[0]=0;
-DD[1]=0;
 var T = 0;
 /* Парсинг уровня из map.js */
 
@@ -55,11 +52,12 @@ function draw(){
               }
           }
       }
-      // botRules()
       run(DD); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
-      //Смещение по ординате
-      botRules(DD);
 
+      botRules(DD); //Жизнь ботов (все вопросы и предложения к Александру Л)
+
+
+      // поздняя отрисовка блоков
       for (var i = 0 ; i < blocksAfter.length ; i++){
         if (blocksAfter[i].id == 'g') {
             ctx.drawImage(gnd , blocksAfter[i].x , blocksAfter[i].y);

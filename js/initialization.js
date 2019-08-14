@@ -9,8 +9,12 @@ var hero = new Image();
 var spikes = new Image();
 var fire = new Image();
 var coin = new Image();
-var Level = 0;
+// var Level = 0; // номер уровня(пока не используется)
 
+
+var DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
+DD[0]=0;
+DD[1]=0;
 
 /* Источники картинок */
 gnd.src = "images/ground.png";
@@ -26,6 +30,9 @@ var leftPressed = false;
 var spacePressed = false;
 
 //Список статик-блоков блоков
-var blocks = [];
-var blocksAfter = []; 
-var bots = [];
+var blocks = []; //отрисовка до героя
+var blocksAfter = []; //отрисовка после героя
+
+var bots = []; // список ботов
+
+var memory = []; //память траектории Инди (пока тестится)

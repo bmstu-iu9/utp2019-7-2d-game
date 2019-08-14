@@ -1,7 +1,6 @@
 function botRules(DD){
   bot = bots[0];
   photo = new Image();
-  // photo.src= "images/bot1R.png";
   switch (bot.number) {
     case 1:
       photo.src = "images/bot1R.png";
@@ -18,21 +17,21 @@ function botRules(DD){
 
   bot.hero = photo;
 
-  function moveL(b){
+  function moveL(b){ //смещение бота
     b.x -= 0.3;
   }
 
-  function moveR(b){
+  function moveR(b){  //смещение бота
     b.x += 0.3;
   }
 
-  function moveU(b){
+  function moveU(b){ //смещение бота
     if (OnGround(b) && !OnCeil(b)) {
       b.heroDY = 2;
     }
   }
 
-  function moveD(b){
+  function moveD(b){ //смещение бота
     if (OnCeil(b) && b.heroDY > 0) {
       b.heroDY = 0;
     }
@@ -45,7 +44,7 @@ function botRules(DD){
   }
 
 
-function goBotLeft(){
+function goBotLeft(){  // смещение "до конца"
   if (!OnLeft(bot)) {
     moveL(bot);
   }
@@ -55,7 +54,7 @@ function goBotLeft(){
 }
 
 
-function goBotRight(){
+function goBotRight(){ // смещение "до конца"
   if (!OnRight(bot)) {
     moveR(bot);
   }
@@ -64,13 +63,22 @@ function goBotRight(){
   }
 }
 
+function Find() {  //поиск Инди
+  if (Math.abs(indi.x - bot.x ) > 50) {
+    if (indi.x > bot.x) {
+      goBotRight(bot);
+    } else {
+      goBotLeft(bot);
+    }
+  }
+}
+
+/* ОСНОВА */
 moveD(bot);
-goBotLeft(bot);
+Find();
 
-  // if ( DD[0] == 0 ) {
+/* отрисовка бота*/
 ctx.drawImage(bot.hero,bot.x + DD[0] ,bot.y + DD[1]);
-// ctx.drawImage(bot.hero,bot.x,bot.y);
 
-// }
 
 }
