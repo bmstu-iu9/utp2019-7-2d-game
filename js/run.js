@@ -23,12 +23,10 @@ const run = (DD) => {
 
     //Ждем разверток для анимации,пока что так
     if(rightPressed && leftPressed) {
-      er = true
       // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80);
       ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
     } else {
       if (rightPressed) {
-        er = true;
         if (!OnRight(indi)) {
           indi.hero.src = "images/runR.png";
           if (indi.airTime < 100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
@@ -53,7 +51,6 @@ const run = (DD) => {
         }
       }
       if (leftPressed) {
-        er = true;
         if (!OnLeft(indi)) {
           indi.hero.src = "images/runL.png";
           if (indi.airTime < 100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
@@ -85,7 +82,6 @@ const run = (DD) => {
 
     //отрисовка сосояния покоя
     if (!rightPressed && !leftPressed) {
-      er = true;
         if (indi.orientation == "r") {
             indi.hero.src = "images/runR.png";
             if (indi.airTime<125) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
