@@ -24,7 +24,7 @@ const run = (DD) => {
     //Ждем разверток для анимации,пока что так
     if(rightPressed && leftPressed) {
       // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80);
-      ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) ,32 ,64 );
+      ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) ,32 ,64 );
     } else {
       if (rightPressed) {
         if (!OnRight(indi)) {
