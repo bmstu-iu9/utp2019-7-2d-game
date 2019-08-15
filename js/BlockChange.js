@@ -1,5 +1,5 @@
-function BlockChange(ii,jj,W,code){
-  var arr ;
+const BlockChange = (ii,jj,W,code) => {
+  let arr;
   switch (code) { // выбор по коду 0 - до , 1 - после
     case 0:
       arr = blocks;
@@ -10,10 +10,9 @@ function BlockChange(ii,jj,W,code){
     default:
       arr = blocks;
   }
-  var jT = ~~(ii / 32); //Целочисленное деление )) Нашел в инете
-  var iT = ~~(jj / 32)
-  for (var i = 0; i < arr.length; i++) {
-    if ( (arr[i].i ==  iT )  &&  (arr[i].j ==  jT )) { //нахождение данного
+  let jT = ~~(ii / 32), iT = ~~(jj / 32); //Целочисленное деление )) Нашел в инете
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i].i ==  iT) && (arr[i].j ==  jT)) { //нахождение данного
       arr[i].id = W; //смена id
     }
   }
