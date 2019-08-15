@@ -3,12 +3,12 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
 /* Картинки */
-let gnd = new Image();
-let bg = new Image();
-let hero = new Image();
-let spikes = new Image();
-let fire = new Image();
-let coin = new Image();
+const gnd = new Image();
+const bg = new Image();
+const hero = new Image();
+const spikes = new Image();
+const fire = new Image();
+const coin = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!

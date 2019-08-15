@@ -37,7 +37,7 @@ const botRules = (DD) => {
     b.y -= b.heroDY;
     if (! OnGround(b)) {
       b.heroDY -= 0.02;
-    }else {
+    } else {
       b.heroDY = 0;
     }
   }
