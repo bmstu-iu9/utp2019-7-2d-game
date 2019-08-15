@@ -29,7 +29,7 @@ let leftPressed = false;
 let spacePressed = false;
 
 //Список статик-блоков блоков
-let blocks = []; //отрисовка до героя
-let blocksAfter = []; //отрисовка после героя
-let bots = []; // список ботов
-let memory = []; //память траектории Инди (пока тестится)
+const blocks = []; //отрисовка до героя
+const blocksAfter = []; //отрисовка после героя
+const bots = []; // список ботов
+const memory = []; //память траектории Инди (пока тестится)

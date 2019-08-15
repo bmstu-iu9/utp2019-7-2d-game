@@ -10,7 +10,7 @@ botGenerate();
 let nextLevel = 0;
 let T = 0;
 
-parseMap(map,0,0); //Парсинг уровня из map.js
+parseMap(map); //Парсинг уровня из map.js
 
 /* Отрисовка динамических объектов */
 
