@@ -3,36 +3,33 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
 /* Картинки */
-var gnd = new Image();
-var bg = new Image();
-var hero = new Image();
-var spikes = new Image();
-var fire = new Image();
-var coin = new Image();
+const gnd = new Image();
+const bg = new Image();
+const hero = new Image();
+const spikes = new Image();
+const fire = new Image();
+const coin = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
-
-var DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
-DD[0]=0;
-DD[1]=0;
+let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
+DD[0] = 0;
+DD[1] = 0;
 
 /* Источники картинок */
-gnd.src = "images/ground.png";
-bg.src = "images/back.png";
-fire.src = "images/fire.png"
-spikes.src = "images/spikes.png";
-hero.src = "images/runR.png"; //Начальное положение в покое
+gnd.src = "images/environment/ground.png";
+bg.src = "images/environment/back.png";
+fire.src = "images/environment/fire.png"
+spikes.src = "images/environment/spikes.png";
+hero.src = "images/hero/HeroR.png"; //Начальное положение в покое
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
 
 /* Нажатия клавиш */
-var rightPressed = false;
-var leftPressed = false;
-var spacePressed = false;
+let rightPressed = false;
+let leftPressed = false;
+let spacePressed = false;
 
 //Список статик-блоков блоков
-var blocks = []; //отрисовка до героя
-var blocksAfter = []; //отрисовка после героя
-
-var bots = []; // список ботов
-
-var memory = []; //память траектории Инди (пока тестится)
+const blocks = []; //отрисовка до героя
+const blocksAfter = []; //отрисовка после героя
+const bots = []; // список ботов
+const memory = []; //память траектории Инди (пока тестится)

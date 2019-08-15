@@ -32,6 +32,3 @@ var map = [
     'GGGGGGGSSSggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggGGGGGGGGGG',
     'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
 ];
-
-
-//SSSss
