@@ -3,18 +3,17 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
 /* Картинки */
-var gnd = new Image();
-var bg = new Image();
-var hero = new Image();
-var spikes = new Image();
-var fire = new Image();
-var coin = new Image();
+let gnd = new Image();
+let bg = new Image();
+let hero = new Image();
+let spikes = new Image();
+let fire = new Image();
+let coin = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
-
-var DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
-DD[0]=0;
-DD[1]=0;
+let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
+DD[0] = 0;
+DD[1] = 0;
 
 /* Источники картинок */
 gnd.src = "images/ground.png";
@@ -25,14 +24,12 @@ hero.src = "images/runR.png"; //Начальное положение в пок�
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
 
 /* Нажатия клавиш */
-var rightPressed = false;
-var leftPressed = false;
-var spacePressed = false;
+let rightPressed = false;
+let leftPressed = false;
+let spacePressed = false;
 
 //Список статик-блоков блоков
-var blocks = []; //отрисовка до героя
-var blocksAfter = []; //отрисовка после героя
-
-var bots = []; // список ботов
-
-var memory = []; //память траектории Инди (пока тестится)
+let blocks = []; //отрисовка до героя
+let blocksAfter = []; //отрисовка после героя
+let bots = []; // список ботов
+let memory = []; //память траектории Инди (пока тестится)

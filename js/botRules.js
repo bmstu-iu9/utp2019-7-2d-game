@@ -1,4 +1,4 @@
-function botRules(DD){
+const botRules = (DD) => {
   bot = bots[0];
   photo = new Image();
   switch (bot.number) {
@@ -17,21 +17,20 @@ function botRules(DD){
 
   bot.hero = photo;
 
-  function moveL(b){ //смещение бота
+/*смещение бота*/
+
+  const moveL = (b) => {
     b.x -= 0.3;
   }
-
-  function moveR(b){  //смещение бота
+  const moveR = (b) => {
     b.x += 0.3;
   }
-
-  function moveU(b){ //смещение бота
+  const moveU = (b) => {
     if (OnGround(b) && !OnCeil(b)) {
       b.heroDY = 2;
     }
   }
-
-  function moveD(b){ //смещение бота
+  const moveD = (b) => {
     if (OnCeil(b) && b.heroDY > 0) {
       b.heroDY = 0;
     }
@@ -43,8 +42,9 @@ function botRules(DD){
     }
   }
 
+/*смещение "до конца"*/
 
-function goBotLeft(){  // смещение "до конца"
+const goBotLeft = () => {
   if (!OnLeft(bot)) {
     moveL(bot);
   }
@@ -52,18 +52,18 @@ function goBotLeft(){  // смещение "до конца"
       moveU(bot);
   }
 }
-
-
-function goBotRight(){ // смещение "до конца"
+const goBotRight = () => {
   if (!OnRight(bot)) {
     moveR(bot);
   }
-  if ( OnRight(bot) ) {
+  if (OnRight(bot) ) {
       moveU(bot);
   }
 }
 
-function Find() {  //поиск Инди
+/*поиск главного персонажа*/
+
+const Find = () => {
   if (Math.abs(indi.x - bot.x ) > 50) {
     if (indi.x > bot.x) {
       goBotRight(bot);
@@ -74,11 +74,11 @@ function Find() {  //поиск Инди
 }
 
 /* ОСНОВА */
+
 moveD(bot);
 Find();
 
 /* отрисовка бота*/
+
 ctx.drawImage(bot.hero,bot.x + DD[0] ,bot.y + DD[1]);
-
-
 }

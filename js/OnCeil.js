@@ -1,10 +1,9 @@
-function OnCeil(Object){
-  var j = ~~(Object.x / 32); //Целочисленное деление )) Нашел в инете
-  var i = ~~(Object.y / 32);
-  var i2 = ~~((Object.y + 1) / 32);
+const OnCeil = (Object) => {
+  let j = ~~(Object.x / 32); //Целочисленное деление )) Нашел в инете
+  let i = ~~(Object.y / 32);
+  let i2 = ~~((Object.y + 1) / 32);
   if (i >= 1) {
-    // проверка на наличие блока
-    return ((map[ i  ] [ j ] == 'G') || (map[ i ] [ j + 1 ] == 'G'));
+    return ((map[i][j] == 'G') || (map[i][j + 1] == 'G')); // проверка на наличие блока
   } else {
     return true;
   }
