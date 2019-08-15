@@ -24,17 +24,17 @@ const run = (DD) => {
     //Ждем разверток для анимации,пока что так
     if(rightPressed && leftPressed) {
       // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80);
-      ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
+      ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) ,32 ,64 );
     } else {
       if (rightPressed) {
         if (!OnRight(indi)) {
           indi.hero.src = "images/hero/HeroR.png";
           if (indi.airTime < 100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
             // ctx.drawImage(indi.hero ,((~~indi.posision) * 160) % 960 ,0 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация бега
-            ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]));
+            ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64 );
           } else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация падения
-              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]));
+              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64 );
           }
           indi.posision += 0.03; // смена картинок для бега
           indi.x ++;
@@ -47,7 +47,7 @@ const run = (DD) => {
              indi.y += 2;
            }
            ctx.drawImage(indi.hero ,160 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"*/
-          ctx.drawImage(TestR , (indi.x + DD[0]), (indi.y + DD[1]));
+          ctx.drawImage(TestR , (indi.x + DD[0]), (indi.y + DD[1]),32 ,64 );
         }
       }
       if (leftPressed) {
@@ -55,10 +55,10 @@ const run = (DD) => {
           indi.hero.src = "images/hero/HeroL.png";
           if (indi.airTime < 100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
             // ctx.drawImage(indi.hero ,800 - ((~~indi.posision) * 160) % 960 ,0 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация бега
-            ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]));
+            ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64 );
           } else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация падения
-              ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]));
+              ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64 );
           }
           indi.posision -= 0.03; // смена картинок для бега
           indi.x --;
@@ -68,7 +68,7 @@ const run = (DD) => {
           indi.orientation = "l"; // смена ориентации
         } else {
           // ctx.drawImage(indi.hero ,640 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"
-          ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]));
+          ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64 );
         }
       }
     }
@@ -86,19 +86,19 @@ const run = (DD) => {
             indi.hero.src = "images/hero/HeroR.png";
             if (indi.airTime<125) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
               // ctx.drawImage(indi.hero ,0 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
-              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
+              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64  );
             } else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // падение в состоянии покоя
-              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
+              ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) ,32 ,64 );
             }
         } else {
             indi.hero.src = "images/hero/HeroL.png";
               if (indi.airTime<125) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
                 // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
-                ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
+                ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) ,32 ,64  );
               } else {
                 // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // падение в состоянии покоя
-                ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
+                ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) ,32 ,64  );
               }
         }
     }
