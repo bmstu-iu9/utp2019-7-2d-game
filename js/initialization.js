@@ -16,11 +16,11 @@ DD[0] = 0;
 DD[1] = 0;
 
 /* Источники картинок */
-gnd.src = "images/ground.png";
-bg.src = "images/back.png";
-fire.src = "images/fire.png"
-spikes.src = "images/spikes.png";
-hero.src = "images/runR.png"; //Начальное положение в покое
+gnd.src = "images/environment/ground.png";
+bg.src = "images/environment/back.png";
+fire.src = "images/environment/fire.png"
+spikes.src = "images/environment/spikes.png";
+hero.src = "images/hero/HeroR.png"; //Начальное положение в покое
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
 
 /* Нажатия клавиш */

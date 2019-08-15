@@ -3,16 +3,16 @@ const botRules = (DD) => {
   photo = new Image();
   switch (bot.number) {
     case 1:
-      photo.src = "images/bot1R.png";
+      photo.src = "images/enemies/bot1R.png";
       break;
     case 2:
-      photo.src = "images/bot2R.png";
+      photo.src = "images/enemies/bot2R.png";
       break;
     case 3:
-      photo.src = "images/bot3R.png";
+      photo.src = "images/enemies/bot3R.png";
       break;
     default:
-      photo.src = "images/bot1R.png";
+      photo.src = "images/enemies/bot1R.png";
   }
 
   bot.hero = photo;

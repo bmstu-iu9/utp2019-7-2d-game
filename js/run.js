@@ -1,8 +1,8 @@
 const run = (DD) => {
     TestL = new Image();
     TestR = new Image();
-    TestL.src = "images/HeroL.png";
-    TestR.src = "images/HeroR.png";
+    TestL.src = "images/hero/HeroL.png";
+    TestR.src = "images/hero/HeroR.png";
     if (!OnGround(indi)) { //проверка на нахождение в воздухе
       if (OnCeil(indi) && (indi.heroDY >= 0)) {
         indi.heroDY = -0.02;
@@ -28,7 +28,7 @@ const run = (DD) => {
     } else {
       if (rightPressed) {
         if (!OnRight(indi)) {
-          indi.hero.src = "images/runR.png";
+          indi.hero.src = "images/hero/HeroR.png";
           if (indi.airTime < 100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
             // ctx.drawImage(indi.hero ,((~~indi.posision) * 160) % 960 ,0 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация бега
             ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]));
@@ -52,7 +52,7 @@ const run = (DD) => {
       }
       if (leftPressed) {
         if (!OnLeft(indi)) {
-          indi.hero.src = "images/runL.png";
+          indi.hero.src = "images/hero/HeroL.png";
           if (indi.airTime < 100) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
             // ctx.drawImage(indi.hero ,800 - ((~~indi.posision) * 160) % 960 ,0 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация бега
             ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]));
@@ -83,7 +83,7 @@ const run = (DD) => {
     //отрисовка сосояния покоя
     if (!rightPressed && !leftPressed) {
         if (indi.orientation == "r") {
-            indi.hero.src = "images/runR.png";
+            indi.hero.src = "images/hero/HeroR.png";
             if (indi.airTime<125) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
               // ctx.drawImage(indi.hero ,0 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
               ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
@@ -92,7 +92,7 @@ const run = (DD) => {
               ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]) );
             }
         } else {
-            indi.hero.src = "images/runL.png";
+            indi.hero.src = "images/hero/HeroL.png";
               if (indi.airTime<125) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
                 // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
                 ctx.drawImage(TestL , (indi.x + DD[0]) , (indi.y + DD[1]) );
