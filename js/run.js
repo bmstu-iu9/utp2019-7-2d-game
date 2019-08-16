@@ -34,7 +34,8 @@ const run = (DD) => {
             // ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64 );
           } else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация падения
-              ctx.drawImage(TestR ,NN[0] * (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]),NN[0] * 32 ,NN[1] * 64 );
+              indi.hero.src = "images/hero/fallAnimR.png";
+              ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
           }
           indi.posision += 0.03; // смена картинок для бега
           indi.x ++;
@@ -59,7 +60,8 @@ const run = (DD) => {
             // ctx.drawImage(TestL, (indi.x + DD[0]), (indi.y + DD[1]), 32, 64);
           } else {
               // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация падения
-              ctx.drawImage(TestL , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]),NN[0] * 32,NN[1] * 64);
+              indi.hero.src = "images/hero/fallAnimL.png";
+              ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
           }
           indi.posision += 0.03; // смена картинок для бега
           indi.x --;
@@ -90,8 +92,11 @@ const run = (DD) => {
               // ctx.drawImage(indi.hero ,0 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
               ctx.drawImage(TestR ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]),NN[0] * 32 ,NN[1] * 64  );
             } else {
-              // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // падение в состоянии покоя
-              ctx.drawImage(TestR , NN[0] * (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
+              indi.hero.src = "images/hero/fallAnimR.png";
+              ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
+              if (indi.heroDY <= -1.5) {
+                indi.posision += 0.03
+              }
             }
         } else {
             indi.hero.src = "images/hero/HeroL.png";
@@ -99,8 +104,11 @@ const run = (DD) => {
                 // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
                 ctx.drawImage(TestL ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64  );
               } else {
-                // ctx.drawImage(indi.hero ,480 ,512 ,160 ,200 , indi.x , indi.y , 80 , 80); // падение в состоянии покоя
-                ctx.drawImage(TestL ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64  );
+                indi.hero.src = "images/hero/fallAnimL.png";
+                ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
+                if (indi.heroDY <= -1.5) {
+                  indi.posision += 0.03
+                }
               }
         }
     }
