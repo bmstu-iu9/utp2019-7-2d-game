@@ -23,16 +23,20 @@ const parseMap = (map) => {
     for (let i = 0 ; i < map.length ; i++) {
         for (let j = 0 ; j < map[i].length ; j++) {
             if (map[i][j] == ' ') {
-                continue;
+               var o = new MapObject(' ', i, j); 
             } else if (map[i][j] == 'G') {
               var o = new MapObject('G', i, j);
             } else if (map[i][j] == 'S') {
               var o = new MapObject('S', i, j);
               blocksAfter.push(o);
+              var o = new MapObject('S', i, j);
+              blocks.push(o); 
               continue;
             } else if (map[i][j] == 'a') {
               var o = new MapObject('a', i, j);
               blocksAfter.push(o);
+              var o = new MapObject('a', i, j);
+              blocks.push(o); 
               continue;
             }else if (map[i][j] == 'F') {
               var o = new MapObject('F', i, j);
@@ -42,10 +46,14 @@ const parseMap = (map) => {
             } else if (map[i][j] == 'g') { // Фейк-блок
               var o = new MapObject('g', i, j);
               blocksAfter.push(o);
+              var o = new MapObject('g', i, j);
+              blocks.push(o);   
               continue;
             }else if (map[i][j] == 's') { // Фейк-блок
               var o = new MapObject('s', i, j);
               blocksAfter.push(o);
+              var o = new MapObject('s', i, j);
+              blocks.push(o); 
               continue;
             } else if (map[i][j] == '@') {
               indi.x = j * 32  ;

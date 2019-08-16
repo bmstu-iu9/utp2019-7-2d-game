@@ -1,16 +1,16 @@
 'use strict';
 
 
-var indi = new HeroClass(hero); // создание и инициализация объекта главный герой
+const indi = new HeroClass(hero); // создание и инициализация объекта главный герой
 // var bot = new BotClass(1);
 //indi - имя главного героя
 indi.width = 32;
 indi.height = 64;
 
-var curLevel = new LevelClass(1); //текущий уровень
+const curLevel = new LevelClass(1); //текущий уровень
 botGenerate();
-var nextLevel = 0;
-var T = 0;
+let nextLevel = 0;
+let T = 0;
 /* Парсинг уровня из map.js */
 characters.push(indi);
 // map[0].replace('G','F');
@@ -18,7 +18,7 @@ parseMap(map,0,0);
 
 
 /* Отрисовка динамических объектов */
-function draw(){
+const draw = () => {
     // if (nextLevel == Level) {
     //   T = 0
     //   blocks = [];
