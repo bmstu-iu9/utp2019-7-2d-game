@@ -2,23 +2,23 @@
 
 var map = [
     'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-    'G                                      GG                                      G',
-    'G                                      GG                                      G',
-    'G                                      GG                                      G',
-    'G                  F                   GG   F          GGGGGGGGGGGG            G',
-    'G                                      GG  FFF      G             G            G',
-    'G                                      GG F F F                   GGGGGGGGG    G',
-    'G          F                           GG   F          G                 G     G',
+    'G                    g                 GG                                      G',
+    'G                    g                 GG                                      G',
+    'G  GGGGGGGGGGGGGGGGGGG                 GG                                      G',
+    'G     FF  FF   FF     FFFF        FF   GG   F          GGGGGGGGGGGG            G',
+    'G     FF  FF                          CGG  FFF      G             G            G',
+    'GG    FF  FF          ggggGGGGGGGGggGGGGG F F F                   GGGGGGGGG    G',
+    'G     FF  FF                           GG   F          G                 G     G',
     'G                                      GGGGGGGGGGGGGGGGGGggg           GGG     G',
-    'G F                                    GG                   g          G      GG',
-    'G               S                      GG                    G         G       G',
-    'G               G                      GG                     G        G    GGGG',
-    'G                    FFF  FFF  FFF     GG                              GG      G',
-    'G     G          @    FFF  FFF  FFF    GG                              GGG     G',
-    'G           C    G     FFF  FFF  FFF   GG     GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-    'GGG       GGGGGG        FFF  FFF  FFF  GG                                      G',
+    'G  G  FF  FF                           GG                   g          G      GG',
+    'G     FF  FF                           GG                    G         G       G',
+    'G     FF  FF                           GG                     G        G    GGGG',
+    'GG    FF  FF         FFF  FFF  FFF     GG                              GG      G',
+    'G             @       FFF  FFF  FFF    GG                              GGG     G',
+    'G                      FFF  FFF  FFF   GG     GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGG    GGGGGG        FFF  FFF  FFF  GG                                      G',
     'G      F F   G           FFF  FFF  FFF GG                                      G',
-    'G       F               FFF  FFF  FFF  GGG                              F      G',
+    'G       F        G      FFF  FFF  FFF  GGG                              F      G',
     'G      F F             FFF  FFF  FFF   GG                               F      G',
     'GGGGGGGgggGGGGGGGGGGGGFFF GGGG  FFF    gg   GG                       F  F  F   G',
     'GGGGGGGgggGGGGGGGGGGGGFF  GGGGGGFF     gg                             F F F    G',
@@ -32,3 +32,6 @@ var map = [
     'GGGGGGGSSSggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggGGGGGGGGGG',
     'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
 ];
+
+
+//SSSss
