@@ -13,6 +13,7 @@ var nextLevel = 0;
 var T = 0;
 /* Парсинг уровня из map.js */
 characters.push(indi);
+// map[0].replace('G','F');
 parseMap(map,0,0);
 
 
@@ -44,12 +45,12 @@ function draw(){
               ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           } else if (blocks[i].id == 'C') {
               ctx.drawImage(coin,NN[0] *  (blocks[i].x  + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);  //нужно будет заменить на изображение монеты
-              if ((blocks[i].x + 30 >= (indi.x + indi.dX)+indi.hero.width  && blocks[i].x - 30 <= (indi.x + indi.dX)+indi.hero.width/2) && (blocks[i].y + 30 >= (indi.y + indi.dY)+indi.hero.height/2  && blocks[i].y - 30 <= (indi.y + indi.dY)+indi.hero.height/2)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
+              // if ((blocks[i].x + 30 >= (indi.x + indi.dX)+indi.hero.width  && blocks[i].x - 30 <= (indi.x + indi.dX)+indi.hero.width/2) && (blocks[i].y + 30 >= (indi.y + indi.dY)+indi.hero.height/2  && blocks[i].y - 30 <= (indi.y + indi.dY)+indi.hero.height/2)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
                 // blocks[i].id='G';
                 // blocks.slice(i, 1); //удаляем блок из массива
                 // curLevel.currentCoins++;
                 // i--;
-              }
+              // }
           }
       }
       if (!freeCamera) {

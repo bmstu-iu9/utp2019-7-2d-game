@@ -1,7 +1,7 @@
 'use strict';
 
 var map = [
-    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    "GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG",
     'G                    g                 GG                                      G',
     'G                    g                 GG                                      G',
     'G  GGGGGGGGGGGGGGGGGGG                 GG                                      G',
