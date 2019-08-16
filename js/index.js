@@ -72,7 +72,6 @@ function draw(){
         } else if (blocksAfter[i].id == 'S'){
           ctx.drawImage(spikes ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         }
-
       }
 
 

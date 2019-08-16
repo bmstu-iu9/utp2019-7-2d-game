@@ -30,7 +30,11 @@ const parseMap = (map) => {
               var o = new MapObject('S', i, j);
               blocksAfter.push(o);
               continue;
-            } else if (map[i][j] == 'F') {
+            } else if (map[i][j] == 'a') {
+              var o = new MapObject('a', i, j);
+              blocksAfter.push(o);
+              continue;
+            }else if (map[i][j] == 'F') {
               var o = new MapObject('F', i, j);
             } else if (map[i][j] == 'C') {
               var o = new MapObject('C', i, j);
