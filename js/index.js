@@ -39,9 +39,11 @@ function draw(){
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
               ctx.drawImage(gnd ,NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
-          } else if (blocks[i].id == 'S'){
-              ctx.drawImage(spikes ,NN[0] *  (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
-          } else if (blocks[i].id == 'F') {
+          }
+          // else if (blocks[i].id == 'S'){
+          //     ctx.drawImage(spikes ,NN[0] *  (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          // }
+          else if (blocks[i].id == 'F') {
               ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           } else if (blocks[i].id == 'C') {
               ctx.drawImage(coin,NN[0] *  (blocks[i].x  + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);  //нужно будет заменить на изображение монеты
@@ -65,7 +67,12 @@ function draw(){
       for (var i = 0 ; i < blocksAfter.length ; i++){
         if (blocksAfter[i].id == 'g') {
             ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        } else if (blocksAfter[i].id == 's'){
+          ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        } else if (blocksAfter[i].id == 'S'){
+          ctx.drawImage(spikes ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         }
+
       }
 
 

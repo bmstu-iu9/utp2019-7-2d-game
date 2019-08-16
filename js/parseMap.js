@@ -28,6 +28,8 @@ const parseMap = (map) => {
               var o = new MapObject('G', i, j);
             } else if (map[i][j] == 'S') {
               var o = new MapObject('S', i, j);
+              blocksAfter.push(o);
+              continue;
             } else if (map[i][j] == 'F') {
               var o = new MapObject('F', i, j);
             } else if (map[i][j] == 'C') {
@@ -35,6 +37,10 @@ const parseMap = (map) => {
               curLevel.allCoins++;
             } else if (map[i][j] == 'g') { // Фейк-блок
               var o = new MapObject('g', i, j);
+              blocksAfter.push(o);
+              continue;
+            }else if (map[i][j] == 's') { // Фейк-блок
+              var o = new MapObject('s', i, j);
               blocksAfter.push(o);
               continue;
             } else if (map[i][j] == '@') {

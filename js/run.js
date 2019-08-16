@@ -21,6 +21,11 @@ const run = (DD) => {
       BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'g' ,' ' , 1); //смена по коду  0 - до , 1 - после
     }
 
+    if (InBlock(indi,'s')) {  //проверка на Фейк-блок и его последующее уничтожениеж
+      BlockChange(indi , (indi.x + 16) ,(indi.y + 16),'s' ,'S' , 1); //смена по коду   0 - до , 1 - после
+      BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'s' ,'S' , 1); //смена по коду  0 - до , 1 - после
+    }
+
     if (InBlock(indi,'C')) {  //проверка на Фейк-блок и его последующее уничтожениеж
       BlockChange(indi ,(indi.x + 16) ,(indi.y + 16),'C' ,' ' , 0); //смена по коду   0 - до , 1 - после
       BlockChange(indi ,(indi.x + 16) ,(indi.y + 48),'C' ,' ' , 0); //смена по коду  0 - до , 1 - после
@@ -28,7 +33,7 @@ const run = (DD) => {
     }
 
     if (spacePressed && OnGround(indi) ) {
-      indi.shootTime = 3;
+      indi.shootTime = 2.15;
     }
 
     if (indi.shootTime >= 0) {
@@ -38,13 +43,16 @@ const run = (DD) => {
         indi.hero.src = "images/hero/shootAnimL.png";
       }
       ctx.drawImage(indi.hero , (((~~indi.shootTime) * 44) % 132) ,0 ,44 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 ); // анимация бега
-      indi.shootTime -= 0.02;
+      indi.shootTime -= 0.01;
     }else {
 
       //Ждем разверток для анимации,пока что так
       if(rightPressed && leftPressed) {
-        // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80);
-        ctx.drawImage(TestL ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
+        if (indi.orientation == 'r') {
+          ctx.drawImage(TestR ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
+        } else {
+          ctx.drawImage(TestL ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
+        }
       } else {
         if (rightPressed) {
           if (!OnRight(indi)) {
