@@ -14,7 +14,7 @@ var map = [
     'G     FF  FF                           GG                    G         G       G',
     'G     FF  FF                           GG                     G        G    GGGG',
     'GG    FF  FF         FFF  FFF  FFF     GG                              GG      G',
-    'G                @    FFF  FFF  FFF    GG                              GGG     G',
+    'G             @       FFF  FFF  FFF    GG                              GGG     G',
     'G                      FFF  FFF  FFF   GG     GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
     'GGGGGG    GGGGGG        FFF  FFF  FFF  GG                                      G',
     'G      F F   G           FFF  FFF  FFF GG                                      G',

@@ -15,6 +15,17 @@ let DD = new Array(2); //глобальное смещение !!(лучше н�
 DD[0] = 0;
 DD[1] = 0;
 
+
+
+let NN = new Array(2); // МАСШТАБ!!!! !!(лучше не трогать)!!
+NN[0] = 2;
+NN[1] = 2;
+
+
+let FF = new Array(2); //глобальное смещение камеры !!(лучше не трогать)!!
+FF[0] =  0;
+FF[1] =  0;
+
 /* Источники картинок */
 gnd.src = "images/environment/ground.png";
 bg.src = "images/environment/back.png";
@@ -26,10 +37,16 @@ coin.src = "images/coin.png";  //пока не нарисована монета
 /* Нажатия клавиш */
 let rightPressed = false;
 let leftPressed = false;
+let upPressed = false;
+let downPressed = false;
 let spacePressed = false;
+let freeCamera = false;
+let plusPressed = false;
+let minusPressed = false;
 
 //Список статик-блоков блоков
 const blocks = []; //отрисовка до героя
 const blocksAfter = []; //отрисовка после героя
 const bots = []; // список ботов
 const memory = []; //память траектории Инди (пока тестится)
+const characters = [];

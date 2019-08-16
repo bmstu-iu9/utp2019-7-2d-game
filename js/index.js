@@ -12,7 +12,7 @@ botGenerate();
 var nextLevel = 0;
 var T = 0;
 /* Парсинг уровня из map.js */
-
+characters.push(indi);
 parseMap(map,0,0);
 
 
@@ -37,13 +37,13 @@ function draw(){
       //Блоки размером по умолчанию
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
-              ctx.drawImage(gnd , blocks[i].x , blocks[i].y);
+              ctx.drawImage(gnd ,NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           } else if (blocks[i].id == 'S'){
-              ctx.drawImage(spikes , blocks[i].x , blocks[i].y);
+              ctx.drawImage(spikes ,NN[0] *  (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           } else if (blocks[i].id == 'F') {
-              ctx.drawImage(fire , blocks[i].x , blocks[i].y);
+              ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           } else if (blocks[i].id == 'C') {
-              ctx.drawImage(coin, blocks[i].x , blocks[i].y);  //нужно будет заменить на изображение монеты
+              ctx.drawImage(coin,NN[0] *  (blocks[i].x  + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);  //нужно будет заменить на изображение монеты
               if ((blocks[i].x + 30 >= (indi.x + indi.dX)+indi.hero.width  && blocks[i].x - 30 <= (indi.x + indi.dX)+indi.hero.width/2) && (blocks[i].y + 30 >= (indi.y + indi.dY)+indi.hero.height/2  && blocks[i].y - 30 <= (indi.y + indi.dY)+indi.hero.height/2)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
                 // blocks[i].id='G';
                 // blocks.slice(i, 1); //удаляем блок из массива
@@ -52,15 +52,18 @@ function draw(){
               }
           }
       }
-      run(DD); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+      if (!freeCamera) {
+        run(DD); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
 
-      botRules(DD); //Жизнь ботов (все вопросы и предложения к Александру Л)
-
+        botRules(DD); //Жизнь ботов (все вопросы и предложения к Александру Л)
+      }else {
+        freeCameraRule();
+      }
 
       // поздняя отрисовка блоков
       for (var i = 0 ; i < blocksAfter.length ; i++){
         if (blocksAfter[i].id == 'g') {
-            ctx.drawImage(gnd , blocksAfter[i].x , blocksAfter[i].y);
+            ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         }
       }
 

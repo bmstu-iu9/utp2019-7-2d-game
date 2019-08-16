@@ -80,5 +80,5 @@ Find();
 
 /* отрисовка бота*/
 
-ctx.drawImage(bot.hero,bot.x + DD[0] ,bot.y + DD[1]);
+ctx.drawImage(bot.hero,NN[0] * (bot.x + DD[0] + FF[0]) ,NN[1] * (bot.y + DD[1] + FF[1]) , NN[0] * 32, NN[1] * 64);
 }
