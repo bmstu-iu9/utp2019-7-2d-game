@@ -29,7 +29,7 @@ const run = (DD) => {
       if (rightPressed) {
         if (!OnRight(indi)) {
           indi.hero.src = "images/hero/runAnimR.png";
-          if (indi.heroDY >= -0.1) {  // проверка на состояние в воздухе
+          if (OnGround(indi)) {  // проверка на состояние в воздухе
             ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 396) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега
             // ctx.drawImage(TestR , (indi.x + DD[0]) , (indi.y + DD[1]),32 ,64 );
           } else {
@@ -44,18 +44,25 @@ const run = (DD) => {
           }
           indi.orientation = "r"; // смена ориентации
         } else {
+          if (!OnGround(indi)) {
+            indi.hero.src = "images/hero/fallAnimR.png";
+            ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
+          }else {
+            indi.hero.src = "images/hero/heroWallL.png";
+            ctx.drawImage(indi.hero, NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
+          }
            /*if (airTime>30) {
              indi.y += 2;
            }
            ctx.drawImage(indi.hero ,160 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"*/
-           indi.hero.src = "images/hero/heroWallL.png";
-           ctx.drawImage(indi.hero,NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]),NN[0] * 32 ,NN[1] * 64 );
+           // indi.hero.src = "images/hero/heroWallL.png";
+           // ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
         }
       }
       if (leftPressed) {
         if (!OnLeft(indi)) {
           indi.hero.src = "images/hero/runAnimL.png";
-          if (indi.heroDY >= -0.1) {  // проверка на состояние в воздухе
+          if (OnGround(indi)) {  // проверка на состояние в воздухе
             ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 396) ,0 ,66 ,88 ,NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега
             // ctx.drawImage(TestL, (indi.x + DD[0]), (indi.y + DD[1]), 32, 64);
           } else {
@@ -70,9 +77,13 @@ const run = (DD) => {
           }
           indi.orientation = "l"; // смена ориентации
         } else {
-          // ctx.drawImage(indi.hero ,640 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // анимация "столкновение со стеной"
-          indi.hero.src = "images/hero/heroWallR.png";
-          ctx.drawImage(indi.hero ,NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]),NN[0] * 32,NN[1] * 64);
+          if (!OnGround(indi)) {
+            indi.hero.src = "images/hero/fallAnimL.png";
+            ctx.drawImage(indi.hero , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
+          }else {
+            indi.hero.src = "images/hero/heroWallR.png";
+            ctx.drawImage(indi.hero, NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
+          }
         }
       }
     }
@@ -88,7 +99,7 @@ const run = (DD) => {
     if (!rightPressed && !leftPressed) {
         if (indi.orientation == "r") {
             indi.hero.src = "images/hero/HeroR.png";
-            if (indi.heroDY >= -0.15) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
+            if (OnGround(indi)) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
               // ctx.drawImage(indi.hero ,0 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
               ctx.drawImage(TestR ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]),NN[0] * 32 ,NN[1] * 64  );
             } else {
@@ -100,7 +111,7 @@ const run = (DD) => {
             }
         } else {
             indi.hero.src = "images/hero/HeroL.png";
-              if (indi.heroDY >= -0.15) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
+              if (OnGround(indi)) {  // проверка на состояние в воздухе(при изменение физики требует доработки)
                 // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80); // состояние покоя
                 ctx.drawImage(TestL ,NN[0] *  (indi.x + DD[0] + FF[0]) ,NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64  );
               } else {
@@ -123,4 +134,10 @@ const run = (DD) => {
    if ((indi.y + DD[1] + FF[1]) < (canvas.height / 2) / NN[1]) {
       backGroundParse(0, - indi.heroDY,DD); // коректировка фона по высоте
     }
+
+    // if (indi.orientation == 'l') {
+    //   indi.hero.src = "images/hero/HeroL.png";
+    // } else {
+    //   indi.hero.src = "images/hero/HeroR.png";
+    // }
 }
