@@ -53,10 +53,6 @@ const draw = () => {
                 // curLevel.currentCoins++;
                 // i--;
               // }
-          } else if (blocks[i].id == 'L') {
-              ctx.drawImage(lava, NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
-          } else if (blocks[i].id == 'W') {
-              ctx.drawImage(water, NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
       if (!freeCamera) {
@@ -76,6 +72,10 @@ const draw = () => {
           ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         } else if (blocksAfter[i].id == 'S'){
           ctx.drawImage(spikes ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        } else if (blocksAfter[i].id == 'L') {
+            ctx.drawImage(lava, NN[0] *  (blocksAfter[i].x + FF[0]),NN[1] * (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        } else if (blocksAfter[i].id == 'W') {
+            ctx.drawImage(water, NN[0] *  (blocksAfter[i].x + FF[0]),NN[1] * (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         }
       }
 

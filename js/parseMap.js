@@ -51,8 +51,12 @@ const parseMap = (map) => {
               continue;
             } else if (map[i][j] == 'L') {
               var o = new MapObject('L', i, j);
+              blocksAfter.push(o);
+              continue;
             } else if (map[i][j] == 'W') {
               var o = new MapObject('W', i, j);
+              blocksAfter.push(o);
+              continue;
             } else if (map[i][j] == 's') { // Фейк-блок
               var o = new MapObject('s', i, j);
               blocksAfter.push(o);
