@@ -74,12 +74,12 @@ const draw = () => {
           ctx.drawImage(spikes ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         } else if (blocksAfter[i].id == 'L') {
           blocksAfter[i].posision = envN[0];
-          ctx.drawImage(lava , (((~~envN[0]) * 32) % 192) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
-          envN[0] += 1.005;
+          ctx.drawImage(lava , (((~~envN[0]) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
+          envN[0] += 1.0025;
         } else if (blocksAfter[i].id == 'W') {
           blocksAfter[i].posision = envN[1];
-          ctx.drawImage(water , ((((~~envN[1])) * 32) % 192) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
-          envN[1] += 1.005;
+          ctx.drawImage(water , ((((~~envN[1])) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
+          envN[1] += 1.0025;
         }
       }
 
