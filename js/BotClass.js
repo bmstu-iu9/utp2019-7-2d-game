@@ -3,6 +3,8 @@ class BotClass {
     this.hero = new Image();
     this.number = n; //тип
 
+    this.width = 32;
+    this.height = 64;
     /* координаты бота */
 
     this.x = x;
@@ -10,6 +12,9 @@ class BotClass {
     this.dX = 0;
     this.dY = 0;
     this.dN = 0;
+    this.xp = 100;
+
+
     /* Гравитация бота */
 
     this.heroDY = 0;
@@ -20,6 +25,12 @@ class BotClass {
     this.orientation = "r"; //ориентация персонажа "l" - left , "r" - right
     this.posision = 0; //номер анимации
     this.airTime = 0; //время в воздухe
+
+
+    this.fireY = 20;
+    this.shootTime = 0;
+    this.firePower = 100
+    this.fireSpeed = 0.1;
     // const stat = () => {
     //   if (this.orientation == "r") {
     //     this.hero.src = "images/hero/HeroR.png" ;
