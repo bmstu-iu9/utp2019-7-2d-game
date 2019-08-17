@@ -39,8 +39,8 @@ fire.src = "images/environment/fire.png"
 spikes.src = "images/environment/spikes.png";
 hero.src = "images/hero/HeroR.png"; //Начальное положение в покое
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
-lava.src = "images/environment/lava.png"
-water.src = "images/environment/water.png"
+lava.src = "images/environment/lavaf.png"
+water.src = "images/environment/waterf.png"
 
 /* Нажатия клавиш */
 let rightPressed = false;
