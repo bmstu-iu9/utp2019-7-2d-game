@@ -9,7 +9,7 @@ class BotClass {
     this.y = y;
     this.dX = 0;
     this.dY = 0;
-
+    this.dN = 0;
     /* Гравитация бота */
 
     this.heroDY = 0;

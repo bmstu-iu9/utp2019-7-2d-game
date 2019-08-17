@@ -13,7 +13,7 @@ const map = [
     'G  G  FF  FF                           GG                   g          G      GG',
     'G     FF  FF                           GG                    G         G       G',
     'G     FF  FF                           GG                     G        G    GGGG',
-    'GG    FF  FF         FFF  FFF  FFF     GG                              GG      G',
+    'GG    FF  FF         FFF  FFF  FFF     GG                              GG C    G',
     'G             @       FFF  FFF  FFF    GG                              GGGsssssG',
     'Gaa                    FFF  FFF  FFF   GG     GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
     'GGGGGG    GGGGGG        FFF  FFF  FFF  GG                                      G',

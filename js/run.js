@@ -1,4 +1,4 @@
-const run = (DD) => {
+const run = () => {
     TestL = new Image();
     TestR = new Image();
     TestL.src = "images/hero/HeroL.png";
