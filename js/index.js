@@ -38,21 +38,25 @@ const draw = () => {
       //Блоки размером по умолчанию
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
-              ctx.drawImage(gnd ,NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+              ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
           // else if (blocks[i].id == 'S'){
           //     ctx.drawImage(spikes ,NN[0] *  (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           // }
           else if (blocks[i].id == 'F') {
-              ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+              ctx.drawImage(fire, NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           } else if (blocks[i].id == 'C') {
-              ctx.drawImage(coin,NN[0] *  (blocks[i].x  + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);  //нужно будет заменить на изображение монеты
+              ctx.drawImage(coin, NN[0] *  (blocks[i].x  + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);  //нужно будет заменить на изображение монеты
               // if ((blocks[i].x + 30 >= (indi.x + indi.dX)+indi.hero.width  && blocks[i].x - 30 <= (indi.x + indi.dX)+indi.hero.width/2) && (blocks[i].y + 30 >= (indi.y + indi.dY)+indi.hero.height/2  && blocks[i].y - 30 <= (indi.y + indi.dY)+indi.hero.height/2)) {  //если Инди дошел до монеты, то больше ее рисовать не нужно
                 // blocks[i].id='G';
                 // blocks.slice(i, 1); //удаляем блок из массива
                 // curLevel.currentCoins++;
                 // i--;
               // }
+          } else if (blocks[i].id == 'L') {
+              ctx.drawImage(lava, NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          } else if (blocks[i].id == 'W') {
+              ctx.drawImage(water, NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
       if (!freeCamera) {

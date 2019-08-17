@@ -9,6 +9,8 @@ const hero = new Image();
 const spikes = new Image();
 const fire = new Image();
 const coin = new Image();
+const lava = new Image();
+const water = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
@@ -33,6 +35,8 @@ fire.src = "images/environment/fire.png"
 spikes.src = "images/environment/spikes.png";
 hero.src = "images/hero/HeroR.png"; //Начальное положение в покое
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
+lava.src = "images/environment/lava.png"
+water.src = "images/environment/water.png"
 
 /* Нажатия клавиш */
 let rightPressed = false;
