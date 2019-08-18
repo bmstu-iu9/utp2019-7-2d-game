@@ -1,0 +1,4 @@
+const NextLevel = () => {
+  lvl++;
+  RestartLevel();
+}

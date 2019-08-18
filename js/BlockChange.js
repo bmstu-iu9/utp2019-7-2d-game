@@ -18,8 +18,11 @@ const BlockChange = (Object,ii,jj,WP,WN,code) => {
 
   for (let i = 0; i < arr.length; i++) {
     if ((arr[i].i ==  iT) && (arr[i].j ==  jT) && (arr[i].id == WP)) { //нахождение данного
+      if (arr[i].id == 'C') {
+        curLevel.currentCoins++;
+      }
       arr[i].id = WN; //смена id
     }
   }
-  
+
 }
