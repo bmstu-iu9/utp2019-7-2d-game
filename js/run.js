@@ -38,6 +38,11 @@ const run = (DD) => {
       indi.shootTime = 2.15;
     }
 
+    // if (InBlock(indi,'C')) {  //проверка на монету и его последующее уничтожениеж
+    //   BlockChange((indi.x + 16) ,(indi.y + 16),' ' , 1); //смена по коду  0 - до , 1 - после
+    //   BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1); //смена по коду  0 - до , 1 - после
+    // }
+
     if (indi.shootTime >= 0) {
       if (indi.orientation == 'r') {
         indi.hero.src = "images/hero/shootAnimR.png";

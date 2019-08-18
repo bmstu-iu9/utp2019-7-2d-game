@@ -4,7 +4,7 @@ const OnGround = (Object) => {
 
   // проверка на наличие блока
 
-  if ((map[i + 2][j] == 'G') || (map[i + 2][j + 1] == 'G')) {
+  if ((curLevel.map[i + 2][j] == 'G') || (curLevel.map[i + 2][j + 1] == 'G')) {
     if (Object.heroDY <= 0) {
       Object.y = i *32; //округление координаты
     }
