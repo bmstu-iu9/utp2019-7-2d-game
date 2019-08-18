@@ -12,7 +12,7 @@ class BotClass {
     this.dX = 0;
     this.dY = 0;
     this.dN = 0;
-    this.xp = 100;
+    this.xp = 200;
 
 
     /* Гравитация бота */
