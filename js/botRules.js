@@ -3,16 +3,16 @@ const botRules = (DD) => {
   photo = new Image();
   switch (bot.number) {
     case 1:
-      photo.src = "images/bot1R.png";
+      photo.src = "images/enemies/bot1R.png";
       break;
     case 2:
-      photo.src = "images/bot2R.png";
+      photo.src = "images/enemies/bot2R.png";
       break;
     case 3:
-      photo.src = "images/bot3R.png";
+      photo.src = "images/enemies/bot3R.png";
       break;
     default:
-      photo.src = "images/bot1R.png";
+      photo.src = "images/enemies/bot1R.png";
   }
 
   bot.hero = photo;
@@ -80,5 +80,5 @@ Find();
 
 /* отрисовка бота*/
 
-ctx.drawImage(bot.hero,bot.x + DD[0] ,bot.y + DD[1]);
+ctx.drawImage(bot.hero,NN[0] * (bot.x + DD[0] + FF[0]) ,NN[1] * (bot.y + DD[1] + FF[1]) , NN[0] * 32, NN[1] * 64);
 }

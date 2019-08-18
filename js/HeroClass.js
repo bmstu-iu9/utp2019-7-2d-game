@@ -18,6 +18,15 @@ class HeroClass {
     this.direction = "";
     this.orientation = "r"; //ориентация персонажа "l" - left , "r" - right
     this.posision = 0; // номер анимации
-    this.airTime=0; // время в воздухe
+    this.airTime = 0; // время в воздухe
+    this.shootTime = 0;
+    // const stat = () => {
+    //   if (this.orientation == "r") {
+    //     this.hero.src = "images/hero/HeroR.png" ;
+    //   } else {
+    //     this.hero.src = "images/hero/HeroL.png" ;
+    //   }
+    // }
   }
+
 }
