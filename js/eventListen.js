@@ -11,10 +11,25 @@ function keyDownHandler (e) {
   break;
   case 37:
   leftPressed = true;
+  break
+  case 38:
+  upPressed = true;
+  break
+  case 40:
+  downPressed = true;
   break;
   case 32:
   spacePressed = true;
+  break
+  case 67:
+  freeCamera = !freeCamera;
   break;
+  case 187:
+  plusPressed = true;
+  break
+  case 189:
+  minusPressed = true;
+  break
   }
 }
 
@@ -27,8 +42,24 @@ function keyUpHandler (e) {
   case 37:
   leftPressed = false;
   break;
+  case 38:
+  upPressed = false;
+  break
+  case 40:
+  downPressed = false;
+  break;
   case 32:
   spacePressed = false;
-  break;
+  break
+  case 187:
+  plusPressed = false;
+  break
+  case 189:
+  minusPressed = false;
+  break
+
+  // case 67:
+  // freeCamera = false;
+  // break;
   }
 }
