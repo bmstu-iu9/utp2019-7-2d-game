@@ -16,6 +16,7 @@ class MapObject {
     this.y = i * 32;
     this.i = i;
     this.j = j;
+    this.posision = 0;
   }
 }
 
@@ -57,6 +58,18 @@ const parseMap = (map) => {
               var o = new MapObject('g', i, j);
               blocksAfter.push(o);
               var o = new MapObject('g', i, j);
+              blocks.push(o);
+              continue;
+            }else if (map[i][j] == 'W') { // Фейк-блок
+              var o = new MapObject('W', i, j);
+              blocksAfter.push(o);
+              var o = new MapObject('W', i, j);
+              blocks.push(o);
+              continue;
+            }else if (map[i][j] == 'L') { // Фейк-блок
+              var o = new MapObject('L', i, j);
+              blocksAfter.push(o);
+              var o = new MapObject('L', i, j);
               blocks.push(o);
               continue;
             }else if (map[i][j] == 's') { // Фейк-блок

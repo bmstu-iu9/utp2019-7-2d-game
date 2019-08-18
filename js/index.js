@@ -6,6 +6,7 @@ let indi = new HeroClass(hero); // создание и инициализаци�
 //indi - имя главного героя
 indi.width = 32;
 indi.height = 64;
+indi.shootTime = 0.0;
 
 let curLevel = new LevelClass(lvl); //текущий уровень
 botGenerate();
@@ -24,16 +25,28 @@ const draw = () => {
       //Блоки размером по умолчанию
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
-              ctx.drawImage(gnd ,NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+              ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
           else if (blocks[i].id == 'F') {
+
               ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
       if (!freeCamera) {
-        run(DD); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+        run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+        bulletRules();
+        // for (var i = 0; i < deathlist.length; i++) {
+        //   for (var j = 0; j < bots.length; j++) {
+        //     if ((bots[j].x == deathlist[i].x) && (bots[j].y == deathlist[i].y) )
+        //     bots.splice(j,1);
+        //   }
+        // }
+        for (var i = 0; i < characters.length; i++) {
+          botRules(characters[i]);
+        }
+        // botRules1(); //Жизнь ботов (все вопросы и предложения к Александру Л)
+        // botRules2();
 
-        botRules(DD); //Жизнь ботов (все вопросы и предложения к Александру Л)
       }else {
         freeCameraRule();
       }
@@ -46,6 +59,14 @@ const draw = () => {
           ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         } else if (blocksAfter[i].id == 'S'){
           ctx.drawImage(spikes ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        } else if (blocksAfter[i].id == 'L') {
+          blocksAfter[i].posision = envN[0];
+          ctx.drawImage(lava , (((~~envN[0]) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
+          envN[0] += 1.0025;
+        } else if (blocksAfter[i].id == 'W') {
+          blocksAfter[i].posision = envN[1];
+          ctx.drawImage(water , ((((~~envN[1])) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
+          envN[1] += 1.0025;
         } else if (blocksAfter[i].id == 'D'){
           ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         } else if (blocksAfter[i].id == 'C'){
