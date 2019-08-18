@@ -6,12 +6,13 @@ const bulletRules = () => {
     if ((map[i][j] == 'G') || (map[i][j] == 'g')) {
       if (map[i][j] == 'g') {
         map[i][j] = ' ';
-        stringChange(i,j,' ');
+        // stringChange(i,j,' ');
         blocks[i * map[0].length + j].id = ' '
         BlockChange(bullets[k],bullets[k].x,bullets[k].y,'g',' ',1);
-        bullets.splice(k , 1);
-        // blocksAfter[i * map[0].length + j].id = ' ' // fix it!
       }
+      bullets.splice(k , 1);
+        // blocksAfter[i * map[0].length + j].id = ' ' // fix it!
+
     } else {
       for (var u = 0; u < characters.length; u++) {
         if ((characters[u].x <= bullets[k].x) && (characters[u].x + characters[u].width >= bullets[k].x) && (characters[u].y <= bullets[k].y) && (characters[u].y + characters[u].height >= bullets[k].y)){
