@@ -4,5 +4,5 @@ const End = () => {
   ctx.strokeStyle = "white";
   ctx.font = 'bold 25px sans-serif';
   ctx.strokeText("Игра пройдена", 20, 45);
-  End();
+  // End();
 }
