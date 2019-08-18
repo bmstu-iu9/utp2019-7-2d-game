@@ -1,16 +1,14 @@
 'use strict';
 
 
-const indi = new HeroClass(hero); // создание и инициализация объекта главный герой
+let indi = new HeroClass(hero); // создание и инициализация объекта главный герой
 // var bot = new BotClass(1);
 //indi - имя главного героя
 indi.width = 32;
 indi.height = 64;
 
-const curLevel = new LevelClass(1); //текущий уровень
+let curLevel = new LevelClass(lvl); //текущий уровень
 botGenerate();
-let nextLevel = 0;
-let T = 0;
 /* Парсинг уровня из map.js */
 characters.push(indi);
 // map[0].replace('G','F');

@@ -46,8 +46,8 @@ let minusPressed = false;
 let lvl = 1;
 
 //Список статик-блоков блоков
-const blocks = []; //отрисовка до героя
-const blocksAfter = []; //отрисовка после героя
-const bots = []; // список ботов
-const memory = []; //память траектории Инди (пока тестится)
-const characters = [];
+let blocks = []; //отрисовка до героя
+let blocksAfter = []; //отрисовка после героя
+let bots = []; // список ботов
+let memory = []; //память траектории Инди (пока тестится)
+let characters = [];

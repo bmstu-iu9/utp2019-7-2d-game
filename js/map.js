@@ -54,7 +54,7 @@ var map2 = [
     'GGGGGG    GGGGGG        FFF  FFF  FFF  GG                                      G',
     'G      F F   G           FFF  FFF  FFF GG                                      G',
     'G       F        G      FFF  FFF  FFF  GGG                              F      G',
-    'G      F F             FFF  FFF  FFF   GG                               F      G',
+    'G  D   F F             FFF  FFF  FFF   GG                               F      G',
     'GGGGGGGgggGGGGGGGGGGGGFFF GGGG  FFF    gg   GG                       F  F  F   G',
     'GGGGGGGgggGGGGGGGGGGGGFF  GGGGGGFF     gg                             F F F    G',
     'GGGGGGGgggGGGGGGGGGGGGSSSSGGGGGGGGGGGGGGG                              FFF     G',
