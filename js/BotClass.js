@@ -1,7 +1,7 @@
 class BotClass {
   constructor(n, x, y) {
     this.hero = new Image();
-    this.number = n; //тип
+    this.id = n; //тип
 
     this.width = 32;
     this.height = 64;

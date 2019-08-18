@@ -59,8 +59,17 @@ const draw = () => {
       if (!freeCamera) {
         run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
         bulletRules();
-        botRules1(); //Жизнь ботов (все вопросы и предложения к Александру Л)
-        botRules2();
+        // for (var i = 0; i < deathlist.length; i++) {
+        //   for (var j = 0; j < bots.length; j++) {
+        //     if ((bots[j].x == deathlist[i].x) && (bots[j].y == deathlist[i].y) )
+        //     bots.splice(j,1);
+        //   }
+        // }
+        for (var i = 0; i < characters.length; i++) {
+          botRules(characters[i]);
+        }
+        // botRules1(); //Жизнь ботов (все вопросы и предложения к Александру Л)
+        // botRules2();
 
       }else {
         freeCameraRule();

@@ -1,5 +1,4 @@
-const botRules2 = () => {
-  bot = bots[1];
+const botRules2 = (bot) => {
   // photo = new Image();
   // switch (bot.number) {
   //   case 1:
