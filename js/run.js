@@ -1,4 +1,4 @@
-const run = (DD) => {
+const run = () => {
     TestL = new Image();
     TestR = new Image();
     TestL.src = "images/hero/HeroL.png";
@@ -16,34 +16,22 @@ const run = (DD) => {
       }
     }
     Blocks();
-    // if (InBlock(indi,'g')) {  //проверка на Фейк-блок и его последующее уничтожениеж
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 16),'g' ,' ' , 1); //смена по коду   0 - до , 1 - после
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'g' ,' ' , 1); //смена по коду  0 - до , 1 - после
-    // }
-    //
-    //
-    //
-    // if (InBlock(indi,'s')) {  //проверка на Фейк-блок и его последующее уничтожениеж
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 16),'s' ,'S' , 1); //смена по коду   0 - до , 1 - после
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'s' ,'S' , 1); //смена по коду  0 - до , 1 - после
-    // }
-    //
-    // if (InBlock(indi,'C')) {  //проверка на Фейк-блок и его последующее уничтожениеж
-    //   BlockChange(indi ,(indi.x + 16) ,(indi.y + 16),'C' ,' ' , 0); //смена по коду   0 - до , 1 - после
-    //   BlockChange(indi ,(indi.x + 16) ,(indi.y + 48),'C' ,' ' , 0); //смена по коду  0 - до , 1 - после
-    //   curLevel.currentCoins ++;
-    // }
+   
 
-    if (spacePressed && OnGround(indi) ) {
+    if ( spacePressed && OnGround(indi) && (indi.shootTime <= 0)  ) {
       indi.shootTime = 2.15;
+      shoot(indi);
+      if (indi.orientation == 'r') { //кто-нибудь чекните этот баг (комментните эту строку)
+        indi.x = indi.x - 2;  //кто-нибудь чекните этот баг (комментните эту строку)
+      }else { //кто-нибудь чекните этот баг (комментните эту строку)
+        indi.x = indi.x + 2;  //кто-нибудь чекните этот баг (комментните эту строку)
+      } //кто-нибудь чекните этот баг (комментните эту строку)
     }
 
-    // if (InBlock(indi,'C')) {  //проверка на монету и его последующее уничтожениеж
-    //   BlockChange((indi.x + 16) ,(indi.y + 16),' ' , 1); //смена по коду  0 - до , 1 - после
-    //   BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1); //смена по коду  0 - до , 1 - после
-    // }
-
-    if (indi.shootTime >= 0) {
+    if (indi.shootTime > 0) {
+      if (indi.shootTime < 2.15) {
+        indi.shoot = true;
+      }
       if (indi.orientation == 'r') {
         indi.hero.src = "images/hero/shootAnimR.png";
       }else {
@@ -51,8 +39,9 @@ const run = (DD) => {
       }
       ctx.drawImage(indi.hero , (((~~indi.shootTime) * 44) % 132) ,0 ,44 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 ); // анимация бега
       indi.shootTime -= 0.01;
-    }else {
-
+    } else {
+      indi.shootTime = 0;
+      // indi.shoot = true;
       //Ждем разверток для анимации,пока что так
       if(rightPressed && leftPressed) {
         if (indi.orientation == 'r') {
@@ -163,6 +152,7 @@ const run = (DD) => {
       }
 
   }
+
 
 
     indi.y -= indi.heroDY; //гравитационное смещение
