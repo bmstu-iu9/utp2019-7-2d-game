@@ -5,8 +5,7 @@ const bulletRules = () => {
     let stop = false;
     if ((map[i][j] == 'G') || (map[i][j] == 'g')) {
       if (map[i][j] == 'g') {
-        map[i][j] = ' ';
-        // stringChange(i,j,' ');
+        stringChange(i,j," ");
         blocks[i * map[0].length + j].id = ' '
         BlockChange(bullets[k],bullets[k].x,bullets[k].y,'g',' ',1);
       }
