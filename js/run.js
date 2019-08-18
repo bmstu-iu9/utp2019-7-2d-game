@@ -21,6 +21,12 @@ const run = (DD) => {
       BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1); //смена по коду  0 - до , 1 - после
     }
 
+
+    if (InBlock(indi,'C')) {  //проверка на монету и его последующее уничтожениеж
+      BlockChange((indi.x + 16) ,(indi.y + 16),' ' , 1); //смена по коду  0 - до , 1 - после
+      BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1); //смена по коду  0 - до , 1 - после
+    }
+
     //Ждем разверток для анимации,пока что так
     if(rightPressed && leftPressed) {
       // ctx.drawImage(indi.hero ,800 ,296 ,160 ,200 , indi.x , indi.y , 80 , 80);

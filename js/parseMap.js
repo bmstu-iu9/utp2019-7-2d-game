@@ -33,6 +33,12 @@ const parseMap = (map) => {
             } else if (map[i][j] == 'C') {
               var o = new MapObject('C', i, j);
               curLevel.allCoins++;
+              blocksAfter.push(o);
+              continue;
+            } else if (map[i][j] == 'D') {  //дверь, выход
+              var o = new MapObject('D', i, j);
+              blocksAfter.push(o);
+              continue;
             } else if (map[i][j] == 'g') { // Фейк-блок
               var o = new MapObject('g', i, j);
               blocksAfter.push(o);
