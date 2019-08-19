@@ -9,6 +9,8 @@ const hero = new Image();
 const spikes = new Image();
 const fire = new Image();
 const coin = new Image();
+const lava = new Image();
+const water = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
@@ -26,6 +28,10 @@ let FF = new Array(2); //глобальное смещение камеры !!(�
   FF[0] =  0;
   FF[1] =  0;
 
+let envN = new Array(2); //глобальное смещение камеры !!(лучше не трогать)!!
+  envN[0] =  0;
+  envN[1] =  0;
+
 /* Источники картинок */
 gnd.src = "images/environment/ground.png";
 bg.src = "images/environment/back.png";
@@ -33,6 +39,8 @@ fire.src = "images/environment/fire.png"
 spikes.src = "images/environment/spikes.png";
 hero.src = "images/hero/HeroR.png"; //Начальное положение в покое
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
+lava.src = "images/environment/lavaf.png"
+water.src = "images/environment/waterf.png"
 
 /* Нажатия клавиш */
 let rightPressed = false;
@@ -46,8 +54,18 @@ let minusPressed = false;
 let lvl = 1;
 
 //Список статик-блоков блоков
+// const blocks = []; //отрисовка до героя
+// const blocksAfter = []; //отрисовка после героя
+// const bots = []; // список ботов
+// const memory = []; //память траектории Инди (пока тестится)
+// const characters = [];
+// const bullets = [];
+// const deathlist = [];
+
 let blocks = []; //отрисовка до героя
 let blocksAfter = []; //отрисовка после героя
 let bots = []; // список ботов
 let memory = []; //память траектории Инди (пока тестится)
 let characters = [];
+let bullets = [];
+let deathlist = [];
