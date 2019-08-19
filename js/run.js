@@ -16,32 +16,10 @@ const run = (DD) => {
       }
     }
     Blocks();
-    // if (InBlock(indi,'g')) {  //проверка на Фейк-блок и его последующее уничтожениеж
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 16),'g' ,' ' , 1); //смена по коду   0 - до , 1 - после
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'g' ,' ' , 1); //смена по коду  0 - до , 1 - после
-    // }
-    //
-    //
-    //
-    // if (InBlock(indi,'s')) {  //проверка на Фейк-блок и его последующее уничтожениеж
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 16),'s' ,'S' , 1); //смена по коду   0 - до , 1 - после
-    //   BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'s' ,'S' , 1); //смена по коду  0 - до , 1 - после
-    // }
-    //
-    // if (InBlock(indi,'C')) {  //проверка на Фейк-блок и его последующее уничтожениеж
-    //   BlockChange(indi ,(indi.x + 16) ,(indi.y + 16),'C' ,' ' , 0); //смена по коду   0 - до , 1 - после
-    //   BlockChange(indi ,(indi.x + 16) ,(indi.y + 48),'C' ,' ' , 0); //смена по коду  0 - до , 1 - после
-    //   curLevel.currentCoins ++;
-    // }
 
     if (spacePressed && OnGround(indi) ) {
       indi.shootTime = 2.15;
     }
-
-    // if (InBlock(indi,'C')) {  //проверка на монету и его последующее уничтожениеж
-    //   BlockChange((indi.x + 16) ,(indi.y + 16),' ' , 1); //смена по коду  0 - до , 1 - после
-    //   BlockChange((indi.x + 16) ,(indi.y + 48),' ' , 1); //смена по коду  0 - до , 1 - после
-    // }
 
     if (indi.shootTime >= 0) {
       if (indi.orientation == 'r') {
