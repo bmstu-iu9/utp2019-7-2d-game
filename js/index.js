@@ -28,9 +28,11 @@ const draw = () => {
               ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
           else if (blocks[i].id == 'F') {
-
               ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
+        //  else if (blocks[i].id == ' ') {
+        //      ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        //  }
       }
       if (!freeCamera) {
         run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
