@@ -11,6 +11,7 @@ const fire = new Image();
 const coin = new Image();
 const lava = new Image();
 const water = new Image();
+const background = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
@@ -41,6 +42,7 @@ hero.src = "images/hero/HeroR.png"; //Начальное положение в �
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
 lava.src = "images/environment/lavaf.png"
 water.src = "images/environment/waterf.png"
+background.src = "images/environment/background.png";
 
 /* Нажатия клавиш */
 let rightPressed = false;

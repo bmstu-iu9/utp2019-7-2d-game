@@ -28,8 +28,10 @@ const draw = () => {
               ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
           else if (blocks[i].id == 'F') {
-
               ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          }
+          else if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
+              ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
       if (!freeCamera) {
