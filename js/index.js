@@ -8,6 +8,8 @@ indi.width = 32;
 indi.height = 64;
 indi.shootTime = 0.0;
 
+let doorLock = new LockClass(lockArr[lvl]);
+
 let curLevel = new LevelClass(lvl); //текущий уровень
 botGenerate();
 /* Парсинг уровня из map.js */
@@ -81,13 +83,16 @@ const draw = () => {
       ctx.strokeText("Level: "+lvl+"   Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins+"  Hp: "+curLevel.hp, 40, 65);
 
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
-        if (lvl < maps.length-1) {
-          NextLevel();
-        } else {
-          End();
-        }
-
+        Lock();
+        // if (curLevel.doorOpen) {
+        //   if (lvl < maps.length-1) {
+        //     NextLevel();
+        //   } else {
+        //     End();
+        //     }
+        // }
       }
+
 }
 
 
