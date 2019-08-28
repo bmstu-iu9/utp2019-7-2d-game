@@ -30,36 +30,6 @@ function keyDownHandler (e) {
   case 189:
   minusPressed = true;
   break
-  case 48:
-  zeroPressed = true;
-  break
-  case 49:
-  onePressed = true;
-  break
-  case 50:
-  twoPressed = true;
-  break
-  case 51:
-  threePressed = true;
-  break
-  case 52:
-  fourPressed = true;
-  break
-  case 53:
-  fivePressed = true;
-  break
-  case 54:
-  sixPressed = true;
-  break
-  case 55:
-  sevenPressed = true;
-  break
-  case 56:
-  eightPressed = true;
-  break
-  case 57:
-  ninePressed = true;
-  break
   }
 }
 
@@ -86,36 +56,6 @@ function keyUpHandler (e) {
   break
   case 189:
   minusPressed = false;
-  break
-  case 48:
-  zeroPressed = false;
-  break;
-  case 49:
-  onePressed = false;
-  break
-  case 50:
-  twoPressed = false;
-  break
-  case 51:
-  threePressed = false;
-  break
-  case 52:
-  fourPressed = false;
-  break
-  case 53:
-  fivePressed = false;
-  break
-  case 54:
-  sixPressed = false;
-  break
-  case 55:
-  sevenPressed = false;
-  break
-  case 56:
-  eightPressed = false;
-  break
-  case 57:
-  ninePressed = false;
   break
 
   // case 67:

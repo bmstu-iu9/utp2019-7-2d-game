@@ -13,6 +13,7 @@ const lava = new Image();
 const water = new Image();
 const background = new Image();
 const MGBG = new Image();
+const darkness = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
@@ -44,6 +45,9 @@ coin.src = "images/coin.png";  //пока не нарисована монета
 lava.src = "images/environment/lavaf.png"
 water.src = "images/environment/waterf.png"
 background.src = "images/environment/background.png";
+MGBG.src = "images/environment/minigame.png";
+darkness.src = "images/environment/BG2.png";
+
 
 /* Нажатия клавиш */
 let rightPressed = false;
