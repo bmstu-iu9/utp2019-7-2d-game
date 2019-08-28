@@ -20,6 +20,17 @@ const RestartLevel = () => {
   freeCamera = false;
   plusPressed = false;
   minusPressed = false;
+  zeroPressed = false;
+  onePressed = false;
+  twoPressed = false;
+  threePressed = false;
+  fourPressed = false;
+  fivePressed = false;
+  sixPressed = false;
+  sevenPressed = false;
+  eightPressed = false;
+  ninePressed = false;
+
 
   //Список статик-блоков блоков
   blocks = []; //отрисовка до героя
@@ -27,6 +38,8 @@ const RestartLevel = () => {
   bots = []; // список ботов
   memory = []; //память траектории Инди (пока тестится)
   characters = [];
+  bullets = [];
+  deathlist = [];
 
   indi = new HeroClass(hero); // создание и инициализация объекта главный герой
   // var bot = new BotClass(1);
@@ -35,6 +48,7 @@ const RestartLevel = () => {
   indi.height = 64;
 
   curLevel = new LevelClass(lvl); //текущий уровень
+  doorLock = new LockClass(lockArr[lvl]);
   botGenerate();
   /* Парсинг уровня из map.js */
   characters.push(indi);
