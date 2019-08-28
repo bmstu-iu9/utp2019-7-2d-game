@@ -12,6 +12,7 @@ const coin = new Image();
 const lava = new Image();
 const water = new Image();
 const background = new Image();
+const MGBG = new Image();
 // var Level = 0; // номер уровня(пока не используется)
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
@@ -53,6 +54,17 @@ let spacePressed = false;
 let freeCamera = false;
 let plusPressed = false;
 let minusPressed = false;
+let zeroPressed = false;
+let onePressed = false;
+let twoPressed = false;
+let threePressed = false;
+let fourPressed = false;
+let fivePressed = false;
+let sixPressed = false;
+let sevenPressed = false;
+let eightPressed = false;
+let ninePressed = false;
+
 let lvl = 1;
 
 //Список статик-блоков блоков
@@ -71,3 +83,5 @@ let memory = []; //память траектории Инди (пока тест
 let characters = [];
 let bullets = [];
 let deathlist = [];
+
+// все что должно очищаться в начале каждого уровня должно быть добавлено в RestartLevel()

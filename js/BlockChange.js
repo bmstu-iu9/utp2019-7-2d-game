@@ -18,9 +18,10 @@ const BlockChange = (Object,ii,jj,WP,WN,code) => {
   stringChange(i,j,WN);
   for (let k = 0; k < arr.length; k++) {
     if ((arr[k].i ==  iT) && (arr[k].j ==  jT) && (arr[k].id == WP)) { //нахождение данного
-      
+      if (arr[k].id == 'C') {
+        curLevel.currentCoins++;
+      }
       arr[k].id = WN; //смена id
-
     }
   }
 
