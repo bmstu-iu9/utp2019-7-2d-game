@@ -15,7 +15,7 @@ class bulletClass {
     this.y = y;
     this.speed = speed;
     this.power = power;
-    this.xp = 100;
+    this.hp = 100;
 
   }
 

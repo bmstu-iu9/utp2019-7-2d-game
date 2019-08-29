@@ -1,12 +1,9 @@
 'use strict';
 
 
-let indi = new HeroClass(hero); // создание и инициализация объекта главный герой
+let indi = new Hero(hero); // создание и инициализация объекта главный герой
 // var bot = new BotClass(1);
 //indi - имя главного героя
-indi.width = 32;
-indi.height = 64;
-indi.shootTime = 0.0;
 
 let doorLock = new LockClass(lockArr[lvl]);
 
