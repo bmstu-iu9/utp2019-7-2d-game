@@ -98,7 +98,7 @@ const drawHero = () => {
       //Если нажат space и персонаж на земле то гравитация
       //равна 5 (новый вариант 1.6)
       if (upPressed && OnGround(indi) && !OnCeil(indi)) {
-        indi.heroDY = 6;
+        indi.heroDY = 7;
         indi.airTime = 0; // начало прыжка
       }
 
