@@ -1,4 +1,4 @@
-const Blocks = (DD) => {
+const blockCheck = () => {
   if (InBlock(indi,'g')) {  //проверка на Фейк-блок и его последующее уничтожениеж
     BlockChange(indi , (indi.x + 16) ,(indi.y + 16),'g' ,' ' , 1); //смена по коду   0 - до , 1 - после
     BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'g' ,' ' , 1); //смена по коду  0 - до , 1 - после

@@ -12,7 +12,7 @@ class BotClass {
     this.dX = 0;
     this.dY = 0;
     this.dN = 0;
-    this.xp = 200;
+    this.hp = 200;
 
 
     /* Гравитация бота */
@@ -30,6 +30,7 @@ class BotClass {
     this.fireY = 20;
     this.shootTime = 0;
     this.firePower = 100
+<<<<<<< HEAD
     this.fireSpeed = 0.1;
 
 
@@ -48,6 +49,11 @@ class BotClass {
         this.deathL.src = "images/enemies/mummy/mummyDeathR.png";
         break;
     }
+=======
+    this.fireSpeed = 1;
+    this.speed = 2;
+
+>>>>>>> 1ae29fdba3a4c94fd9781eac3c21553e7396c284
     // const stat = () => {
     //   if (this.orientation == "r") {
     //     this.hero.src = "images/hero/HeroR.png" ;

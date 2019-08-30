@@ -1,12 +1,9 @@
 'use strict';
 
 
-let indi = new HeroClass(hero); // создание и инициализация объекта главный герой
+let indi = new Hero(hero); // создание и инициализация объекта главный герой
 // var bot = new BotClass(1);
 //indi - имя главного героя
-indi.width = 32;
-indi.height = 64;
-indi.shootTime = 0.0;
 
 let doorLock = new LockClass(lockArr[lvl]);
 
@@ -34,8 +31,13 @@ const draw = () => {
               ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
+<<<<<<< HEAD
       if (!freeCamera && !InBlock(indi,'D')) {
         run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+=======
+      if (!freeCamera) {
+        drawHero(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+>>>>>>> 1ae29fdba3a4c94fd9781eac3c21553e7396c284
         bulletRules();
         // for (var i = 0; i < deathlist.length; i++) {
         //   for (var j = 0; j < bots.length; j++) {
@@ -94,11 +96,16 @@ const draw = () => {
         //     }
         // }
       }
+<<<<<<< HEAD
       death();
+=======
+      requestAnimationFrame(draw);
+>>>>>>> 1ae29fdba3a4c94fd9781eac3c21553e7396c284
 
 }
 
 
 //Отрисовка динамических объектов в игре
 //Частота обновления 1мс
-var interval = setInterval(draw , 1);
+//var interval = setInterval(draw , 1);
+draw();
