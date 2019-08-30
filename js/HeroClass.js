@@ -23,7 +23,7 @@ class Hero {
     this.firePower = 100
     this.fireSpeed = 1;
     this.shoot = true;
-    this.speed = 1;
+    this.speed = 4;
   }
 
 }

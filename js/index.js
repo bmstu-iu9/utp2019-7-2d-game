@@ -32,7 +32,7 @@ const draw = () => {
           }
       }
       if (!freeCamera) {
-        run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+        drawHero(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
         bulletRules();
         // for (var i = 0; i < deathlist.length; i++) {
         //   for (var j = 0; j < bots.length; j++) {
@@ -89,10 +89,12 @@ const draw = () => {
         //     }
         // }
       }
+      requestAnimationFrame(draw);
 
 }
 
 
 //Отрисовка динамических объектов в игре
 //Частота обновления 1мс
-var interval = setInterval(draw , 1);
+//var interval = setInterval(draw , 1);
+draw();

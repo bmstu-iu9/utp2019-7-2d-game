@@ -1,10 +1,10 @@
-const run = () => {
+const drawHero = () => {
     if (!OnGround(indi)) { //проверка на нахождение в воздухе
       if (OnCeil(indi) && (indi.heroDY >= 0)) {
-        indi.heroDY = -0.02;
+        indi.heroDY = -0.25;
       }
       indi.airTime ++;
-      indi.heroDY -= 0.02;
+      indi.heroDY -= 0.25;
     } else {
       indi.airTime = 0;
       if (indi.heroDY < 0) {
@@ -31,7 +31,7 @@ const run = () => {
         indi.texture.src = "images/hero/shootAnimL.png";
       }
       ctx.drawImage(indi.texture, (((~~indi.shootTime)*44)%132), 0, 44, 88, NN[0]*(indi.x + DD[0] + FF[0]), NN[1]*(indi.y + DD[1] + FF[1]), NN[0]*32, NN[1]*64); // анимация бега
-      indi.shootTime -= 0.01;
+      indi.shootTime -= 0.1;
     } else {
       indi.shootTime = 0;
       if(rightPressed && leftPressed) {
@@ -52,10 +52,10 @@ const run = () => {
               indi.texture.src = "images/hero/fallAnimR.png";
               ctx.drawImage(indi.texture, (((~~indi.posision)*66)%264), 0, 66, 88, NN[0]*(indi.x + DD[0] + FF[0]), NN[1]*(indi.y + DD[1] + FF[1]), NN[0]*44, NN[1]*64); // анимация прыжка
             }
-            indi.posision += 0.03; // смена картинок для бега
+            indi.posision += 0.13; // смена картинок для бега
             indi.x += indi.speed;
             if ((indi.x + DD[0] + FF[0]) >= 1280 * 3 / 4 / NN[0]) {
-              backGroundParse(1,0,DD); //сдвиг фона
+              backGroundParse(indi.speed,0,DD); //сдвиг фона
             }
             indi.orientation = "r"; // смена ориентации
           } else {
@@ -77,10 +77,10 @@ const run = () => {
               indi.texture.src = "images/hero/fallAnimL.png";
               ctx.drawImage(indi.texture , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
             }
-            indi.posision += 0.03; // смена картинок для бега
+            indi.posision += 0.13; // смена картинок для бега
             indi.x -= indi.speed;;
             if ((indi.x+ DD[0] + FF[0]) <= canvas.width / 4 / NN[0]) {
-              backGroundParse(-1,0,DD);
+              backGroundParse(-indi.speed,0,DD);
             }
             indi.orientation = "l"; // смена ориентаци;
           } else {
@@ -98,7 +98,7 @@ const run = () => {
       //Если нажат space и персонаж на земле то гравитация
       //равна 5 (новый вариант 1.6)
       if (upPressed && OnGround(indi) && !OnCeil(indi)) {
-        indi.heroDY = 2;
+        indi.heroDY = 6;
         indi.airTime = 0; // начало прыжка
       }
 
@@ -112,7 +112,7 @@ const run = () => {
             indi.texture.src = "images/hero/fallAnimR.png";
             ctx.drawImage(indi.texture , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
             if (indi.heroDY <= -1.5) {
-              indi.posision += 0.03
+              indi.posision += 0.13;
             }
           }
         } else {
@@ -123,7 +123,7 @@ const run = () => {
             indi.texture.src = "images/hero/fallAnimL.png";
             ctx.drawImage(indi.texture, (((~~indi.posision) * 66) % 264), 0, 66, 88, NN[0]*(indi.x + DD[0] + FF[0]), NN[1]*(indi.y + DD[1] + FF[1]), NN[0]*44, NN[1]*64);
             if (indi.heroDY <= -1.5) {
-              indi.posision += 0.03
+              indi.posision += 0.13;
             }
           }
         }
