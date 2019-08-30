@@ -21,19 +21,19 @@ const botRules1 = (bot) => {
   const moveX = (b,d) => {
     b.orientation = d;
     if (b.orientation == 'l') {
-      b.x -= 0.3;
-      b.dX = - 0.3;
+      b.x -= b.speed;
+      b.dX = - b.speed;
     } else {
-      b.x += 0.3;
-      b.dX = 0.3;
+      b.x += b.speed;
+      b.dX = b.speed;
     }
   }
   // const moveR = (b) => {
-  //   b.x += 0.3;
+  //   b.x += b.speed;
   // }
   const moveU = (b) => {
     if (OnGround(b) && !OnCeil(b)) {
-      b.heroDY = 2;
+      b.heroDY = 6;
     }
   }
   const moveD = (b) => {
@@ -42,7 +42,7 @@ const botRules1 = (bot) => {
     }
     b.y -= b.heroDY;
     if (! OnGround(b)) {
-      b.heroDY -= 0.02;
+      b.heroDY -= 0.25;
     } else {
       b.heroDY = 0;
     }
@@ -88,19 +88,19 @@ const Draw = (bot) => {
   } else if ((bot.orientation == 'l')  && (bot.dY != 0)) {
     bot.hero.src = "images/hero/fallAnimL.png";
     ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
-    bot.posision += 0.03;
+    bot.posision += 0.13;
   } else if ((bot.orientation == 'r')  && (bot.dY != 0)) {
     bot.hero.src = "images/hero/fallAnimR.png";
     ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
-    bot.posision += 0.03;
+    bot.posision += 0.13;
   }  else if ((bot.orientation == 'l' ) && (bot.dX != 0) && (bot.dY == 0)) {
     bot.hero.src = "images/hero/runAnimL.png";
-    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 396) ,0 ,66 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.03;
-    bot.posision += 0.03;
+    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 396) ,0 ,66 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.13;
+    bot.posision += 0.13;
   } else if ((bot.orientation == 'r' ) && (bot.dX != 0) && (bot.dY == 0)) {
     bot.hero.src = "images/hero/runAnimR.png";
-    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 396) ,0 ,66 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.03;
-    bot.posision += 0.03;
+    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 396) ,0 ,66 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.13;
+    bot.posision += 0.13;
   }
 
 }

@@ -30,7 +30,9 @@ class BotClass {
     this.fireY = 20;
     this.shootTime = 0;
     this.firePower = 100
-    this.fireSpeed = 0.1;
+    this.fireSpeed = 1;
+    this.speed = 2;
+
     // const stat = () => {
     //   if (this.orientation == "r") {
     //     this.hero.src = "images/hero/HeroR.png" ;
