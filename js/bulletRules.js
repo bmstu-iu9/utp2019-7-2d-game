@@ -12,19 +12,19 @@ const bulletRules = () => {
       bullets.splice(k , 1);
     }
 
-  
+
     for (var u = 0; u < characters.length; u++) {
       if (bullets[k] != undefined){
-        if ((characters[u].x <= bullets[k].x) && (characters[u].x + characters[u].width >= bullets[k].x) && (characters[u].y <= bullets[k].y) && (characters[u].y + characters[u].height >= bullets[k].y)) {
-            let xp = characters[u].xp;
-            characters[u].xp -= bullets[k].power;
-            bullets[k].xp -= xp;
-            if (characters[u].xp <= 0) {
+        if ((characters[u].x <= bullets[k].x) && (characters[u].x + characters[u].width >= bullets[k].x) && (characters[u].y <= bullets[k].y) && (characters[u].y + characters[u].height >= bullets[k].y)){
+            let hp = characters[u].hp;
+            characters[u].hp -= bullets[k].power;
+            bullets[k].hp -= hp;
+            if (characters[u].hp <= 0) {
               deathlist.push(characters[u]);
               characters.splice(u,1);
             }
           }
-            if (bullets[k].xp <= 0) {
+            if (bullets[k].hp <= 0) {
               bullets.splice(k , 1);
             }
           }

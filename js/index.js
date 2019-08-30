@@ -31,9 +31,8 @@ const draw = () => {
               ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
-      if (!freeCamera && !InBlock(indi,'D')) {
-        run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
-
+      if (!freeCamera) {
+        drawHero(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
         bulletRules();
         // for (var i = 0; i < deathlist.length; i++) {
         //   for (var j = 0; j < bots.length; j++) {
@@ -48,9 +47,7 @@ const draw = () => {
         // botRules2();
 
       }else {
-        if (freeCamera) {
-          freeCameraRule();
-        }
+        freeCameraRule();
       }
 
       // поздняя отрисовка блоков
@@ -80,7 +77,7 @@ const draw = () => {
 
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
-      ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + curLevel.hp, 40, 65);
+      ctx.strokeText("Level: "+lvl+"   Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins+"  Hp: "+curLevel.hp, 40, 65);
 
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
         Lock();
@@ -93,7 +90,7 @@ const draw = () => {
         // }
       }
       death();
-      // requestAnimationFrame(draw);
+      requestAnimationFrame(draw);
 
 }
 

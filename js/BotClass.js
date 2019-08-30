@@ -12,7 +12,7 @@ class BotClass {
     this.dX = 0;
     this.dY = 0;
     this.dN = 0;
-    this.xp = 200;
+    this.hp = 200;
 
 
     /* Гравитация бота */
@@ -27,10 +27,11 @@ class BotClass {
     this.airTime = 0; //время в воздухe
 
 
-
     this.fireY = 20;
     this.shootTime = 0;
     this.firePower = 100
+    this.speed = 1;
+
     this.fireSpeed = 0.1;
 
 
