@@ -31,6 +31,9 @@ function keyDownHandler (e) {
   minusPressed = true;
   break
   }
+  if ((e.which >= 48) && (e.which <= 57)){
+    numbers[e.which - 48] = true;
+  }
 }
 
 //Функция для второго события keyup
@@ -61,5 +64,8 @@ function keyUpHandler (e) {
   // case 67:
   // freeCamera = false;
   // break;
+  }
+  if ((e.which >= 48) && (e.which <= 57)){
+    numbers[e.which - 48] = false;
   }
 }

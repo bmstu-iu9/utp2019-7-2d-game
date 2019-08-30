@@ -1,3 +1,4 @@
+
 const run = () => {
     TestL = new Image();
     TestR = new Image();
@@ -16,8 +17,8 @@ const run = () => {
       }
     }
     Blocks();
-   
 
+ 
     if ( spacePressed && OnGround(indi) && (indi.shootTime <= 0)  ) {
       indi.shootTime = 2.15;
       shoot(indi);

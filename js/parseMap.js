@@ -36,7 +36,7 @@ const parseMap = (map) => {
             } else if (map[i][j] == 'a') {
               var o = new MapObject('a', i, j);
               blocksAfter.push(o);
-              var o = new MapObject('a', i, j);
+              var o = new MapObject(' ', i, j);
               blocks.push(o);
               continue;
             }else if (map[i][j] == 'F') {
@@ -85,7 +85,7 @@ const parseMap = (map) => {
               // FF[1] = - indi.y *  NN[1] / 4;
               FF[0] = - indi.x + (canvas.width / NN[0] / 2);
               FF[1] = - indi.y + (canvas.height / NN[1] / 2);
-              var o = new MapObject('@', i, j);
+              var o = new MapObject(' ', i, j);
             }
             blocks.push(o);
         }

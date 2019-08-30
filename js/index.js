@@ -1,12 +1,11 @@
 'use strict';
 
 
-let indi = new HeroClass(hero); // создание и инициализация объекта главный герой
+let indi = new Hero(hero); // создание и инициализация объекта главный герой
 // var bot = new BotClass(1);
 //indi - имя главного героя
-indi.width = 32;
-indi.height = 64;
-indi.shootTime = 0.0;
+
+let doorLock = new LockClass(lockArr[lvl]);
 
 let curLevel = new LevelClass(lvl); //текущий уровень
 botGenerate();
@@ -26,14 +25,15 @@ const draw = () => {
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
               ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
-          }
-          else if (blocks[i].id == 'F') {
-
+          } else if (blocks[i].id == 'F') {
               ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          } else if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
+              ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
-      if (!freeCamera) {
+      if (!freeCamera && !InBlock(indi,'D')) {
         run(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
+
         bulletRules();
         // for (var i = 0; i < deathlist.length; i++) {
         //   for (var j = 0; j < bots.length; j++) {
@@ -48,7 +48,9 @@ const draw = () => {
         // botRules2();
 
       }else {
-        freeCameraRule();
+        if (freeCamera) {
+          freeCameraRule();
+        }
       }
 
       // поздняя отрисовка блоков
@@ -78,19 +80,25 @@ const draw = () => {
 
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
-      ctx.strokeText("Level: "+lvl+"   Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins+"  Hp: "+curLevel.hp, 40, 65);
+      ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + curLevel.hp, 40, 65);
 
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
-        if (lvl < maps.length-1) {
-          NextLevel();
-        } else {
-          End();
-        }
-
+        Lock();
+        // if (curLevel.doorOpen) {
+        //   if (lvl < maps.length-1) {
+        //     NextLevel();
+        //   } else {
+        //     End();
+        //     }
+        // }
       }
+      death();
+      // requestAnimationFrame(draw);
+
 }
 
 
 //Отрисовка динамических объектов в игре
 //Частота обновления 1мс
-var interval = setInterval(draw , 1);
+//var interval = setInterval(draw , 1);
+draw();

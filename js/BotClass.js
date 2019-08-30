@@ -27,10 +27,28 @@ class BotClass {
     this.airTime = 0; //время в воздухe
 
 
+
     this.fireY = 20;
     this.shootTime = 0;
     this.firePower = 100
     this.fireSpeed = 0.1;
+
+
+    this.deathR = new Image();
+    this.deathL = new Image();
+    this.deathposision = 0;
+
+
+    switch (n) {
+      case 1:
+        this.deathR.src = "images/enemies/mummy/mummyDeathR.png";
+        this.deathL.src = "images/enemies/mummy/mummyDeathR.png";
+        break;
+      default:
+        this.deathR.src = "images/enemies/mummy/mummyDeathR.png";
+        this.deathL.src = "images/enemies/mummy/mummyDeathR.png";
+        break;
+    }
     // const stat = () => {
     //   if (this.orientation == "r") {
     //     this.hero.src = "images/hero/HeroR.png" ;
