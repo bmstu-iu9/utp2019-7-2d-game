@@ -21,8 +21,12 @@ class Hero {
     this.fireY = 13;
     this.shootTime = 0;
     this.firePower = 100
-    this.fireSpeed = 1;
+    this.fireSpeed = 5;
     this.shoot = true;
+    this.speed = 4;
+    this.deathR = new Image();
+    this.deathL = new Image();
+    this.deathposision = 0;
     this.speed = 4;
   }
 

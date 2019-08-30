@@ -31,7 +31,7 @@ const drawHero = () => {
         indi.texture.src = "images/hero/shootAnimL.png";
       }
       ctx.drawImage(indi.texture, (((~~indi.shootTime)*44)%132), 0, 44, 88, NN[0]*(indi.x + DD[0] + FF[0]), NN[1]*(indi.y + DD[1] + FF[1]), NN[0]*32, NN[1]*64); // анимация бега
-      indi.shootTime -= 0.1;
+      indi.shootTime -= 0.05;
     } else {
       indi.shootTime = 0;
       if(rightPressed && leftPressed) {

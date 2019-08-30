@@ -1,5 +1,4 @@
-const botRules1 = (bot) => {
-  // photo = new Image();
+const botRules1 = (bot) => { // photo = new Image();
   // switch (bot.number) {
   //   case 1:
   //     photo.src = "images/enemies/bot1R.png";
@@ -80,26 +79,26 @@ const Draw = (bot) => {
   Find(bot);
   bot.dY = bot.heroDY;
   if ((bot.orientation == 'r') && (bot.dX == 0) && (bot.dY == 0)) {
-    bot.hero.src = "images/hero/HeroR.png";
+    bot.hero.src = "images/enemies/mummy/mummyR.png";
     ctx.drawImage(bot.hero,NN[0] * (bot.x + DD[0] + FF[0]) ,NN[1] * (bot.y + DD[1] + FF[1]) , NN[0] * 32, NN[1] * 64);
   } else if ((bot.orientation == 'l') && (bot.dX == 0) && (bot.dY == 0))  {
-    bot.hero.src = "images/hero/HeroL.png";
+    bot.hero.src = "images/enemies/mummy/mummyL.png";
     ctx.drawImage(bot.hero,NN[0] * (bot.x + DD[0] + FF[0]) ,NN[1] * (bot.y + DD[1] + FF[1]) , NN[0] * 32, NN[1] * 64);
   } else if ((bot.orientation == 'l')  && (bot.dY != 0)) {
-    bot.hero.src = "images/hero/fallAnimL.png";
-    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
+    bot.hero.src = "images//enemies/mummy/mummyWalkL.png";
+    ctx.drawImage(bot.hero , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
     bot.posision += 0.13;
   } else if ((bot.orientation == 'r')  && (bot.dY != 0)) {
-    bot.hero.src = "images/hero/fallAnimR.png";
-    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
+    bot.hero.src = "images//enemies/mummy/mummyWalkR.png";
+    ctx.drawImage(bot.hero , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
     bot.posision += 0.13;
   }  else if ((bot.orientation == 'l' ) && (bot.dX != 0) && (bot.dY == 0)) {
-    bot.hero.src = "images/hero/runAnimL.png";
-    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 396) ,0 ,66 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.13;
+    bot.hero.src = "images/enemies/mummy/mummyWalkL.png";
+    ctx.drawImage(bot.hero , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.03;
     bot.posision += 0.13;
   } else if ((bot.orientation == 'r' ) && (bot.dX != 0) && (bot.dY == 0)) {
-    bot.hero.src = "images/hero/runAnimR.png";
-    ctx.drawImage(bot.hero , (((~~bot.posision) * 66) % 396) ,0 ,66 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.13;
+    bot.hero.src = "images/enemies/mummy/mummyWalkR.png";
+    ctx.drawImage(bot.hero , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.03;
     bot.posision += 0.13;
   }
 

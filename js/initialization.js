@@ -58,16 +58,20 @@ let spacePressed = false;
 let freeCamera = false;
 let plusPressed = false;
 let minusPressed = false;
-let zeroPressed = false;
-let onePressed = false;
-let twoPressed = false;
-let threePressed = false;
-let fourPressed = false;
-let fivePressed = false;
-let sixPressed = false;
-let sevenPressed = false;
-let eightPressed = false;
-let ninePressed = false;
+let numbers = [];
+for (var i = 0; i < 9; i++) {
+  numbers[i] = false;
+}
+// let zeroPressed = false;
+// let onePressed = false;
+// let twoPressed = false;
+// let threePressed = false;
+// let fourPressed = false;
+// let fivePressed = false;
+// let sixPressed = false;
+// let sevenPressed = false;
+// let eightPressed = false;
+// let ninePressed = false;
 
 let lvl = 1;
 
