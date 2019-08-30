@@ -27,6 +27,11 @@ class HeroClass {
     this.firePower = 100
     this.fireSpeed = 1;
     this.shoot = true;
+
+    this.deathR = new Image();
+    this.deathL = new Image();
+    this.deathposision = 0;
+
     // const stat = () => {
     //   if (this.orientation == "r") {
     //     this.hero.src = "images/hero/HeroR.png" ;

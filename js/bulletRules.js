@@ -20,7 +20,7 @@ const bulletRules = () => {
             characters[u].xp -= bullets[k].power;
             bullets[k].xp -= xp;
             if (characters[u].xp <= 0) {
-              deathlist.push(characters[u].xp);
+              deathlist.push(characters[u]);
               characters.splice(u,1);
             }
           }

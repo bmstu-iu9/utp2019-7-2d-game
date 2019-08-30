@@ -59,6 +59,10 @@ let freeCamera = false;
 let plusPressed = false;
 let minusPressed = false;
 let zeroPressed = false;
+let numbers = [];
+for (var i = 0; i < 9; i++) {
+  numbers[i] = false;
+}
 let onePressed = false;
 let twoPressed = false;
 let threePressed = false;

@@ -11,36 +11,43 @@ const Lock = () => {
   }
   ctx.drawImage(darkness, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(MGBG, canvas.width/8 , canvas.height/8 , canvas.width/4*3 , canvas.height/4*3);
-    if (zeroPressed) {
-      doorLock.answer[doorLock.i] = 0;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (onePressed) {
-      doorLock.answer[doorLock.i] = 1;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (twoPressed) {
-      doorLock.answer[doorLock.i] = 2;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (threePressed) {
-      doorLock.answer[doorLock.i] = 3;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (fourPressed) {
-      doorLock.answer[doorLock.i] = 4;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (fivePressed) {
-      doorLock.answer[doorLock.i] = 5;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (sixPressed) {
-      doorLock.answer[doorLock.i] = 6;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (sevenPressed) {
-      doorLock.answer[doorLock.i] = 7;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (eightPressed) {
-      doorLock.answer[doorLock.i] = 8;
-      setTimeout(upI, 300, doorLock.i);
-    } else if (ninePressed) {
-      doorLock.answer[doorLock.i] = 9;
-      setTimeout(upI, 300, doorLock.i);
+    // if (zeroPressed) {
+    //   doorLock.answer[doorLock.i] = 0;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (onePressed) {
+    //   doorLock.answer[doorLock.i] = 1;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (twoPressed) {
+    //   doorLock.answer[doorLock.i] = 2;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (threePressed) {
+    //   doorLock.answer[doorLock.i] = 3;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (fourPressed) {
+    //   doorLock.answer[doorLock.i] = 4;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (fivePressed) {
+    //   doorLock.answer[doorLock.i] = 5;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (sixPressed) {
+    //   doorLock.answer[doorLock.i] = 6;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (sevenPressed) {
+    //   doorLock.answer[doorLock.i] = 7;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (eightPressed) {
+    //   doorLock.answer[doorLock.i] = 8;
+    //   setTimeout(upI, 300, doorLock.i);
+    // } else if (ninePressed) {
+    //   doorLock.answer[doorLock.i] = 9;
+    //   setTimeout(upI, 300, doorLock.i);
+    // }
+
+    for (var i = 0; i < numbers.length; i++) {
+      if (numbers[i] == true) {
+        doorLock.answer[doorLock.i] = i;
+        setTimeout(upI, 300, doorLock.i);
+      }
     }
 
     ctx.fillStyle = "white";
