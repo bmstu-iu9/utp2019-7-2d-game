@@ -31,7 +31,7 @@ const RestartLevel = () => {
   characters = []; // персонажи
   bullets = []; // пули и тд
   deathlist = []; // список смерти
-
+  chests = [];
   /* создание и инициализация объекта главный герой */
   indi = new Hero(hero);
   characters.push(indi);

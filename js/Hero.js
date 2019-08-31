@@ -30,6 +30,10 @@ class Hero {
     this.deathR = new Image(); // смерть вправо
     this.deathL = new Image(); // смерть влевво
     this.deathposision = 0; // номер анимации
+
+    /* список предметов */
+    this.inventory = [];
+    this.inventoryPosision = 0;
   }
 
 }

@@ -14,6 +14,8 @@ let curLevel = new LevelClass(lvl);
 /* вызываем генератор ботов */
 botGenerate();
 
+chestGenerate();
+
 /* Парсинг уровня из map.js */
 parseMap(maps[lvl],0,0);
 
@@ -33,6 +35,7 @@ const draw = () => {
           }
       }
 
+      chestRules();
       /* выбор между отрисовками  */
       if (!freeCamera && !InBlock(indi,'D')) {
         drawHero(); // отрисовываем персонажа
@@ -48,6 +51,8 @@ const draw = () => {
           freeCameraRule(); // свободная камера
         }
       }
+
+
 
       // поздняя отрисовка блоков
       for (var i = 0 ; i < blocksAfter.length ; i++){
@@ -77,6 +82,8 @@ const draw = () => {
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
       ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + curLevel.hp, 40, 65);
+
+      inventoryAnimation();
 
       /* вызов замка */
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
