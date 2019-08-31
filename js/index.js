@@ -1,27 +1,28 @@
 'use strict';
 
 
+/* indi - имя главного героя */
 let indi = new Hero(hero); // создание и инициализация объекта главный герой
-// var bot = new BotClass(1);
-//indi - имя главного героя
+characters.push(indi); // добавляем его в спосок персонажей
 
+/* создаем замок */
 let doorLock = new LockClass(lockArr[lvl]);
 
-let curLevel = new LevelClass(lvl); //текущий уровень
-botGenerate();
-/* Парсинг уровня из map.js */
-characters.push(indi);
-// map[0].replace('G','F');
-parseMap(maps[lvl],0,0);
+/* текущий уровень*/
+let curLevel = new LevelClass(lvl);
 
+/* вызываем генератор ботов */
+botGenerate();
+
+/* Парсинг уровня из map.js */
+parseMap(maps[lvl],0,0);
 
 /* Отрисовка динамических объектов */
 const draw = () => {
 
-      ctx.clearRect(0 , 0 , canvas.width , canvas.height);
-      ctx.drawImage(bg , 0 , 0);
+      ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
+      ctx.drawImage(bg , 0 , 0); // рисуем фон
 
-      //Блоки размером по умолчанию
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
               ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
@@ -31,24 +32,20 @@ const draw = () => {
               ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
-      if (!freeCamera && !InBlock(indi,'D')) {  
-        drawHero(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
-        bulletRules();
-        // for (var i = 0; i < deathlist.length; i++) {
-        //   for (var j = 0; j < bots.length; j++) {
-        //     if ((bots[j].x == deathlist[i].x) && (bots[j].y == deathlist[i].y) )
-        //     bots.splice(j,1);
-        //   }
-        // }
-        for (var i = 0; i < characters.length; i++) {
-          botRules(characters[i]);
+
+      /* выбор между отрисовками  */
+      if (!freeCamera && !InBlock(indi,'D')) {
+        drawHero(); // отрисовываем персонажа
+        bulletRules(); // отрисовываем пули и тд
+
+
+        for (var i = 0; i < characters.length; i++) { // проходим по массиву ботов
+          botRules(characters[i]);  // запускаем выбор поведения и отрисовку
         }
-        // botRules1(); //Жизнь ботов (все вопросы и предложения к Александру Л)
-        // botRules2();
 
       }else {
         if (freeCamera) {
-          freeCameraRule();
+          freeCameraRule(); // свободная камера
         }
       }
 
@@ -76,11 +73,12 @@ const draw = () => {
       }
 
 
-
+      /* Отрисовка надписей */
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
-      ctx.strokeText("Level: "+lvl+"   Coins: "+curLevel.currentCoins+" / "+curLevel.allCoins+"  Hp: "+curLevel.hp, 40, 65);
+      ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + curLevel.hp, 40, 65);
 
+      /* вызов замка */
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
         Lock();
         // if (curLevel.doorOpen) {
@@ -91,7 +89,11 @@ const draw = () => {
         //     }
         // }
       }
+
+      /* Отрисовка смерти */
       death();
+
+      //
       requestAnimationFrame(draw);
 
 }

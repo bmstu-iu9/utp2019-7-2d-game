@@ -1,4 +1,4 @@
 const NextLevel = () => {
-  lvl++;
-  RestartLevel();
+  lvl++; // увеличение уровня
+  RestartLevel(); // перезапускаем
 }

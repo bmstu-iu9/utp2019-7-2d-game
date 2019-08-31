@@ -20,38 +20,28 @@ const RestartLevel = () => {
   freeCamera = false;
   plusPressed = false;
   minusPressed = false;
-  zeroPressed = false;
-  onePressed = false;
-  twoPressed = false;
-  threePressed = false;
-  fourPressed = false;
-  fivePressed = false;
-  sixPressed = false;
-  sevenPressed = false;
-  eightPressed = false;
-  ninePressed = false;
-
-
-  //Список статик-блоков блоков
+  for (var i = 0; i < 9; i++) {
+    numbers[i] = false;
+  }
+  /* Список статик-блоков блоков*/
   blocks = []; //отрисовка до героя
   blocksAfter = []; //отрисовка после героя
   bots = []; // список ботов
   memory = []; //память траектории Инди (пока тестится)
-  characters = [];
-  bullets = [];
-  deathlist = [];
+  characters = []; // персонажи
+  bullets = []; // пули и тд
+  deathlist = []; // список смерти
 
-  indi = new HeroClass(hero); // создание и инициализация объекта главный герой
-  // var bot = new BotClass(1);
-  //indi - имя главного героя
-  indi.width = 32;
-  indi.height = 64;
-
-  curLevel = new LevelClass(lvl); //текущий уровень
-  doorLock = new LockClass(lockArr[lvl]);
-  botGenerate();
-  /* Парсинг уровня из map.js */
+  /* создание и инициализация объекта главный герой */
+  indi = new Hero(hero);
   characters.push(indi);
-  // map[0].replace('G','F');
+
+  curLevel = new LevelClass(lvl); // текущий уровень
+  doorLock = new LockClass(lockArr[lvl]); // создаем новый замок
+
+  /* вызываем генератор ботов */
+  botGenerate();
+
+  /* Парсинг уровня из map.js */
   parseMap(maps[lvl],0,0);
 }

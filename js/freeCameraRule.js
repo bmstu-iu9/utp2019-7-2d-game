@@ -1,4 +1,6 @@
 const freeCameraRule = () => {
+
+  /* изменение по координатам  */
   if (rightPressed) {
     FF[0] --;
   }
@@ -11,20 +13,20 @@ const freeCameraRule = () => {
   if (downPressed) {
     FF[1] --;
   }
+
+  /* изменение масштаба */
   if (plusPressed) {
     NN[0] += 0.01;
     NN[1] += 0.01;
-    // FF[0] -= 0.01 * NN[0] * 10;
-    // FF[1] -= 0.01 * NN[0] * 10;
   }
   if (minusPressed) {
     if (NN[0] > 0.01) {
       NN[0] -= 0.01;
       NN[1] -= 0.01;
-      // FF[0] += 0.3;
-      // FF[1] += 0.3;
     }
   }
+
+  /* отрисовываем персов */
   for (var i = 0; i < characters.length; i++) {
     // characters[i].stat();
     characters[i].hero.src = "images/coin.png";  // скоро будет нормальный вариант
