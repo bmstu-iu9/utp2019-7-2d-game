@@ -1,6 +1,6 @@
 'use strict';
 
-const maps = [];
+const maps = []; // массив карт
 
 const map = [
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
@@ -68,5 +68,6 @@ var map2 = [
     'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
 ];
 
+/* добавляем карты в масссив */
 maps[1] = map;
 maps[2] = map2;

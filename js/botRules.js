@@ -1,4 +1,5 @@
 const botRules = (bot) => {
+  /* поведение ботов (зависит от типа) */
   switch (bot.id) {
     case 1:
       botRules1(bot);

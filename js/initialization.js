@@ -14,12 +14,14 @@ const water = new Image();
 const background = new Image();
 const MGBG = new Image();
 const darkness = new Image();
-// var Level = 0; // номер уровня(пока не используется)
+const up = new Image();
+const down = new Image();
+const rbl = new Image();
+const life = new Image();
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
   DD[0] = 0;
   DD[1] = 0;
-
 
 
 let NN = new Array(2); // МАСШТАБ!!!! !!(лучше не трогать)!!
@@ -31,24 +33,28 @@ let FF = new Array(2); //глобальное смещение камеры !!(�
   FF[0] =  0;
   FF[1] =  0;
 
+
 let envN = new Array(2); //глобальное смещение камеры !!(лучше не трогать)!!
   envN[0] =  0;
   envN[1] =  0;
 
+
 /* Источники картинок */
-gnd.src = "images/environment/ground.png";
-bg.src = "images/environment/back.png";
-fire.src = "images/environment/fire.png"
-spikes.src = "images/environment/spikes.png";
+gnd.src = "images/environment/ground.png"; // земля
+bg.src = "images/environment/back.png"; // фон
+fire.src = "images/environment/fire.png" // факел
+spikes.src = "images/environment/spikes.png"; // пики
 hero.src = "images/hero/HeroR.png"; //Начальное положение в покое
 coin.src = "images/coin.png";  //пока не нарисована монета, будет использоваться факел
-lava.src = "images/environment/lavaf.png"
-water.src = "images/environment/waterf.png"
-background.src = "images/environment/background.png";
-MGBG.src = "images/environment/minigame.png";
-darkness.src = "images/environment/BG2.png";
-
-
+lava.src = "images/environment/lavaf.png" // лава
+water.src = "images/environment/waterf.png" // вода
+background.src = "images/environment/background.png"; // фон кирпичиками)
+MGBG.src = "images/environment/minigame.png"; //
+darkness.src = "images/environment/BG2.png"; //
+up.src = "images/inventory/up.png"
+down.src = "images/inventory/down.png"
+rbl.src = "images/inventory/redbull.png"
+life.src = "images/inventory/life1.png"
 /* Нажатия клавиш */
 let rightPressed = false;
 let leftPressed = false;
@@ -62,27 +68,9 @@ let numbers = [];
 for (var i = 0; i < 9; i++) {
   numbers[i] = false;
 }
-// let zeroPressed = false;
-// let onePressed = false;
-// let twoPressed = false;
-// let threePressed = false;
-// let fourPressed = false;
-// let fivePressed = false;
-// let sixPressed = false;
-// let sevenPressed = false;
-// let eightPressed = false;
-// let ninePressed = false;
 
 let lvl = 1;
 
-//Список статик-блоков блоков
-// const blocks = []; //отрисовка до героя
-// const blocksAfter = []; //отрисовка после героя
-// const bots = []; // список ботов
-// const memory = []; //память траектории Инди (пока тестится)
-// const characters = [];
-// const bullets = [];
-// const deathlist = [];
 
 let blocks = []; //отрисовка до героя
 let blocksAfter = []; //отрисовка после героя
@@ -91,5 +79,5 @@ let memory = []; //память траектории Инди (пока тест
 let characters = [];
 let bullets = [];
 let deathlist = [];
-
+let chests = [];
 // все что должно очищаться в начале каждого уровня должно быть добавлено в RestartLevel()
