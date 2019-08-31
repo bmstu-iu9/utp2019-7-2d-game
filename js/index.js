@@ -31,7 +31,7 @@ const draw = () => {
               ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
       }
-      if (!freeCamera && !InBlock(indi,'D')) { 
+      if (!freeCamera && !InBlock(indi,'D')) {  
         drawHero(); //новый вариант анимации бега и прыжка (все вопросы и предложения к Александру Л)
         bulletRules();
         // for (var i = 0; i < deathlist.length; i++) {

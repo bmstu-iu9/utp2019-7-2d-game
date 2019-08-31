@@ -30,9 +30,9 @@ class BotClass {
     this.fireY = 20;
     this.shootTime = 0;
     this.firePower = 100
-    this.speed = 1;
+    this.speed = 2;
 
-    this.fireSpeed = 0.1;
+    this.fireSpeed = 1;
 
 
     this.deathR = new Image();
