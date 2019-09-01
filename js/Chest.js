@@ -10,7 +10,7 @@ class Chest {
     this.x = x;
     this.y = y;
 
-    /* Гравитация героя */
+    /* Гравитация сундука */
     this.heroDY = 0;
     this.OnGround = false; //На земле ли сундук
 
