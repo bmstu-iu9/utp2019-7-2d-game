@@ -51,9 +51,9 @@ water.src = "images/environment/waterf.png" // вода
 background.src = "images/environment/background.png"; // фон кирпичиками)
 MGBG.src = "images/environment/minigame.png"; //
 darkness.src = "images/environment/BG2.png"; //
-up.src = "images/inventory/up.png"
-down.src = "images/inventory/down.png"
-rbl.src = "images/inventory/redbull.png"
+up.src = "images/inventory/arrowUp.png"
+down.src = "images/inventory/arrowDown.png"
+rbl.src = "images/inventory/speed.png"
 life.src = "images/inventory/life1.png"
 /* Нажатия клавиш */
 let rightPressed = false;
