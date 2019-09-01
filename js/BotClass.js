@@ -10,6 +10,7 @@ class BotClass {
         this.texture.src = "images/enemies/mummy/mummyL.png";
         this.texture.src = "images/enemies/mummy/mummyL.png";
         break;
+      сфыу  
       default:
         this.texture.src = "images/enemies/mummy/mummyL.png";
         this.texture.src = "images/enemies/mummy/mummyL.png";
