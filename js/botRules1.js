@@ -62,25 +62,25 @@ const botRules1 = (bot) => {
   const Draw = (bot) => {
     bot.dY = bot.heroDY;
     if ((bot.orientation == 'r') && (bot.dX == 0) && (bot.dY == 0)) {
-      bot.texture.src = "images/enemies/mummy/mummyR.png";
+      bot.texture.src = "images/enemies/darkMummy/mummyR.png";
       ctx.drawImage(bot.texture,NN[0] * (bot.x + DD[0] + FF[0]) ,NN[1] * (bot.y + DD[1] + FF[1]) , NN[0] * 32, NN[1] * 64);
     } else if ((bot.orientation == 'l') && (bot.dX == 0) && (bot.dY == 0))  {
-      bot.texture.src = "images/enemies/mummy/mummyL.png";
+      bot.texture.src = "images/enemies/darkMummy/mummyL.png";
       ctx.drawImage(bot.texture,NN[0] * (bot.x + DD[0] + FF[0]) ,NN[1] * (bot.y + DD[1] + FF[1]) , NN[0] * 32, NN[1] * 64);
     } else if ((bot.orientation == 'l')  && (bot.dY != 0)) {
-      bot.texture.src = "images//enemies/mummy/mummyWalkL.png";
+      bot.texture.src = "images//enemies/darkMummy/mummyWalkL.png";
       ctx.drawImage(bot.texture , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
       bot.posision += 0.13;
     } else if ((bot.orientation == 'r')  && (bot.dY != 0)) {
-      bot.texture.src = "images//enemies/mummy/mummyWalkR.png";
+      bot.texture.src = "images//enemies/darkMummy/mummyWalkR.png";
       ctx.drawImage(bot.texture , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 , NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 );
       bot.posision += 0.13;
     }  else if ((bot.orientation == 'l' ) && (bot.dX != 0) && (bot.dY == 0)) {
-      bot.texture.src = "images/enemies/mummy/mummyWalkL.png";
+      bot.texture.src = "images/enemies/darkMummy/mummyWalkL.png";
       ctx.drawImage(bot.texture , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.03;
       bot.posision += 0.13;
     } else if ((bot.orientation == 'r' ) && (bot.dX != 0) && (bot.dY == 0)) {
-      bot.texture.src = "images/enemies/mummy/mummyWalkR.png";
+      bot.texture.src = "images/enemies/darkMummy/mummyWalkR.png";
       ctx.drawImage(bot.texture , (((~~bot.posision) * 44) % 264) ,0 ,44 ,88 ,NN[0] * (bot.x + DD[0] + FF[0]),NN[1] * (bot.y + DD[1] + FF[1]) ,NN[0] * 32 ,NN[1] * 64 ); // анимация бега    bot.posision += 0.03;
       bot.posision += 0.13;
     }
@@ -102,6 +102,7 @@ const botRules1 = (bot) => {
   }
 
   /* ОСНОВА */
+  bot.speed = 3.5;
   moveD(bot);
   Find(bot);
   Draw(bot);

@@ -64,8 +64,8 @@ class BotClass {
     /* выбор изображения смерти (зависит от типа бота) */
     switch (n) {
       case 1:
-        this.deathR.src = "images/enemies/mummy/mummyDeathR.png";
-        this.deathL.src = "images/enemies/mummy/mummyDeathL.png";
+        this.deathR.src = "images/enemies/darkMummy/mummyDeathR.png";
+        this.deathL.src = "images/enemies/darkMummy/mummyDeathL.png";
         break;
       default:
         this.deathR.src = "images/enemies/mummy/mummyDeathR.png";
