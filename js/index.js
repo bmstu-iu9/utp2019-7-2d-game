@@ -54,7 +54,7 @@ const draw = () => {
 //           drawHero(); // отрисовываем персонажа
 //         }
 // =======
-      if ((!freeCamera && (!InBlock(indi,'D') || (curLevel.currentCoins != curLevel.allCoins)) || (!freeCamera && InBlock(indi,'D') && curLevel.doorOpen)) {
+      if ((!freeCamera && (!InBlock(indi,'D') )) || (!freeCamera && InBlock(indi,'D') && curLevel.doorOpen)) {
         if (indi.hp > 0) {
           drawHero(); // отрисовываем персонажа
         }
@@ -93,9 +93,9 @@ const draw = () => {
           envN[1] += 1.0025;
         } else if (blocksAfter[i].id == 'D'){
           if (curLevel.allCoins != curLevel.currentCoins) {
-            ctx.drawImage(doorClsd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+            ctx.drawImage(doorClsd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
           } else {
-            ctx.drawImage(doorOpn ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+            ctx.drawImage(doorOpn ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
           }
         } else if (blocksAfter[i].id == 'C'){
           ctx.drawImage(coin ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
