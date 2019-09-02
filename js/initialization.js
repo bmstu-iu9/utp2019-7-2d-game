@@ -12,12 +12,14 @@ const coin = new Image();
 const lava = new Image();
 const water = new Image();
 const background = new Image();
-const MGBG = new Image();
+const mgbg = new Image();
 const darkness = new Image();
 const up = new Image();
 const down = new Image();
 const rbl = new Image();
 const life = new Image();
+const doorOpn = new Image();
+const doorClsd = new Image();
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
   DD[0] = 0;
@@ -49,12 +51,15 @@ coin.src = "images/coin.png";  //пока не нарисована монета
 lava.src = "images/environment/lavaf.png" // лава
 water.src = "images/environment/waterf.png" // вода
 background.src = "images/environment/background.png"; // фон кирпичиками)
-MGBG.src = "images/environment/minigame.png"; //
+mgbg.src = "images/environment/minigame.png"; //
 darkness.src = "images/environment/BG2.png"; //
 up.src = "images/inventory/arrowUp.png"
 down.src = "images/inventory/arrowDown.png"
 rbl.src = "images/inventory/speed.png"
 life.src = "images/inventory/life1.png"
+doorClsd.src = "images/environment/doorClsd.png"
+doorOpn.src = "images/environment/doorOpn.png"
+
 /* Нажатия клавиш */
 let rightPressed = false;
 let leftPressed = false;
