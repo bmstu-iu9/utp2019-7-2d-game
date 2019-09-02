@@ -26,8 +26,4 @@ const blockCheck = () => {
     curLevel.currentCoins++;
   }
 
-  if (InBlock(indi,'D')) {  //проверка на Фейк-блок и его последующее уничтожениеж
-    BlockChange(indi , (indi.x + 16) ,(indi.y + 16),'D' ,' ' , 1); //смена по коду   0 - до , 1 - после
-    BlockChange(indi , (indi.x + 16) ,(indi.y + 48),'D' ,' ' , 1); //смена по коду  0 - до , 1 - после
-  }
 }

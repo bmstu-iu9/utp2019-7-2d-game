@@ -37,7 +37,7 @@ const draw = () => {
 
       chestRules();
       /* выбор между отрисовками  */
-      if (!freeCamera && !InBlock(indi,'D')) {
+      if ((!freeCamera && !InBlock(indi,'D')) || (!freeCamera && InBlock(indi,'D') && curLevel.doorOpen)) {
         drawHero(); // отрисовываем персонажа
         bulletRules(); // отрисовываем пули и тд
 
@@ -71,7 +71,11 @@ const draw = () => {
           ctx.drawImage(water , ((((~~envN[1])) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
           envN[1] += 1.0025;
         } else if (blocksAfter[i].id == 'D'){
-          ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          if (curLevel.allCoins != curLevel.currentCoins) {
+            ctx.drawImage(doorClsd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          } else {
+            ctx.drawImage(doorOpn ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          }
         } else if (blocksAfter[i].id == 'C'){
           ctx.drawImage(coin ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         }
@@ -87,14 +91,17 @@ const draw = () => {
 
       /* вызов замка */
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
-        Lock();
-        // if (curLevel.doorOpen) {
-        //   if (lvl < maps.length-1) {
-        //     NextLevel();
-        //   } else {
-        //     End();
-        //     }
-        // }
+        if (curLevel.doorOpen) {
+          if (curLevel.currentCoins == curLevel.allCoins) {
+            if (lvl < maps.length - 1) {
+              NextLevel();
+            } else {
+              End();
+            }
+          }
+        } else {
+          Lock();
+        }
       }
 
       /* Отрисовка смерти */
