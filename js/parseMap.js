@@ -20,6 +20,10 @@ class MapObject {
   }
 }
 
+const getRandomInt = (min,max) => {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
 const parseMap = (map) => {
     for (let i = 0 ; i < map.length ; i++) {
         for (let j = 0 ; j < map[i].length ; j++) {
@@ -81,10 +85,27 @@ const parseMap = (map) => {
             } else if (map[i][j] == '@') {
               indi.x = j * 32  ;
               indi.y = i * 32 - 64;
-              // FF[0] = - indi.x *  NN[0] / 4;
-              // FF[1] = - indi.y *  NN[1] / 4;
               FF[0] = - indi.x + (canvas.width / NN[0] / 2);
               FF[1] = - indi.y + (canvas.height / NN[1] / 2);
+              var o = new MapObject(' ', i, j);
+            }  else if (map[i][j] == '1') {
+              var bot1 = new BotClass(1,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
+              bots.push(bot1); // вносим в массив ботов
+              characters.push(bot1);
+              var o = new MapObject(' ', i, j);
+            } else if (map[i][j] == '2') {
+              var bot2 = new BotClass(2,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
+              bots.push(bot2); // вносим в массив ботов
+              characters.push(bot2);
+              var o = new MapObject(' ', i, j);
+            } else if (map[i][j] == '3') {
+              var bot3 = new BotClass(3,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
+              bots.push(bot3); // вносим в массив ботов
+              characters.push(bot3);
+              var o = new MapObject(' ', i, j);
+            } else if (map[i][j] == 'B') {
+              let chest1 = new Chest(getRandomInt(0,23), j * 32 ,i * 32 - 32); 
+              chests.push(chest1);
               var o = new MapObject(' ', i, j);
             }
             blocks.push(o);

@@ -24,26 +24,47 @@ const draw = () => {
 
       ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
       ctx.drawImage(bg , 0 , 0); // рисуем фон
-
+      // death();
+      for (var i = 0 ; i < blocks.length ; i++){
+        if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
+            ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        } else if (blocks[i].id == 'F') {
+            ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+        }
+      }
+      death();
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
               ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
-          } else if (blocks[i].id == 'F') {
-              ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
-          } else if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
-              ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
           }
+          // else if (blocks[i].id == 'F') {
+          //     ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          // }
+          // else if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
+          //     ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          // }
       }
+
 
       chestRules();
       /* выбор между отрисовками  */
-      if ((!freeCamera && !InBlock(indi,'D')) || (!freeCamera && InBlock(indi,'D') && curLevel.doorOpen)) {
-        drawHero(); // отрисовываем персонажа
+// <<<<<<< LezhBranch
+//       if (!freeCamera && (!InBlock(indi,'D') || (curLevel.currentCoins != curLevel.allCoins))) {
+//         if (indi.hp > 0) {
+//           drawHero(); // отрисовываем персонажа
+//         }
+// =======
+      if ((!freeCamera && (!InBlock(indi,'D') || (curLevel.currentCoins != curLevel.allCoins)) || (!freeCamera && InBlock(indi,'D') && curLevel.doorOpen)) {
+        if (indi.hp > 0) {
+          drawHero(); // отрисовываем персонажа
+        }
+// >>>>>>> master
         bulletRules(); // отрисовываем пули и тд
 
 
         for (var i = 0; i < characters.length; i++) { // проходим по массиву ботов
           botRules(characters[i]);  // запускаем выбор поведения и отрисовку
+          blockCheck(characters[i],i);
         }
 
       }else {
@@ -90,6 +111,17 @@ const draw = () => {
       inventoryAnimation();
 
       /* вызов замка */
+// <<<<<<< LezhBranch
+//       if (InBlock(indi,'D') && (curLevel.currentCoins == curLevel.allCoins)) {  //проверка на дверь и переход на след Уровень
+//         Lock();
+//         // if (curLevel.doorOpen) {
+//         //   if (lvl < maps.length-1) {
+//         //     NextLevel();
+//         //   } else {
+//         //     End();
+//         //     }
+//         // }
+// =======
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
         if (curLevel.doorOpen) {
           if (curLevel.currentCoins == curLevel.allCoins) {
@@ -102,10 +134,11 @@ const draw = () => {
         } else {
           Lock();
         }
+// >>>>>>> master
       }
 
       /* Отрисовка смерти */
-      death();
+
 
       //
       requestAnimationFrame(draw);
@@ -115,5 +148,5 @@ const draw = () => {
 
 //Отрисовка динамических объектов в игре
 //Частота обновления 1мс
-//var interval = setInterval(draw , 1);
+// var interval = setInterval(draw , 1);
 draw();
