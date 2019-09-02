@@ -2,6 +2,7 @@ class Hero {
   constructor(image) {
     /* текстура героя */
     this.texture = image;
+    this.id = 0;
     /* размеры героя в пикселях */
     this.width = 32;
     this.height = 64;
@@ -30,6 +31,8 @@ class Hero {
     this.deathR = new Image(); // смерть вправо
     this.deathL = new Image(); // смерть влевво
     this.deathposision = 0; // номер анимации
+    this.deathR.src = "images/hero/heroDeathR.png";
+    this.deathL.src = "images/hero/heroDeathL.png";
 
     /* список предметов */
     this.inventory = [];
