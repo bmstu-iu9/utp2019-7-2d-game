@@ -65,11 +65,11 @@ class BotClass {
     switch (n) {
       case 1:
         this.deathR.src = "images/enemies/mummy/mummyDeathR.png";
-        this.deathL.src = "images/enemies/mummy/mummyDeathR.png";
+        this.deathL.src = "images/enemies/mummy/mummyDeathL.png";
         break;
       default:
         this.deathR.src = "images/enemies/mummy/mummyDeathR.png";
-        this.deathL.src = "images/enemies/mummy/mummyDeathR.png";
+        this.deathL.src = "images/enemies/mummy/mummyDeathL.png";
         break;
     }
 
