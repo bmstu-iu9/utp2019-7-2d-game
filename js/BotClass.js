@@ -10,6 +10,7 @@ class BotClass {
         this.texture.src = "images/enemies/mummy/mummyL.png";
         this.texture.src = "images/enemies/mummy/mummyL.png";
         break;
+      сфыу
       default:
         this.texture.src = "images/enemies/mummy/mummyL.png";
         this.texture.src = "images/enemies/mummy/mummyL.png";
@@ -47,14 +48,15 @@ class BotClass {
     this.posision = 0; //номер анимации
     this.airTime = 0; //время в воздухe
 
+    /* скорость бота */
+    this.speed = 0.2; //скорость
+
     /* характеристики стрельбы бота */
     this.fireY = 20;  // смещение от верхней границы до места выстрела по Y
-    this.shootTime = 0; // время стрельбы
+    this.shootTime = 60; // время стрельбы
     this.firePower = 100 // урон по умолочанию
-    this.fireSpeed = 1; // скорость снаряда
-
-    /* скорость бота */
-    this.speed = 2; //скорость
+    this.fireSpeed = indi.speed + 0.5; // скорость снаряда
+    this.shootTimeConst = 60; // время, через которое разрешен очередной выстрел
 
 
     /* смерть бота */
@@ -74,13 +76,5 @@ class BotClass {
         break;
     }
 
-
-    // const stat = () => {
-    //   if (this.orientation == "r") {
-    //     this.hero.src = "images/hero/HeroR.png" ;
-    //   } else {
-    //     this.hero.src = "images/hero/HeroL.png" ;
-    //   }
-    // }
   }
 }

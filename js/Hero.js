@@ -6,6 +6,7 @@ class Hero {
     /* размеры героя в пикселях */
     this.width = 32;
     this.height = 64;
+
     /* координаты героя */
     this.x = 0;
     this.y = 0;
@@ -13,6 +14,7 @@ class Hero {
     this.hp = 300;
     /* Гравитация героя */
     this.heroDY = 0;
+    this.heroDYconst = 7;
     this.OnGround = false; //На земле ли перс
     // this.stage = 0; //Стадия в анимации
     // this.prevStage = 0;
@@ -25,8 +27,10 @@ class Hero {
     this.firePower = 100 // урон по умолчанию
     this.fireSpeed = 5; // скорость пули по умолчанию
     this.shoot = true; // флажок стрельбы
+    this.shootTimeConst = 0.05;
+
     /* скорость героя */
-    this.speed = 4;
+    this.speed = 5;
     /* смерть героя :( */
     this.deathR = new Image(); // смерть вправо
     this.deathL = new Image(); // смерть влевво

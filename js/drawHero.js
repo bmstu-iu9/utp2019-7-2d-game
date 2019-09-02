@@ -11,10 +11,9 @@ const drawHero = () => {
         indi.heroDY = 0;
       }
     }
-    blockCheck();
     if (spacePressed && OnGround(indi) && (indi.shootTime <= 0)) {
       indi.shootTime = 2.15;
-      shoot(indi);
+      // shoot(indi);
       if (indi.orientation == 'r' && !OnLeft(indi)) { //кто-нибудь чекните этот баг (комментните эту строку)
         indi.x = indi.x - 2;  //кто-нибудь чекните этот баг (комментните эту строку)
       } else if (indi.orientation == 'l' && !OnRight(indi)){ //кто-нибудь чекните этот баг (комментните эту строку)
@@ -22,7 +21,7 @@ const drawHero = () => {
       } //кто-нибудь чекните этот баг (комментните эту строку)
     }
     if (indi.shootTime > 0) {
-      if (indi.shootTime < 2.15) {
+      if (indi.shootTime == 2.15) {
         indi.shoot = true;
       }
       if (indi.orientation == 'r') {
@@ -30,8 +29,14 @@ const drawHero = () => {
       } else {
         indi.texture.src = "images/hero/shootAnimL.png";
       }
+      // if (indi.shootTime >= indi.shootTimeConst - 2.15) {
+        if (((~~indi.shootTime) == 1) && (indi.shoot == true)) {
+            shoot(indi);
+            indi.shoot = false;
+        }
+      // }
       ctx.drawImage(indi.texture, (((~~indi.shootTime)*44)%132), 0, 44, 88, NN[0]*(indi.x + DD[0] + FF[0]), NN[1]*(indi.y + DD[1] + FF[1]), NN[0]*32, NN[1]*64); // анимация бега
-      indi.shootTime -= 0.05;
+      indi.shootTime -= indi.shootTimeConst;
     } else {
       indi.shootTime = 0;
       if(rightPressed && leftPressed) {
@@ -98,7 +103,7 @@ const drawHero = () => {
       //Если нажат space и персонаж на земле то гравитация
       //равна 5 (новый вариант 1.6)
       if (upPressed && OnGround(indi) && !OnCeil(indi)) {
-        indi.heroDY = 7;
+        indi.heroDY = indi.heroDYconst;
         indi.airTime = 0; // начало прыжка
       }
 

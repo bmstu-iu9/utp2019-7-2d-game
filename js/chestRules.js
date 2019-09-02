@@ -31,6 +31,8 @@ const chestRules = () => {
     indi.speed += o.speed;
     indi.firePower += o.firePower
     indi.fireSpeed += o.fireSpeed
+    indi.shootTimeConst += o.shootTime;
+    indi.heroDYconst += o.heroDYconst;
   }
 
   /* обход массива сундуков */

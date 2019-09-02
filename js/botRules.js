@@ -7,6 +7,9 @@ const botRules = (bot) => {
     case 2:
       botRules2(bot);
       break;
+    case 3:
+      botRules3(bot);  
+      break;
     default:
   }
 }
