@@ -4,6 +4,9 @@ const bulletRules = () => {
     let i = ~~((bullets[k].y )  / 32); //Целочисленное деление )) Нашел в инете
 
 
+
+
+
     /* взаимодействие с блоками земли и не только */
     if ((map[i][j] == 'G') || (map[i][j] == 'g')) {
       if (map[i][j] == 'g') {  // разбиваем фейк блоки
@@ -18,7 +21,7 @@ const bulletRules = () => {
       }
 
       if (bullets[k].hp <= 0) {
-        bullets.splice(k , 1); // удаляем пулю
+         bullets.splice(k , 1); // удаляем пулю
       }
     }
 
@@ -35,7 +38,7 @@ const bulletRules = () => {
             }
           }
             if (bullets[k].hp <= 0) {
-              bullets.splice(k , 1); // удаляем пулю
+                bullets.splice(k , 1); // удаляем пулю
             }
           }
         }
