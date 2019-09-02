@@ -2,7 +2,7 @@ class Chest {
   constructor(x,y) {
     /* текстура сундука */
     this.texture = new Image();
-    this.texture.src = "images/environment/chestC.png";
+    this.texture.src = "images/environment/boxClsd.png";
     /* размеры сундука в пикселях */
     this.width = 32;
     this.height = 32;
