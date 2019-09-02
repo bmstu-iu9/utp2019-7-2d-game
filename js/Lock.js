@@ -10,7 +10,7 @@ const Lock = () => {
     }
   }
   ctx.drawImage(darkness, 0, 0, canvas.width, canvas.height);
-  ctx.drawImage(MGBG, canvas.width / 8 , canvas.height / 8 , (canvas.width / 4) * 3 , (canvas.height / 4) * 3);
+  ctx.drawImage(mgbg, canvas.width / 8 , canvas.height / 8 , (canvas.width / 4) * 3 , (canvas.height / 4) * 3);
 
   /* вставляем цифры */
   for (var i = 0; i < numbers.length; i++) {
@@ -42,14 +42,15 @@ const Lock = () => {
 
   ctx.font = 'bold 25px sans-serif';
 
+
   if ((doorLock.answer[0] == doorLock.key[0]) && (doorLock.answer[1] == doorLock.key[1]) && (doorLock.answer[2] == doorLock.key[2])) {
-    //ctx.strokeText("ok", 200, 200);
-    if (lvl < maps.length - 1) {
-      NextLevel();
-      //setTimeout(NextLevel, 3000);
-    } else {
-      End();
-      //setTimeout(End, 3000);
+    curLevel.doorOpen = true;
+    if (curLevel.currentCoins == curLevel.allCoins) {
+      if (lvl < maps.length - 1) {
+        NextLevel();
+      } else {
+        End();
+      }
     }
   }
 }

@@ -21,7 +21,7 @@ const chestRules = () => {
         indi.inventory.push(b.inventory[i]);
       }
       b.inventory = [];
-      b.texture.src = "images/environment/chestO.png";
+      b.texture.src = "images/environment/boxOpn.png";
     }
   }
 

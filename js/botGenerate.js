@@ -9,4 +9,5 @@ const botGenerate = () => {
   // let bot3 = new BotClass(3,900,500); // создаем с данными координатами и типом
   // bots.push(bot3); // вносим в массив ботов
   // characters.push(bot3); // вносим в массив всех персонажей
+
 }

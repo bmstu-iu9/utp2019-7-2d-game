@@ -48,10 +48,17 @@ const draw = () => {
 
       chestRules();
       /* выбор между отрисовками  */
-      if (!freeCamera && (!InBlock(indi,'D') || (curLevel.currentCoins != curLevel.allCoins))) {
+// <<<<<<< LezhBranch
+//       if (!freeCamera && (!InBlock(indi,'D') || (curLevel.currentCoins != curLevel.allCoins))) {
+//         if (indi.hp > 0) {
+//           drawHero(); // отрисовываем персонажа
+//         }
+// =======
+      if ((!freeCamera && (!InBlock(indi,'D') || (curLevel.currentCoins != curLevel.allCoins)) || (!freeCamera && InBlock(indi,'D') && curLevel.doorOpen)) {
         if (indi.hp > 0) {
           drawHero(); // отрисовываем персонажа
         }
+// >>>>>>> master
         bulletRules(); // отрисовываем пули и тд
 
 
@@ -85,7 +92,11 @@ const draw = () => {
           ctx.drawImage(water , ((((~~envN[1])) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
           envN[1] += 1.0025;
         } else if (blocksAfter[i].id == 'D'){
-          ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          if (curLevel.allCoins != curLevel.currentCoins) {
+            ctx.drawImage(doorClsd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          } else {
+            ctx.drawImage(doorOpn ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          }
         } else if (blocksAfter[i].id == 'C'){
           ctx.drawImage(coin ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         }
@@ -100,15 +111,30 @@ const draw = () => {
       inventoryAnimation();
 
       /* вызов замка */
-      if (InBlock(indi,'D') && (curLevel.currentCoins == curLevel.allCoins)) {  //проверка на дверь и переход на след Уровень
-        Lock();
-        // if (curLevel.doorOpen) {
-        //   if (lvl < maps.length-1) {
-        //     NextLevel();
-        //   } else {
-        //     End();
-        //     }
-        // }
+// <<<<<<< LezhBranch
+//       if (InBlock(indi,'D') && (curLevel.currentCoins == curLevel.allCoins)) {  //проверка на дверь и переход на след Уровень
+//         Lock();
+//         // if (curLevel.doorOpen) {
+//         //   if (lvl < maps.length-1) {
+//         //     NextLevel();
+//         //   } else {
+//         //     End();
+//         //     }
+//         // }
+// =======
+      if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
+        if (curLevel.doorOpen) {
+          if (curLevel.currentCoins == curLevel.allCoins) {
+            if (lvl < maps.length - 1) {
+              NextLevel();
+            } else {
+              End();
+            }
+          }
+        } else {
+          Lock();
+        }
+// >>>>>>> master
       }
 
       /* Отрисовка смерти */
