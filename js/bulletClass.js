@@ -23,7 +23,7 @@ class bulletClass {
     this.power = power;
 
     /* количество очков прочности снаряда */
-    this.hp = 100;
+    this.hp = 900;
 
   }
 

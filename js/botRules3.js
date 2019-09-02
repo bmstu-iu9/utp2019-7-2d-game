@@ -18,6 +18,18 @@ const botRules3 = (bot) => {
     }
   }
 
+  const ShootBot = (b) => {
+    if ( (b.shootTime == b.shootTimeConst) && (Math.abs(b.y -indi.y) < 65) && (Math.abs(b.x -indi.x) < 500)) {
+      shoot(b);
+    }
+    if (Math.abs(b.y -indi.y) < 70) {
+      b.shootTime-- ;
+    }
+    if (b.shootTime <= 0) {
+      b.shootTime = b.shootTimeConst;
+    }
+  }
+
 
   /* фуекция смещения по Y+ */
   const moveU = (b) => {
@@ -111,9 +123,11 @@ const botRules3 = (bot) => {
   }
 
   /* ОСНОВА */
+  ShootBot(bot);
   moveD(bot);
   Find(bot);
   Draw(bot);
+
 
 
 }
