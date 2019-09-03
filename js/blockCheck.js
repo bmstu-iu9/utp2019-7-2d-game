@@ -31,6 +31,12 @@ const blockCheck = (o,i) => {
       characters.splice(i,1);
     }
 
+    if (InBlock(o,'L')) {  //проверка на Фейк-блок и его последующее уничтожениеж
+      o.hp = 0;
+      deathlist.push(o);
+      characters.splice(i,1);
+    }
+
     if (InBlock(indi,'C')) {  //проверка на Фейк-блок и его последующее уничтожениеж
       BlockChange(indi ,(indi.x + 16) ,(indi.y + 16),'C' ,' ' , 1); //смена по коду   0 - до , 1 - после
       BlockChange(indi ,(indi.x + 16) ,(indi.y + 48),'C' ,' ' , 1); //смена по коду  0 - до , 1 - после

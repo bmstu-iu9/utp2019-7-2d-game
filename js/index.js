@@ -21,7 +21,6 @@ parseMap(maps[lvl],0,0);
 
 /* Отрисовка динамических объектов */
 const draw = () => {
-
       ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
       ctx.drawImage(bg , 0 , 0); // рисуем фон
       // death();

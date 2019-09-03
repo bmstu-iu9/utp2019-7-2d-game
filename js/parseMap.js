@@ -95,6 +95,7 @@ const parseMap = (map) => {
               var o = new MapObject(' ', i, j);
             } else if (map[i][j] == '2') {
               var bot2 = new BotClass(2,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
+              bot2.hp = 500;
               bots.push(bot2); // вносим в массив ботов
               characters.push(bot2);
               var o = new MapObject(' ', i, j);
@@ -103,7 +104,13 @@ const parseMap = (map) => {
               bots.push(bot3); // вносим в массив ботов
               characters.push(bot3);
               var o = new MapObject(' ', i, j);
-            } else if (map[i][j] == 'B') {
+            } else if (map[i][j] == '4') {
+              var bot4 = new BotClass(4,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
+              bot4.hp = 700;
+              bots.push(bot4); // вносим в массив ботов
+              characters.push(bot4);
+              var o = new MapObject(' ', i, j);
+            }else if (map[i][j] == 'B') {
               let chest1 = new Chest(getRandomInt(0,27), j * 32 ,i * 32 - 32);
               chests.push(chest1);
               var o = new MapObject(' ', i, j);
