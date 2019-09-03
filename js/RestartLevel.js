@@ -35,7 +35,8 @@ const RestartLevel = () => {
   /* создание и инициализация объекта главный герой */
   indi = new Hero(hero);
   characters.push(indi);
-
+  ctx.strokeStyle = "white ";
+  ctx.shadowColor = "transparent";
   curLevel = new LevelClass(lvl); // текущий уровень
   doorLock = new LockClass(lockArr[lvl]); // создаем новый замок
 

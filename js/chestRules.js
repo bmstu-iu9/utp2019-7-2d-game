@@ -27,12 +27,17 @@ const chestRules = () => {
 
   /* применение предмета */
   const use = (o) => {
-    indi.hp += o.hp;
-    indi.speed += o.speed;
-    indi.firePower += o.firePower
-    indi.fireSpeed += o.fireSpeed
-    indi.shootTimeConst += o.shootTime;
-    indi.heroDYconst += o.heroDYconst;
+    if (o.bulletID < 20) {
+      indi.hp += o.hp;
+      indi.speed += o.speed;
+      indi.firePower += o.firePower
+      indi.fireSpeed += o.fireSpeed
+      indi.shootTimeConst += o.shootTime;
+      indi.heroDYconst += o.heroDYconst;
+      if (o.bulletID != 0) {
+        indi.bulletID = o.bulletID;
+      }
+    }
   }
 
   /* обход массива сундуков */

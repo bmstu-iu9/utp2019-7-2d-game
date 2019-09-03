@@ -20,6 +20,14 @@ const rbl = new Image();
 const life = new Image();
 const doorOpn = new Image();
 const doorClsd = new Image();
+const Pgreen = new Image();
+const Pred= new Image();
+const Pblue = new Image();
+const bulletsImages = [];
+const bulletsNames = ["STANDARD","RED  DEMON","GOLDEN  EYE","PINK  PANTER","SPACE KILLER","IVORY","ACID  HELL"];
+for (var i = 0; i < 7; i++) {
+  bulletsImages[i] = new Image();
+}
 
 let DD = new Array(2); //глобальное смещение !!(лучше не трогать)!!
   DD[0] = 0;
@@ -59,7 +67,13 @@ rbl.src = "images/inventory/speed.png"
 life.src = "images/inventory/life1.png"
 doorClsd.src = "images/environment/doorClsd.png"
 doorOpn.src = "images/environment/doorOpn.png"
-
+for (var i = 0; i < 7; i++) {
+  let name = "images/weapons/bullet" + (i + 1) + "R.png";
+  bulletsImages[i].src = name;
+}
+Pblue.src = "images/inventory/Pblue.png";
+Pgreen.src = "images/inventory/Pgreen.png";
+Pred.src = "images/inventory/Pred.png";
 /* Нажатия клавиш */
 let rightPressed = false;
 let leftPressed = false;

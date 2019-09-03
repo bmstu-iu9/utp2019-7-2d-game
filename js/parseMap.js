@@ -53,8 +53,8 @@ const parseMap = (map) => {
               blocks.push(o);
               continue;
             } else if (map[i][j] == 'D') {  //дверь, выход
-              var o = new MapObject('D', i, j);
-              blocksAfter.push(o);
+              // var o = new MapObject('D', i, j);
+              // blocksAfter.push(o);
               var o = new MapObject('D', i, j);
               blocks.push(o);
               continue;
@@ -104,7 +104,7 @@ const parseMap = (map) => {
               characters.push(bot3);
               var o = new MapObject(' ', i, j);
             } else if (map[i][j] == 'B') {
-              let chest1 = new Chest(getRandomInt(0,23), j * 32 ,i * 32 - 32); 
+              let chest1 = new Chest(getRandomInt(0,27), j * 32 ,i * 32 - 32);
               chests.push(chest1);
               var o = new MapObject(' ', i, j);
             }

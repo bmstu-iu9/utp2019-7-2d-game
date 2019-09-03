@@ -35,7 +35,7 @@ class BotClass {
     this.dN = 0;
 
     /* здоровье бота */
-    this.hp = 200;
+    this.hp = 1200;
 
 
     /* Гравитация бота */
@@ -59,7 +59,7 @@ class BotClass {
     this.firePower = 100 // урон по умолочанию
     this.fireSpeed = indi.speed + 0.5; // скорость снаряда
     this.shootTimeConst = 60; // время, через которое разрешен очередной выстрел
-
+    this.bulletID = 1;
 
     /* смерть бота */
     this.deathR = new Image(); // смерть вправо

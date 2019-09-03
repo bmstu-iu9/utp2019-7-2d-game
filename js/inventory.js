@@ -1,5 +1,5 @@
 class inventory {
-  constructor(image,hp,speed,firePower,fireSpeed,dy,shootTime) {
+  constructor(image,hp,speed,firePower,fireSpeed,dy,shootTime,bulletID) {
     this.texture = image;
     this.hp = hp;
     this.speed = speed;
@@ -7,5 +7,6 @@ class inventory {
     this.fireSpeed = fireSpeed
     this.heroDYconst = dy;
     this.shootTime = shootTime;
+    this.bulletID = bulletID;
   }
 }

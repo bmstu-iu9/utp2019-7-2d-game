@@ -36,6 +36,12 @@ const draw = () => {
       for (var i = 0 ; i < blocks.length ; i++){
           if (blocks[i].id == 'G'){
               ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+          } else if (blocks[i].id == 'D'){
+            if (curLevel.allCoins != curLevel.currentCoins) {
+              ctx.drawImage(doorClsd ,NN[0] *  (blocks[i].x  + FF[0]),NN[1] *  (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
+            } else {
+              ctx.drawImage(doorOpn ,NN[0] *  (blocks[i].x  + FF[0]),NN[1] *  (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
+            }
           }
           // else if (blocks[i].id == 'F') {
           //     ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
@@ -91,13 +97,7 @@ const draw = () => {
           blocksAfter[i].posision = envN[1];
           ctx.drawImage(water , ((((~~envN[1])) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
           envN[1] += 1.0025;
-        } else if (blocksAfter[i].id == 'D'){
-          if (curLevel.allCoins != curLevel.currentCoins) {
-            ctx.drawImage(doorClsd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
-          } else {
-            ctx.drawImage(doorOpn ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
-          }
-        } else if (blocksAfter[i].id == 'C'){
+        }  else if (blocksAfter[i].id == 'C'){
           ctx.drawImage(coin ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         }
       }
