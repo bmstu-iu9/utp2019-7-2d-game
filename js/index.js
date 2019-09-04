@@ -101,7 +101,7 @@ const draw = () => {
         }
       }
 
-      
+
 
       /* Отрисовка надписей */
       ctx.strokeStyle = "white";
@@ -111,17 +111,6 @@ const draw = () => {
       inventoryAnimation();
 
       /* вызов замка */
-// <<<<<<< LezhBranch
-//       if (InBlock(indi,'D') && (curLevel.currentCoins == curLevel.allCoins)) {  //проверка на дверь и переход на след Уровень
-//         Lock();
-//         // if (curLevel.doorOpen) {
-//         //   if (lvl < maps.length-1) {
-//         //     NextLevel();
-//         //   } else {
-//         //     End();
-//         //     }
-//         // }
-// =======
       if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
         if (curLevel.doorOpen) {
           if (curLevel.currentCoins == curLevel.allCoins) {
@@ -134,7 +123,6 @@ const draw = () => {
         } else {
           Lock();
         }
-// >>>>>>> master
       }
 
       /* Отрисовка смерти */
