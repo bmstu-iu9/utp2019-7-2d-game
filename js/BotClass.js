@@ -10,7 +10,6 @@ class BotClass {
         this.texture.src = "images/enemies/mummy/mummyL.png";
         this.texture.src = "images/enemies/mummy/mummyL.png";
         break;
-      сфыу
       default:
         this.texture.src = "images/enemies/mummy/mummyL.png";
         this.texture.src = "images/enemies/mummy/mummyL.png";
@@ -35,7 +34,7 @@ class BotClass {
     this.dN = 0;
 
     /* здоровье бота */
-    this.hp = 1200;
+    this.hp = 200;
 
 
     /* Гравитация бота */
@@ -60,6 +59,8 @@ class BotClass {
     this.fireSpeed = indi.speed + 0.5; // скорость снаряда
     this.shootTimeConst = 60; // время, через которое разрешен очередной выстрел
     this.bulletID = 1;
+
+    this.alive = true;
 
     /* смерть бота */
     this.deathR = new Image(); // смерть вправо
