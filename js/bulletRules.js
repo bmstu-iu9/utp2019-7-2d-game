@@ -10,7 +10,6 @@ const bulletRules = () => {
     /* взаимодействие с блоками земли и не только */
     if ((map[i][j] == 'G') || (map[i][j] == 'g')) {
       if (map[i][j] == 'g') {  // разбиваем фейк блоки
-        stringChange(i,j," ");  // смена блока на карте
         blocks[i * map[0].length + j].id = ' ' // смена блока в массиве
         BlockChange(bullets[k],bullets[k].x,bullets[k].y,'g',' ',1); // смена блока в массиве по коду
         bullets[k].power -= 100;

@@ -14,7 +14,6 @@ let curLevel = new LevelClass(lvl);
 /* вызываем генератор ботов */
 botGenerate();
 
-chestGenerate();
 
 /* Парсинг уровня из map.js */
 parseMap(maps[lvl],0,0);

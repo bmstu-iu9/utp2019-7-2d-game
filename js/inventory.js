@@ -2,7 +2,7 @@ class inventory {
   constructor(image,hp,speed,firePower,fireSpeed,dy,shootTime,bulletID) {
     this.texture = image;
     this.hp = hp;
-    this.normSpeed = speed;
+    this.speed = speed;
     this.firePower = firePower
     this.fireSpeed = fireSpeed
     this.heroDYconst = dy;

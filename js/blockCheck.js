@@ -61,6 +61,7 @@ const blockCheck = (o,i) => {
   }
 }
 
+
 const BlockChange = (jj,ii,WP,WN) => {
   let jT = ~~(jj / 32), iT = ~~(ii / 32); //Целочисленное деление )) Нашел в инете
 
