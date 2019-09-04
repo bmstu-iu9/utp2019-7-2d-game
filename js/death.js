@@ -21,6 +21,9 @@ const death = () => {
       if (deathlist[i].deathposision > 4) {
         deathlist[i].alive = false;
         deathlist.splice(i,1);
+        if (indi.alive == false) {
+          RestartLevel();
+        }
       }
     }
   }
