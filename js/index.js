@@ -94,17 +94,16 @@ const draw = () => {
       /* Отрисовка надписей */
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
+      if (indi.hp < 0) {
+        indi.hp = 0;
+      }
       ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + indi.hp, 40, 65);
 
       inventoryAnimation();
 
       /* вызов замка */
-<<<<<<< HEAD
-      if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
-=======
 
       if (InBlock(indi.x, indi.y, 'D')) {  //проверка на дверь и переход на след Уровень
->>>>>>> 86d725633092539d65dfeafd6785d8b1eaafeb5a
         if (curLevel.doorOpen) {
           if (curLevel.currentCoins == curLevel.allCoins) {
             if (lvl < maps.length - 1) {
@@ -116,6 +115,20 @@ const draw = () => {
         } else {
           Lock();
         }
+      }
+
+      if (InBlock(indi.x, indi.y, 'D') && curLevel.doorOpen) {
+        ctx.strokeStyle = "red"
+        ctx.fillStyle = "orange"
+        ctx.shadowColor = "purple";
+        ctx.shadowOffsetX = 7;
+        ctx.shadowOffsetY = 7;
+        ctx.shadowBlur = 3;
+        ctx.font = 'bold 60px serif';
+        ctx.strokeText("Собери все монеты", 500, 100);
+        ctx.fillText("Собери все монеты", 500, 100)
+        ctx.strokeStyle = "white";
+        ctx.shadowColor = "transparent";
       }
 
       /* Отрисовка смерти */
