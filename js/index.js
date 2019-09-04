@@ -101,10 +101,7 @@ const draw = () => {
         }
       }
 
-      if (indi.hp<=0) {
-        RestartLevel();
-      }
-
+      
 
       /* Отрисовка надписей */
       ctx.strokeStyle = "white";
