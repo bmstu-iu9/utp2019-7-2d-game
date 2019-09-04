@@ -1,5 +1,5 @@
 class BotClass {
-  constructor(n, x, y) {
+  constructor(n, x, y, sp, hp) {
     /* текстура бота */
     this.texture= new Image();
 
@@ -34,7 +34,7 @@ class BotClass {
     this.dN = 0;
 
     /* здоровье бота */
-    this.hp = 200;
+    this.hp = hp;
 
 
     /* Гравитация бота */
@@ -49,8 +49,8 @@ class BotClass {
 
     /* скорость бота */
 
-    this.speed = 2; //скорость
-
+    this.speed = sp; //скорость
+    this.normSpeed = sp;
 
     /* характеристики стрельбы бота */
     this.fireY = 20;  // смещение от верхней границы до места выстрела по Y
