@@ -90,8 +90,8 @@ const botRules1 = (bot) => {
   /*поиск главного персонажа*/
 
   const Find = (bot) => {
-    if ((Math.abs(bot.y -indi.y) < 200) && (Math.abs(bot.x -indi.x) < 500)) {
-      if (Math.abs(indi.x - bot.x ) < 15) {
+    if ((Math.abs(bot.y -indi.y) < 70) && (Math.abs(bot.x -indi.x) < 500)) {
+      if ((Math.abs(indi.x - bot.x ) < 15) && (Math.abs(bot.y -indi.y) < 5)){
         indi.hp -= 10 ;
       }
       if (Math.abs(indi.x - bot.x ) > 5) {
