@@ -116,7 +116,7 @@ const drawHero = () => {
           } else {
             indi.texture.src = "images/hero/fallAnimR.png";
             ctx.drawImage(indi.texture , (((~~indi.posision) * 66) % 264) ,0 ,66 ,88 , NN[0] * (indi.x + DD[0] + FF[0]),NN[1] * (indi.y + DD[1] + FF[1]) ,NN[0] * 44 ,NN[1] * 64 );
-            if (indi.heroDY <= -1.5) {
+            if (indi.heroDY <= -5) {
               indi.posision += 0.13;
             }
           }
@@ -127,7 +127,7 @@ const drawHero = () => {
           } else {
             indi.texture.src = "images/hero/fallAnimL.png";
             ctx.drawImage(indi.texture, (((~~indi.posision) * 66) % 264), 0, 66, 88, NN[0]*(indi.x + DD[0] + FF[0]), NN[1]*(indi.y + DD[1] + FF[1]), NN[0]*44, NN[1]*64);
-            if (indi.heroDY <= -1.5) {
+            if (indi.heroDY <= -5) {
               indi.posision += 0.13;
             }
           }

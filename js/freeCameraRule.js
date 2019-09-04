@@ -2,27 +2,27 @@ const freeCameraRule = () => {
 
   /* изменение по координатам  */
   if (rightPressed) {
-    FF[0] --;
+    FF[0] -= 10;
   }
   if (leftPressed) {
-    FF[0] ++;
+    FF[0] += 10;
   }
   if (upPressed) {
-    FF[1] ++;
+    FF[1] += 10;
   }
   if (downPressed) {
-    FF[1] --;
+    FF[1] -= 10;
   }
 
   /* изменение масштаба */
   if (plusPressed) {
-    NN[0] += 0.01;
-    NN[1] += 0.01;
+    NN[0] += 0.02;
+    NN[1] += 0.02;
   }
   if (minusPressed) {
-    if (NN[0] > 0.01) {
-      NN[0] -= 0.01;
-      NN[1] -= 0.01;
+    if (NN[0] > 0.02) {
+      NN[0] -= 0.02;
+      NN[1] -= 0.02;
     }
   }
 

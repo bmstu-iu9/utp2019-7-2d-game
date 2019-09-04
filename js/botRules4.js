@@ -1,4 +1,4 @@
-const botRules2 = (bot) => {
+const botRules4 = (bot) => {
 
   /* фуекция смещения по X */
   const moveX = (b,d) => {
@@ -21,7 +21,7 @@ const botRules2 = (bot) => {
 
   /* фуекция смещения по Y- */
   const moveD = (b) => {
-    if (OnCeil(b) && b.heroDY > 0 && !OnFakeBlock(b)) {
+    if (OnCeil(b) && b.heroDY > 0 ) {
       b.heroDY = 0;
     }
     b.y -= b.heroDY;
@@ -44,6 +44,46 @@ const botRules2 = (bot) => {
       if (!OnRight(bot)) {
         moveX(bot,d);
       }
+    }
+  }
+
+
+
+  const ShootBot = (b) => {
+    if ( (b.shootTime == b.shootTimeConst) && (Math.abs(b.y -indi.y) < 65) && (Math.abs(b.x -indi.x) < 900)) {
+      shoot(b);
+    }
+    if (Math.abs(b.y -indi.y) < 70) {
+      b.shootTime-- ;
+    }
+    if (b.shootTime <= 0) {
+      b.shootTime = b.shootTimeConst;
+    }
+  }
+
+
+  const kill = (bot) => {
+    if ((Math.abs(bot.y -indi.y) < 200) && (Math.abs(bot.x -indi.x) < 900)) {
+
+      if (indi.x > bot.x ) {
+        bot.orientation = 'r'
+      } else {
+        bot.orientation = 'l'
+      }
+      bot.dN ++;
+      if (bot.dN < 600) {
+        moveU(bot);
+        ShootBot(bot);
+      } else if (bot.dN > 1500) {
+        bot.dN = 0;
+      } else if ((bot.dN > 700) && (bot.dN < 850)) {
+        goBotX(bot,'l');
+      } else if ((bot.dN > 1100) && (bot.dN < 1250)) {
+        goBotX(bot,'r');
+      } else {
+        ShootBot(bot);
+      }
+
     }
   }
 
@@ -81,28 +121,19 @@ const botRules2 = (bot) => {
   /*поиск главного персонажа*/
 
   const Find = (bot) => {
-    if ((Math.abs(bot.y -indi.y) < 50) && (Math.abs(bot.x -indi.x) < 700) ) {
-      if ((Math.abs(indi.x - bot.x ) < 15) && (Math.abs(bot.y -indi.y) < 5)) {
-        indi.hp -= 5 ;
-      }
-      if (Math.abs(indi.x - bot.x ) > 5) {
-        if (indi.x > bot.x) {
-          goBotX(bot,'r');
-        } else {
-          goBotX(bot,'l');
-        }
+    if (Math.abs(indi.x - bot.x ) > 50) {
+      if (indi.x > bot.x) {
+        goBotX(bot,'r');
       } else {
-        bot.dX = 0;
-        if ((indi.hp <= 0) && (indi.alive))  {
-          deathlist.push(indi);
-        }
+        goBotX(bot,'l');
       }
-
+    } else {
+      bot.dX = 0;
     }
   }
 
   /* ОСНОВА */
   moveD(bot);
-  Find(bot);
+  kill(bot);
   Draw(bot);
 }

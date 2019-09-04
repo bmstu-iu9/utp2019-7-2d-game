@@ -20,7 +20,6 @@ parseMap(maps[lvl],0,0);
 
 /* Отрисовка динамических объектов */
 const draw = () => {
-
       ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
       ctx.drawImage(bg , 0 , 0); // рисуем фон
       // death();
@@ -90,11 +89,12 @@ const draw = () => {
       //
       // }
 
+      
 
       /* Отрисовка надписей */
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
-      ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + curLevel.hp, 40, 65);
+      ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + indi.hp, 40, 65);
 
       inventoryAnimation();
 
