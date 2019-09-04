@@ -1,236 +1,188 @@
 'use strict';
 
-/* Канвас и контекст 2D */
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
 
-/* Картинки */
-var gnd = new Image();
-var bg = new Image();
-var hero = new Image();
-var spikes = new Image();
-var fire = new Image();
+/* indi - имя главного героя */
+let indi = new Hero(hero); // создание и инициализация объекта главный герой
+characters.push(indi); // добавляем его в спосок персонажей
 
-/* Источники картинок */
-gnd.src = "images/ground.png";
-bg.src = "images/back.png";
-fire.src = "images/fire.png"
-spikes.src = "images/spikes.png"
-hero.src = "images/mainpersright.png"; //Начальное положение в покое
+/* создаем замок */
+let doorLock = new LockClass(lockArr[lvl]);
 
-/* Координаты перса */
-var heroX = 0;
-var heroY = 336;
+/* текущий уровень*/
+let curLevel = new LevelClass(lvl);
 
-/* Гравитация героя */
-var heroDY = 0;
+/*const mouseX;
+const mouseY;
+const fadeId = 0;
+const buttonX = [200, 500, 240, 540];
+const buttonY = [100, 400, 140, 440];
+const buttonWidth = [150, 450, 190, 490];
+const buttonHeight = [250, 550, 290, 590];
+const time = 0.0;
+canvas.addEventListener("mousemove", checkPos);
+canvas.addEventListener("mouseUp", checkClick);
 
-/* На земле ли перс */
-var heroOnGround = false;
-
-/* Нажатия клавиш */
-var rightPressed = false;
-var leftPressed = false;
-var spacePressed = false;
-
-/* События */
-document.addEventListener("keydown", keyDownHandler, true);
-document.addEventListener("keyup", keyUpHandler, true);
-
-function keyDownHandler(e){
-    /* Функция для первого события keydown */
-    switch(e.which){
-        case 39:
-            rightPressed = true;
-            break;
-        case 37:
-            leftPressed = true;
-            break;
-        case 32:
-            spacePressed = true;
-            break;
-    }
+const checkPos = () => {
+  if (mouseEvent.pageX || mouseEvent.pageY == 0) {
+    mouseX = mouseEvent.pageX - this.offsetLeft;
+    mouseY = mouseEvent.pageY = this.offsetTop;
+  } else if (mouseEvent.offsetX || mouseEvent.offsetY == 0){
+    mouseX = mouseEvent.offsetX;
+    mouseY = mouseEvent.offsetY;
+  }
 }
 
-function keyUpHandler(e){
-    /* Функция для второго события keyup */
-    switch(e.which){
-        case 39:
-            rightPressed = false;
-            break;
-        case 37:
-            leftPressed = false;
-            break;
-        case 32:
-            spacePressed = false;
-            break;
+
+const checkClick = () => {
+  for (let i = 0; i < buttonX.lenght; i++) {
+    if (mouseX > buttonX[i] && mouseX < buttonX[i] + buttonWidth[i]){
+      if (mouseY > buttonY[i] && mouseY < buttonY[i] + buttonHeight[i])
+      fadeId = setInterval("fadeOut()", 1000/frames);
+      clearInterval(timerId);
+      canvas.removeEventListener("mousemove", checkPos);
+      canvas.removeEventListener("mouseup", checkClick);
     }
+  }
 }
 
-//Список статик-блоков блоков
-var blocks = [];
+const fadeOut = () => {
+  ctx.fillStyle = "rgba(0,0,0, 0.2)";
+  ctx.fillRect (0, 0, width, height);
+  time += 0.1;
+  if(time >= 2){
+    clearInterval(fadeId);
+    time = 0;
+    timerId = setInterval("update()", 1000/frames);
+    canvas.addEventListener("mousemove", checkPos);
+    canvas.addEventListener("mouseup", checkClick);
+    }
+}*/
+
+/* вызываем генератор ботов */
+botGenerate();
+
+chestGenerate();
 
 /* Парсинг уровня из map.js */
-parseMap();
+parseMap(maps[lvl],0,0);
 
-var stage = 0; // Стадия в анимации
-var prevStage = 0;
+const menuDraw = () => {
+  ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
+  ctx.drawImage(texture, 0, 0, canvas.width, canvas.height);
+  if (spacePressed){
+    scene = 1;
+  }
+}
 
-var direction = "";
-
-function physics(){
-    /*
-        Функция физика - отвечает за анимацию,
-        передвижение перса
-    */
-    if(rightPressed){
-        if(stage == 0){
-            hero.src = "images/maingonextright.png";
-            prevStage = 0;
-            stage = 1;
-        } else if (stage == 1 && prevStage == 0){
-          hero.src = "images/maingoright.png";
-          stage = 2;
-          prevStage = 1;
-        } else if(stage == 2){
-            hero.src = "images/maingonextright.png";
-            stage = 1;
-            prevStage = 2;
-        } else if(stage == 1 && prevStage == 2){
-            hero.src = "images/mainpersright.png";
-            prevStage = 0;
-            stage = 0;
-        }
-        heroX += 1.5;
-        direction = "right";
+const drawGame = () => {
+  //ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
+  ctx.drawImage(bg , 0 , 0); // рисуем фон
+  // death();
+  for (var i = 0 ; i < blocks.length ; i++){
+    if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
+        ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+    } else if (blocks[i].id == 'F') {
+        ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
     }
-
-    if(leftPressed){
-        if(stage == 0){
-            hero.src = "images/maingonext.png";
-            prevStage = 0;
-            stage = 1;
-        } else if (stage == 1 && prevStage == 0){
-          hero.src = "images/maingo.png";
-          stage = 2;
-          prevStage = 1;
-        } else if(stage == 2){
-            hero.src = "images/maingonext.png";
-            stage = 1;
-            prevStage = 2;
-        } else if(stage == 1 && prevStage == 2){
-            hero.src = "images/mainpers.png";
-            prevStage = 0;
-            stage = 0;
-        }
-        heroX -= 1.5;
-        direction = "left";
-    }
-
-    collision();
-
-    //Если нажат space и персонаж на земле то гравитация
-    //равна 5
-    if(spacePressed && heroOnGround){
-        heroDY = 5;
-    }
-
-    //если не нажата ни одна клавиша и перс не в состоянии покоя
-    //то оставить его в состоянии покоя
-    //в направление куда смотрел
-    if(!rightPressed && !leftPressed && stage != 0){
-        if(direction == "right"){
-            hero.src = "images/mainpersright.png";
+  }
+  death();
+  for (var i = 0 ; i < blocks.length ; i++){
+      if (blocks[i].id == 'G'){
+          ctx.drawImage(gnd, NN[0] * (blocks[i].x + FF[0]) ,NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+      } else if (blocks[i].id == 'D'){
+        if (curLevel.allCoins != curLevel.currentCoins) {
+          ctx.drawImage(doorClsd ,NN[0] *  (blocks[i].x  + FF[0]),NN[1] *  (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
         } else {
-            hero.src = "images/mainpers.png";
+          ctx.drawImage(doorOpn ,NN[0] *  (blocks[i].x  + FF[0]),NN[1] *  (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 64);
         }
-        stage = 0;
+      }
+      // else if (blocks[i].id == 'F') {
+      //     ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+      // }
+      // else if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
+      //     ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+      // }
+  }
+
+
+  chestRules();
+  /* выбор между отрисовками  */
+  if ((!freeCamera && (!InBlock(indi,'D') )) || (!freeCamera && InBlock(indi,'D') && curLevel.doorOpen)) {
+    if (indi.hp > 0) {
+      drawHero(); // отрисовываем персонажа
     }
-}
+    bulletRules(); // отрисовываем пули и тд
 
-/* Взаимодействие с блоками */
-function collision(){
-    var j = ~~((heroX + 40) / 32); //Целочисленное деление )) Нашел в инете
-                                   //поэксперементируете с 40 и 80 поймете на что влияют
-    var i = ~~((heroY + 80) / 32);
 
-    if(map[i][j] == 'G'){
-        //Здесь думаю все понятно
-        heroOnGround = true;
-        heroDY = 0;
-    }else{
-        heroOnGround = false;
+    for (var i = 0; i < characters.length; i++) { // проходим по массиву ботов
+      botRules(characters[i]);  // запускаем выбор поведения и отрисовку
+      blockCheck(characters[i],i);
     }
-}
 
+  }else {
+    if (freeCamera) {
+      freeCameraRule(); // свободная камера
+    }
+  }
+
+
+
+  // поздняя отрисовка блоков
+  for (var i = 0 ; i < blocksAfter.length ; i++){
+    if (blocksAfter[i].id == 'g') {
+        ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+    } else if (blocksAfter[i].id == 's'){
+      ctx.drawImage(gnd ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+    } else if (blocksAfter[i].id == 'S'){
+      ctx.drawImage(spikes ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+    } else if (blocksAfter[i].id == 'L') {
+      blocksAfter[i].posision = envN[0];
+      ctx.drawImage(lava , (((~~envN[0]) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
+      envN[0] += 1.0025;
+    } else if (blocksAfter[i].id == 'W') {
+      blocksAfter[i].posision = envN[1];
+      ctx.drawImage(water , ((((~~envN[1])) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocksAfter[i].x  +  FF[0]),NN[1] * (blocksAfter[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
+      envN[1] += 1.0025;
+    }  else if (blocksAfter[i].id == 'C'){
+      ctx.drawImage(coin ,NN[0] *  (blocksAfter[i].x  + FF[0]),NN[1] *  (blocksAfter[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
+    }
+  }
+
+
+  /* Отрисовка надписей */
+  ctx.strokeStyle = "white";
+  ctx.font = 'bold 25px sans-serif';
+  ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + curLevel.hp, 40, 65);
+
+  inventoryAnimation();
+
+  /* вызов замка */
+  if (InBlock(indi,'D')) {  //проверка на дверь и переход на след Уровень
+    if (curLevel.doorOpen) {
+      if (curLevel.currentCoins == curLevel.allCoins) {
+        if (lvl < maps.length - 1) {
+          NextLevel();
+        } else {
+          End();
+        }
+      }
+    } else {
+      Lock();
+    }
+  }
+}
 /* Отрисовка динамических объектов */
-function draw(){
-    ctx.clearRect(0 , 0 , canvas.width , canvas.height);
-    ctx.drawImage(bg , 0 , 0);
-
-    //Блоки размером по умолчанию
-    for (var i = 0 ; i < blocks.length ; i++){
-        if (blocks[i].id == 'G'){
-            ctx.drawImage(gnd , blocks[i].x , blocks[i].y);
-        } else if (blocks[i].id == 'S'){
-            ctx.drawImage(spikes , blocks[i].x , blocks[i].y);
-        } else if (blocks[i].id == 'F') {
-            ctx.drawImage(fire , blocks[i].x , blocks[i].y);
-        }
-    }
-
-    physics();
-
-    //Смещение по ординате
-    heroY -= heroDY;
-
-    //Если персонаж не на земле уменьшать гравитацию на 0.1
-    //Можно эксперементировать со значениями
-    if(!heroOnGround){
-        heroDY -= 0.1;
-    }
-
-    ctx.drawImage(hero , heroX , heroY , 80 , 80);
+const draw = () => {
+      if (scene == 0){
+        menuDraw();
+      } else {
+        drawGame();
+      }
+      requestAnimationFrame(draw);
 }
 
-/* Парсер карты */
-function parseMap(){
-    //Если G - это земля
-    //Если S - это шипы
-    //Если F - это факел
-    /*
-     Если пробел , пропускаем ;
-     Если видим какой -то блок , то определяем какой это блок
-     и создаем под него объект и кидаем в список блоков blocks
-    */
-    for (var i = 0; i < map.length ; i++){
-        for (var j = 0 ; j < map[i].length ; j++){
-            if (map[i][j] == ' '){
-                continue;
-            }
-            else if (map[i][j] == 'G'){
-                var o = {};
-                o.id = 'G';
-                o.x = j * 32;
-                o.y = i * 32;
-            }
-            else if (map[i][j] == 'S'){
-                var o = {};
-                o.id = 'S';
-                o.x = j * 32;
-                o.y = i * 32;
-            }
-            else if (map[i][j] == 'F'){
-                var o = {};
-                o.id = 'F';
-                o.x = j * 32;
-                o.y = i * 32;
-            }
-            blocks.push(o);
-        }
-    }
-}
 
 //Отрисовка динамических объектов в игре
 //Частота обновления 1мс
-var interval = setInterval(draw , 1);
+// var interval = setInterval(draw , 1);
+draw();
