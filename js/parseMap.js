@@ -89,24 +89,22 @@ const parseMap = (map) => {
               FF[1] = - indi.y + (canvas.height / NN[1] / 2);
               var o = new MapObject(' ', i, j);
             }  else if (map[i][j] == '1') {
-              var bot1 = new BotClass(1,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
+              var bot1 = new BotClass(1,j * 32 ,i * 32 - 64, 3.5, 400); // создаем с данными координатами и типом
               bots.push(bot1); // вносим в массив ботов
               characters.push(bot1);
               var o = new MapObject(' ', i, j);
             } else if (map[i][j] == '2') {
-              var bot2 = new BotClass(2,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
-              bot2.hp = 500;
+              var bot2 = new BotClass(2,j * 32 ,i * 32 - 64, 1, 500); // создаем с данными координатами и типом
               bots.push(bot2); // вносим в массив ботов
               characters.push(bot2);
               var o = new MapObject(' ', i, j);
             } else if (map[i][j] == '3') {
-              var bot3 = new BotClass(3,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
+              var bot3 = new BotClass(3,j * 32 ,i * 32 - 64, 2, 300); // создаем с данными координатами и типом
               bots.push(bot3); // вносим в массив ботов
               characters.push(bot3);
               var o = new MapObject(' ', i, j);
             } else if (map[i][j] == '4') {
-              var bot4 = new BotClass(4,j * 32 ,i * 32 - 64); // создаем с данными координатами и типом
-              bot4.hp = 700;
+              var bot4 = new BotClass(4,j * 32 ,i * 32 - 64, 2, 700); // создаем с данными координатами и типом
               bots.push(bot4); // вносим в массив ботов
               characters.push(bot4);
               var o = new MapObject(' ', i, j);
