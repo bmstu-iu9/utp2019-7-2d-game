@@ -101,11 +101,15 @@ const draw = () => {
         }
       }
 
+      if (indi.hp<=0) {
+        RestartLevel();
+      }
+
 
       /* Отрисовка надписей */
       ctx.strokeStyle = "white";
       ctx.font = 'bold 25px sans-serif';
-      ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + curLevel.hp, 40, 65);
+      ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + indi.hp, 40, 65);
 
       inventoryAnimation();
 
