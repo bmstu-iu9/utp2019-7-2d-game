@@ -32,6 +32,7 @@ class Hero {
 
     /* скорость героя */
     this.speed = 5;
+    this.normSpeed = 5;
     /* смерть героя :( */
     this.deathR = new Image(); // смерть вправо
     this.deathL = new Image(); // смерть влевво

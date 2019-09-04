@@ -102,7 +102,6 @@ const botRules1 = (bot) => {
   }
 
   /* ОСНОВА */
-  bot.speed = 3.5;
   moveD(bot);
   Find(bot);
   Draw(bot);
