@@ -1,5 +1,6 @@
 const Lock = () => {
 
+
   function upI(i) {
     if (i == 0) {
       doorLock.i = 1;
