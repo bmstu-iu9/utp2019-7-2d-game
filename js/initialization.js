@@ -24,6 +24,7 @@ const texture = new Image();
 const Pgreen = new Image();
 const Pred= new Image();
 const Pblue = new Image();
+const music = new Audio();
 const bulletsImages = [];
 const bulletsNames = ["STANDARD","RED  DEMON","GOLDEN  EYE","PINK  PANTER","SPACE KILLER","IVORY","ACID  HELL"];
 for (var i = 0; i < 7; i++) {
@@ -76,6 +77,7 @@ for (var i = 0; i < 7; i++) {
 Pblue.src = "images/inventory/Pblue.png";
 Pgreen.src = "images/inventory/Pgreen.png";
 Pred.src = "images/inventory/Pred.png";
+music.src = "sounds/TRM.mp3"
 /* Нажатия клавиш */
 let rightPressed = false;
 let leftPressed = false;
@@ -92,7 +94,6 @@ for (var i = 0; i < 9; i++) {
 }
 
 let lvl = 1;
-
 
 let blocks = []; //отрисовка до героя
 let blocksAfter = []; //отрисовка после героя

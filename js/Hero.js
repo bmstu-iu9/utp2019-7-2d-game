@@ -24,14 +24,17 @@ class Hero {
     /* характеристики стрельбы героя */
     this.fireY = 13; // смещение от верхней границы до места выстрела по Y
     this.shootTime = 0; // время стрельбы
-    this.firePower = 50 // урон по умолчанию
+    this.firePower = 100 // урон по умолчанию
     this.fireSpeed = 5; // скорость пули по умолчанию
     this.shoot = true; // флажок стрельбы
     this.shootTimeConst = 0.05;
     this.bulletID = 1;
 
+    this.alive = true;
+
     /* скорость героя */
     this.speed = 5;
+    this.normSpeed = 5;
     /* смерть героя :( */
     this.deathR = new Image(); // смерть вправо
     this.deathL = new Image(); // смерть влевво

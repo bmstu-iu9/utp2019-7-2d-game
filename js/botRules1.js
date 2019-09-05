@@ -22,11 +22,11 @@ const botRules1 = (bot) => {
 
   /* фуекция смещения по Y- */
   const moveD = (b) => {
-    if (OnCeil(b) && b.heroDY > 0) {
+    if (OnCeil(b) && b.heroDY > 0 ) {
       b.heroDY = 0;
     }
     b.y -= b.heroDY;
-    if (! OnGround(b)) {
+    if (! OnGround(b) && ! OnFakeBlock(b)) {
       b.heroDY -= 0.25;
     } else {
       b.heroDY = 0;
@@ -90,19 +90,26 @@ const botRules1 = (bot) => {
   /*поиск главного персонажа*/
 
   const Find = (bot) => {
-    if (Math.abs(indi.x - bot.x ) > 50) {
-      if (indi.x > bot.x) {
-        goBotX(bot,'r');
-      } else {
-        goBotX(bot,'l');
+    if ((Math.abs(bot.y -indi.y) < 100) && (Math.abs(bot.x -indi.x) < 500)) {
+      if ((Math.abs(indi.x - bot.x ) < 15) && (Math.abs(bot.y -indi.y) < 5)){
+        indi.hp -= 10 ;
       }
-    } else {
-      bot.dX = 0;
+      if (Math.abs(indi.x - bot.x ) > 5) {
+        if (indi.x > bot.x) {
+          goBotX(bot,'r');
+        } else {
+          goBotX(bot,'l');
+        }
+      } else {
+        bot.dX = 0;
+        if ((indi.alive) && (indi.hp <= 0))  {
+          deathlist.push(indi);
+        }
+      }
     }
   }
 
   /* ОСНОВА */
-  bot.speed = 3.5;
   moveD(bot);
   Find(bot);
   Draw(bot);
