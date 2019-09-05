@@ -15,22 +15,17 @@ let curLevel = new LevelClass(lvl);
 botGenerate();
 /* Парсинг уровня из map.js */
 parseMap(maps[lvl],0,0);
-const drawMenu = () => {
-  ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
-  ctx.drawImage(texture, 0, 0, canvas.width, canvas.height);
-  if (spacePressed){
-    scene = 1;
-  }
-}
+
+
 
 
 /* Отрисовка динамических объектов */
 const draw = () => {
-      if (scene == 0){
-        drawMenu();
-      } else {
-        drawGame();
-      }
+  if (scene == 0) {
+    drawMenu();
+  } else if (scene == 1) {
+    drawGame();
+  }
       requestAnimationFrame(draw);
 }
 

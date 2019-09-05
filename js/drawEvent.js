@@ -1,3 +1,11 @@
+const drawMenu = () => {
+  ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
+  ctx.drawImage(texture, 0, 0, canvas.width, canvas.height);
+  if (spacePressed){
+    scene = 1;
+  }
+}
+
 
 /* Отрисовка динамических объектов */
 const drawGame = () => {
@@ -78,5 +86,5 @@ const drawGame = () => {
         }
       }
 
-      requestAnimationFrame(draw);
+      //requestAnimationFrame(draw);
 }
