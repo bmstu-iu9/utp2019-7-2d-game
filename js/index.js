@@ -21,6 +21,11 @@ parseMap(maps[lvl],0,0);
 
 /* Отрисовка динамических объектов */
 const draw = () => {
+  //autoplay = "autoplay"
+  music.autoplay = true;
+  if (leftPressed) {
+    music.play();
+  }
   if (scene == 0) {
     drawMenu();
   } else if (scene == 1) {

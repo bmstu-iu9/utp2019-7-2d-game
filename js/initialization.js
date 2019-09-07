@@ -78,6 +78,7 @@ Pblue.src = "images/inventory/Pblue.png";
 Pgreen.src = "images/inventory/Pgreen.png";
 Pred.src = "images/inventory/Pred.png";
 music.src = "sounds/TRM.mp3"
+autoplay = "autoplay"
 /* Нажатия клавиш */
 let rightPressed = false;
 let leftPressed = false;
