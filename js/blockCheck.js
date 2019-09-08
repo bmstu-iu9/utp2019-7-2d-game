@@ -87,6 +87,6 @@ const  InBlock = (x, y, WORD) => {
   return  (((blocks[i * curLevel.map[0].length + j].id == WORD) || (blocks[i2 * curLevel.map[0].length + j].id == WORD))
           || (((blocks[i * curLevel.map[0].length + j + 1].id == WORD) || (blocks[i2 * curLevel.map[0].length + j + 1].id == WORD)
           || (blocks[i * curLevel.map[0].length + j - 1].id == WORD) || (blocks[i2 * curLevel.map[0].length + j - 1].id == WORD))
-          && (WORD == 'g' || WORD == 's'))
+          && (WORD == 'g' || WORD == 's' || WORD == 'a'))
         );   // проверка на наличие блока
 }

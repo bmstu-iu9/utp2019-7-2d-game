@@ -24,7 +24,7 @@ const draw = () => {
       ctx.drawImage(bg , 0 , 0); // рисуем фон
       // death();
       for (var i = 0 ; i < blocks.length ; i++){
-        if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
+        if (blocks[i].id == ' ' || blocks[i].id == 'C' || blocks[i].id == 'a'  || blocks[i].id == 'S' || blocks[i].id == 'W' || blocks[i].id == 'L') {
             ctx.drawImage(background ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
         } else if (blocks[i].id == 'F') {
             ctx.drawImage(fire ,NN[0] *  (blocks[i].x + FF[0]),NN[1] * (blocks[i].y + FF[1]),NN[0] * 32,NN[1] * 32);
@@ -49,7 +49,7 @@ const draw = () => {
           } else if (blocks[i].id == 'L') {
             blocks[i].posision = envN[0];
             ctx.drawImage(lava , (((~~envN[0]) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocks[i].x  +  FF[0]),NN[1] * (blocks[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );
-            envN[0] += 1.0025;
+            envN[0] += 1.001;
           } else if (blocks[i].id == 'W') {
             blocks[i].posision = envN[1];
             ctx.drawImage(water , ((((~~envN[1])) * 32) % 96) ,0 ,32 ,32 , NN[0] * (blocks[i].x  +  FF[0]),NN[1] * (blocks[i].y + FF[1]) ,NN[0] * 32 ,NN[1] * 32 );

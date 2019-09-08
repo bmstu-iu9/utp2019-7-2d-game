@@ -8,14 +8,14 @@ const bulletRules = () => {
 
 
     /* взаимодействие с блоками земли и не только */
-    if ((curLevel.map[i][j] == 'G') || (curLevel.map[i][j] == 'g')) {
-      if (curLevel.map[i][j] == 'g') {  // разбиваем фейк блоки
+    if ((blocks[i * curLevel.map[0].length + j].id  == 'G') || (blocks[i * curLevel.map[0].length + j].id  == 'g')) {
+      if (blocks[i * curLevel.map[0].length + j].id  == 'g') {  // разбиваем фейк блоки
         blocks[i * curLevel.map[0].length + j].id = ' ' // смена блока в массиве
-        BlockChange(bullets[k],bullets[k].x,bullets[k].y,'g',' ',1); // смена блока в массиве по коду
+        // BlockChange(bullets[k].x,bullets[k].y,'g',' '); // смена блока в массиве по коду
         bullets[k].power -= 100;
       }
 
-      if (curLevel.map[i][j] == 'G') {
+      if (blocks[i * curLevel.map[0].length + j].id  == 'G') {
         bullets[k].power = 0;
       }
 

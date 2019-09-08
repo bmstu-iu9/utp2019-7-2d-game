@@ -28,12 +28,24 @@ const chestRules = () => {
   /* применение предмета */
   const use = (o) => {
     if (o.bulletID < 20) {
-      indi.hp += o.hp;
-      indi.speed += o.speed;
-      indi.firePower += o.firePower
-      indi.fireSpeed += o.fireSpeed
-      indi.shootTimeConst += o.shootTime;
-      indi.heroDYconst += o.heroDYconst;
+      if (indi.hp + o.hp > 0) {
+        indi.hp += o.hp;
+      }
+      if (indi.speed + o.speed > 0) {
+        indi.speed += o.speed;
+      }
+      if (indi.firePower + o.firePower > 0) {
+        indi.firePower += o.firePower;
+      }
+      if (indi.fireSpeed + o.fireSpeed > 0) {
+        indi.fireSpeed += o.fireSpeed;
+      }
+      if (indi.shootTimeConst + o.shootTimeConst > 0) {
+        indi.shootTimeConst += o.shootTimeConst;
+      }
+      if (indi.heroDYconst + o.heroDYconst > 0) {
+        indi.heroDYconst += o.heroDYconst;
+      }
       if (o.bulletID != 0) {
         indi.bulletID = o.bulletID;
       }
