@@ -208,7 +208,7 @@ const map5 = [
     'GGGGGGGGGgggggggGGGGGGGGGGGGGGG   F  GG    F    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgG',
     'GGGGGGGGGGGGggggGGGGGGGGGGGGGGGG         F    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggG',
     'G          GGGGgGGGGGGGGGGGGGGGGG           GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggG',
-    'Gg                           S           GGgGGGGGggggg              GGGGGGGgGGgG',
+    'Gg                        ZZZZZZ         GGgGGGGGggggg              GGGGGGGgGGgG',
     'GgG   @                               GGGGGggggggggggg              gggggggggGgG',
     'GCG           GGGGG        1        GGGGGGGggggggggGGG   2    4    CggggggB BGBG',
     'GGGGGGsGGGGGGGGGGGGGGssGGGGGGGGGGGGGGGGGGGGGGGGGggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
@@ -220,7 +220,7 @@ const map5 = [
 
 
 /* добавляем карты в масссив */
-maps[1] = map5;
+maps[1] = map1;
 maps[2] = map2;
 maps[3] = map3;
 maps[4] = map4;
