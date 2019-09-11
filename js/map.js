@@ -208,7 +208,7 @@ const map5 = [
     'GGGGGGGGGgggggggGGGGGGGGGGGGGGG   F  GG    F    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgG',
     'GGGGGGGGGGGGggggGGGGGGGGGGGGGGGG         F    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggG',
     'G          GGGGgGGGGGGGGGGGGGGGGG           GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggG',
-    'Gg                        ZZZZZZ         GGgGGGGGggggg              GGGGGGGgGGgG',
+    'Gg                                       GGgGGGGGggggg              GGGGGGGgGGgG',
     'GgG   @                               GGGGGggggggggggg              gggggggggGgG',
     'GCG           GGGGG        1        GGGGGGGggggggggGGG   2    4    CggggggB BGBG',
     'GGGGGGsGGGGGGGGGGGGGGssGGGGGGGGGGGGGGGGGGGGGGGGGggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
