@@ -44,5 +44,5 @@ const RestartLevel = () => {
   botGenerate();
 
   /* Парсинг уровня из map.js */
-  parseMap(maps[lvl],0,0);
+  parseMap(curLevel.map,0,0);
 }
