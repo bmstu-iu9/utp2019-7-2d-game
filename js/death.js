@@ -3,7 +3,7 @@ const death = () => {
   for (var i = 0; i < deathlist.length; i++) {
     if (deathlist[i] != undefined) {
       deathID = 1;
-      if (deathlist[i].id == 0) {
+      if (deathlist[i].id == 0 || deathlist[i].id == 5) {
         deathID = 2;
         if ((characters.length > 0) && (characters[0].id == 0)) {
           // alert(0);

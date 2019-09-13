@@ -74,6 +74,7 @@ const inventoryAnimation = () => {
             ctx.strokeText("Скорость пули: " + o.fireSpeed , 900, 65);
           }
         } else if ((o.bulletID != 0) && ( o.bulletID < 20)) {
+          let defCTX = ctx.shadowColor;
             switch (o.bulletID) {
               case 1:
                 ctx.strokeStyle = "white ";
@@ -127,7 +128,7 @@ const inventoryAnimation = () => {
             ctx.font = 'bold 25px sans-serif';
             ctx.strokeText(bulletsNames[o.bulletID - 1], 900,65);
             ctx.strokeStyle = "white ";
-            ctx.shadowColor = "transparent";
+            ctx.shadowColor = defCTX;
 
         }else if (o.heroDYconst != 0) {
           if (o.heroDYconst > 0) {

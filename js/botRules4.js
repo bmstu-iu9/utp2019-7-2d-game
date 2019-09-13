@@ -40,9 +40,16 @@ const botRules4 = (bot) => {
       if (!OnLeft(bot)) {
         moveX(bot,d);
       }
+      if ( OnLeft(bot) && (bot.dN < 300) ) {
+          moveU(bot);
+      }
     } else {
       if (!OnRight(bot)) {
         moveX(bot,d);
+        bot.dN = 0;
+      }
+      if ( OnRight(bot) && (bot.dN < 300) ) {
+          moveU(bot);
       }
     }
   }

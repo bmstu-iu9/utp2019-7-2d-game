@@ -45,6 +45,7 @@ const bulletRules = () => {
         /* отрисовка пули */
         if (bullets[k] != undefined){
           bullets[k].x += bullets[k].speed;  // смещение пули
+          bullets[k].y += bullets[k].dY;
           if (bullets[k].speed > 0) {
             ctx.drawImage(bullets[k].photoR,NN[0] * (bullets[k].x - 3 + DD[0] + FF[0]),NN[1] * (bullets[k].y + 1 + DD[1] + FF[1]) ,NN[0] * 6 ,NN[1] * 2); // анимация бега    bot.posision += 0.03;
           } else {

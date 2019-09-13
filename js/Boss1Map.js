@@ -1,49 +1,50 @@
 'use strict';
 
-const maps = []; // массив карт
-const map1 = [
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'G                  GGGggggggggG      F F F  G                      FFFFF      FFFFF      FFFFF      FFFFF                                              G',
-  'G                  gggggggggggG       F F   G                     F     F    F     F    F     F    F     F                                             G',
-  'G                  gggggggggggG        F    G                    F FF FF F  F FF FF F  F FF FF F  F FF FF F             sG              GG             G',
-  'G            @     ggGGGGggggCG           C G CC                 F   F   F  F   F   F  F   F   F  F   F   F  GG        CGG             BGG             G',
-  'GgGggGGg    GGGGGGGGGGGGGGGGGGGgggGGGGGgGGGGGGGGGGGGGGGGGG        F FFF F    F FFF F    F FFF F    F FFF F   GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG         G',
-  'GBGggGGg    G                    GGGGGGgGGGGGGGG          GGGGG    F   F      F   F      F   F      F   F    GG                                       CG',
-  'GGGggGGG    g     F   F         GGGGGGGgGGGGGGGG               GGGG4FFF        FFF        FFF        FFF    GG                                   GGGGGGG',
-  'GGGggGGg    g     F   F        GGGGGGGGgGGGGGGGG                   GGGGGGGGGG        GGGGGGG        GGGGGGGGG                                  ggg     G',
-  'GGGggggg    GGGGG             GGGGGGGGGgGGGGGGGGLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLG                                ggggg aaaaG',
-  'GGGggggg    GGGGGgGgggGGGGGGGGG       GgGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG                        GGGGGGGGGGGGGGGGGGGGG',
-  'GGGggggg    G         GG             CGgGGGGGGGGGGGGGGGG   F F F F F F F F F F F F F F F F F F F F                               gggg                  G',
-  'GGGggGGg    GLLLLLLLLLGGBB         GGGGgGGGGGGGGGGGGGGGG  F F F F F F F F F F F F F F F F F F F F F                            gggggg                 CG',
-  'GGGgGGGG    gGGGGGGGGGGGGGGGGgggggG   ggGGGGGGGGGGGGG    F F F F F F F F F F F F F F F F F F F F F F                          GGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GgggGGgg    g                         ggGGGGGGGGGG      F F F F F F F F F F F F F F F F F F F F F F F                       gggg                       G',
-  'GgggGggg    g                         ggGGGGGGG        F F F F F F F F F F F F F F F F F F F F F F F F                    gggggg                    1BBG',
-  'GgGGgggg    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGF F F F F F F     FFF        FFFF     FF        F         F F F F F F F F F GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'Gggggggg    G                                                                                                                                          G',
-  'GggBgggg    G                                   2                                                                         2                            G',
-  'GgGGgggg    GggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgggggGGGggggggggGGGGgggggGGggggggggGgggggggggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG         GGGGGGG',
-  'GgGggggg    G    GG      GG      Gs     GG      GGGLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGG',
-  'GgGggggg    G      GG      GGa     Gs          GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGG',
-  'GgGggggs    GGG      GGa     GGa     GG      GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGG',
-  'GgGggggG    G  GG      GGa     GG          GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGG',
-  'GgGggggG    G    GG      GG      GG      GGGGGGGGGGGG                                                                                 GGGGGGGGGGGGGGGGGG',
-  'GgGsssss    G      GG      GG          GGGGGGGGGGGGGGaBaaa                                                                          GGGGGGGGGGGGGGGGGGGG',
-  'GgGGGGGGSSSSGGG      GG      GG      GGGGGGGGGGGGGGGGGGGGGGGGGG       GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGG',
-  'GgGGGGGGGGGGGGGGG      GG          GGGGGGGGGGGGGGGGGGGGGGGGGG       GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGG',
-  'G                                GGGGGGGGGGGGGG                   GGGGGGGGGGGGGGGGGG                                          GGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'G                         1    GGGGGGGGGGGGGGGGC  2             GGGGGGGGGGGGGGGGGGGGB   C                                   GGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG     GGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG         GGGGGGGGGGGGGGGGGGG         GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG                             GGGGGGGGGGGGGGGGG         gGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GD                           F         F                                           G                            Ggggggg           GGGGGGGGGGGGGGGGGGGGGG',
-  'G   2                                        B                             4       GGG  2                       GGGggggggggggBBBBBGGGGGGGGGGGGGGGGGGGGGG',
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGssGGGGGssGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-  'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
-];
+const bossMaps = []; // массив карт
+const bossmap1 = [
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'G                  GGGggggggggG      F F F  G                      FFFFF      FFFFF      FFFFF      FFFFF                                              G',
+    'G                  gggggggggggG       F F   G                     F     F    F     F    F     F    F     F                                             G',
+    'G                  gggggggggggG        F    G                    F FF FF F  F FF FF F  F FF FF F  F FF FF F             sG              GG             G',
+    'G            @     ggGGGGggggCG           C G CC                 F   F   F  F   F   F  F   F   F  F   F   F  GG        CGG             BGG             G',
+    'GgGggGGg    GGGGGGGGGGGGGGGGGGGgggGGGGGgGGGGGGGGGGGGGGGGGG        F FFF F    F FFF F    F FFF F    F FFF F   GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG         G',
+    'GBGggGGg    G                    GGGGGGgGGGGGGGG          GGGGG    F   F      F   F      F   F      F   F    GG                                       CG',
+    'GGGggGGG    g     F   F         GGGGGGGgGGGGGGGG               GGGG4FFF        FFF        FFF        FFF    GG                                   GGGGGGG',
+    'GGGggGGg    g     F   F        GGGGGGGGgGGGGGGGG                   GGGGGGGGGG        GGGGGGG        GGGGGGGGG                                  ggg     G',
+    'GGGggggg    GGGGG             GGGGGGGGGgGGGGGGGGLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLG                                ggggg aaaaG',
+    'GGGggggg    GGGGGgGgggGGGGGGGGG       GgGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG                        GGGGGGGGGGGGGGGGGGGGG',
+    'GGGggggg    G         GG             CGgGGGGGGGGGGGGGGGG   F F F F F F F F F F^^^F F F F F F F F F                               gggg                  G',
+    'GGGggGGg    GLLLLLLLLLGGBB         GGGGgGGGGGGGGGGGGGGGG  F F F F F F F F F F F^^>>>>>>>>>>>>>>>>>>>>>>|                       gggggg                 CG',
+    'GGGgGGGG    gGGGGGGGGGGGGGGGGgggggG   ggGGGGGGGGGGGGG    F F F F F F F F F F F ^^^ F F F F F F F F F   |                      GGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GgggGGgg    g                         ggGGGGGGGGGG      F F F F F F F F F |<<<<<<0<<<<<<F F F F F F F  |                    gggg                       G',
+    'GgggGggg    g                         ggGGGGGGG        F F F F F F F F F F|F F F ^ F F ^ F F F F F F F |                  gggggg                    1BBG',
+    'GgGGgggg    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGF F F F F F F     FFF        F|FF    ^FF   ^    F         F|F F F F F F F F GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'Gggggggg    G                                                             |      ^     ^               |                                               G',
+    'GggBgggg    G                                   2                         |>>>>>>^     ^<<<<<<<<<<*<<<<|                             2                 G',
+    'GgGGgggg    GggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgggggGGGggggggggG>^GgggggGGggggggggGggggggggg^<GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG         GGGGGGG',
+    'GgGggggg    G    GG      GG      Gs     GG      GGGLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGG',
+    'GgGggggg    G      GG      GGa     Gs          GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGG',
+    'GgGggggs    GGG      GGa     GGa     GG      GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGG',
+    'GgGggggG    G  GG      GGa     GG          GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGG',
+    'GgGggggG    G    GG      GG      GG      GGGGGGGGGGGG                                                                                 GGGGGGGGGGGGGGGGGG',
+    'GgGsssss    G      GG      GG          GGGGGGGGGGGGGGaBaaa                                                                          GGGGGGGGGGGGGGGGGGGG',
+    'GgGGGGGGSSSSGGG      GG      GG      GGGGGGGGGGGGGGGGGGGGGGGGGG       GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGG',
+    'GgGGGGGGGGGGGGGGG      GG          GGGGGGGGGGGGGGGGGGGGGGGGGG       GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGG',
+    'G                                GGGGGGGGGGGGGG                   GGGGGGGGGGGGGGGGGG                                          GGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'G                         1    GGGGGGGGGGGGGGGGC  2             GGGGGGGGGGGGGGGGGGGGB   C                                   GGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG     GGGGGGGGGGGGGGGGGGGGGGGG        GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG         GGGGGGGGGGGGGGGGGGG         GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG                             GGGGGGGGGGGGGGGGG         gGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GD                           F         F                                           G                            Ggggggg           GGGGGGGGGGGGGGGGGGGGGG',
+    'G   2                                        B                             4       GGG  2                       GGGggggggggggBBBBBGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGssGGGGGssGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
+  ];
 
-const map2 = [
+
+const bossmap2 = [
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG                                                                 ',
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG                                                   ',
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG                                                   ',
@@ -104,7 +105,7 @@ const map2 = [
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG       '
 ];
 
-var map3 = [
+var bossmap3 = [
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
   'G                    g                 GG                                      G',
   'G                    g                 GG                                      G',
@@ -144,7 +145,7 @@ var map3 = [
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
 ];
 
-var map4 = [
+var bossmap4 = [
   'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
     'G                    g                 GG                                      G',
     'G                    g                 GG                                      G',
@@ -182,7 +183,7 @@ var map4 = [
 
 
 /* добавляем карты в масссив */
-maps[1] = map1;
-maps[2] = map2;
-maps[3] = map3;
-maps[4] = map4;
+bossMaps[1] = bossmap1;
+bossMaps[2] = bossmap2;
+bossMaps[3] = bossmap3;
+bossMaps[4] = bossmap4;
