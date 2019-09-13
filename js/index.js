@@ -17,6 +17,7 @@ botGenerate();
 
 /* Парсинг уровня из map.js */
 parseMap(maps[lvl],0,0);
+parseBossMap(bossMaps[lvl],0,0);
 
 /* Отрисовка динамических объектов */
 const draw = () => {
@@ -62,12 +63,16 @@ const draw = () => {
 
 
       chestRules();
+
       /* выбор между отрисовками  */
 
       if ((!freeCamera && (!InBlock(indi.x, indi.y, 'D') )) || (!freeCamera && InBlock(indi.x, indi.y, 'D') && curLevel.doorOpen)) {
         if (indi.hp > 0) {
           drawHero(); // отрисовываем персонажа
         }
+        // for (var i = 0; i < BossArr.length; i++) {
+        //   Boss1(BossArr[i]);
+        // }
         bulletRules(); // отрисовываем пули и тд
 
 

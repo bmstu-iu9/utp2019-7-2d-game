@@ -39,7 +39,7 @@ class Chest {
       case 6:
           this.inventory.push(new inventory(down,0,0,0,0,0,0,5));
           this.inventory.push(new inventory(up,0,0,1200,0,0,0,0));
-          this.inventory.push(new inventory(down,0,0,0,-4,0,0,0));
+          this.inventory.push(new inventory(down,0,0,0,-2,0,0,0));
         break;
       case 7:
           this.inventory.push(new inventory(rbl,0,2,0,0,0,0,0));

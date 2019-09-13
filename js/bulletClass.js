@@ -42,6 +42,7 @@ class bulletClass {
 
     /* скорость снаряда */
     this.speed = speed;
+    this.dY = 0;
 
     /* урон снаряда */
     this.power = power;

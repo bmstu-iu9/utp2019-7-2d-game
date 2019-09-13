@@ -99,4 +99,5 @@ let characters = [];
 let bullets = [];
 let deathlist = [];
 let chests = [];
+let BossArr = [];
 // все что должно очищаться в начале каждого уровня должно быть добавлено в RestartLevel()
