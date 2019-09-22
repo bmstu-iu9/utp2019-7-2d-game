@@ -20,9 +20,7 @@ class MapObject {
   }
 }
 
-const getRandomInt = (min,max) => {
-  return Math.floor(Math.random() * (max - min) ) + min;
-}
+
 
 const parseMap = (map) => {
     for (let i = 0 ; i < map.length ; i++) {
@@ -53,8 +51,6 @@ const parseMap = (map) => {
               blocks.push(o);
               continue;
             } else if (map[i][j] == 'D') {  //дверь, выход
-              // var o = new MapObject('D', i, j);
-              // blocksAfter.push(o);
               var o = new MapObject('D', i, j);
               blocks.push(o);
               continue;

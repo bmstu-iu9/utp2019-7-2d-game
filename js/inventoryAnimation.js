@@ -55,6 +55,7 @@ const inventoryAnimation = () => {
               ctx.strokeStyle = "white ";
             }
             ctx.strokeText("магия (:" , 900, 65);
+
         } else if (o.speed != 0) {
           if (o.speed > 0) {
             ctx.strokeText("Скорость: +" + o.speed , 900,65);
@@ -74,7 +75,14 @@ const inventoryAnimation = () => {
             ctx.strokeText("Скорость пули: " + o.fireSpeed , 900, 65);
           }
         } else if ((o.bulletID != 0) && ( o.bulletID < 20)) {
-          let defCTX = ctx.shadowColor;
+          let c = [];
+          c[0] = ctx.shadowColor;
+          c[1] = ctx.strokeStyle;
+          c[2] = ctx.fillStyle;
+          c[3] = ctx.shadowOffsetX;
+          c[4] = ctx.shadowOffsetY;
+          c[5] = ctx.shadowBlur;
+          c[6] = ctx.font;
             switch (o.bulletID) {
               case 1:
                 ctx.strokeStyle = "white ";
@@ -127,8 +135,13 @@ const inventoryAnimation = () => {
             }
             ctx.font = 'bold 25px sans-serif';
             ctx.strokeText(bulletsNames[o.bulletID - 1], 900,65);
-            ctx.strokeStyle = "white ";
-            ctx.shadowColor = defCTX;
+            ctx.shadowColor = c[0];
+            ctx.strokeStyle = c[1]
+            ctx.fillStyle =  c[2];
+            ctx.shadowOffsetX = c[3];
+            ctx.shadowOffsetY = c[4];
+            ctx.shadowBlur = c[5];
+            ctx.font = c[6];
 
         }else if (o.heroDYconst != 0) {
           if (o.heroDYconst > 0) {
