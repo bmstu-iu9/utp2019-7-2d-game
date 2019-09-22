@@ -18,9 +18,12 @@ botGenerate();
 /* Парсинг уровня из map.js */
 parseMap(maps[lvl],0,0);
 parseBossMap(bossMaps[lvl],0,0);
+let tt = 0;
+let xP = 0, yP = 0;
 
 /* Отрисовка динамических объектов */
 const draw = () => {
+      tt += 17;
       ctx.clearRect(0 , 0 , canvas.width , canvas.height); // стираем все
       ctx.drawImage(bg , 0 , 0); // рисуем фон
       // death();
@@ -103,8 +106,12 @@ const draw = () => {
         indi.hp = 0;
       }
       ctx.strokeText("Level: " + lvl + "   Coins: " + curLevel.currentCoins + " / " + curLevel.allCoins + "  Hp: " + indi.hp, 40, 65);
-
+      ctx.strokeText("Time: " + (tt   / 1000)  , 40, 90);
       inventoryAnimation();
+      // inouy("шифрование",10 * 32,4 * 32,0);
+      if (PPressed) {
+        inouyBack(indi.x,indi.y,~~(tt / 60000));
+      }
 
       /* вызов замка */
 
@@ -123,6 +130,14 @@ const draw = () => {
       }
 
       if (InBlock(indi.x, indi.y, 'D') && curLevel.doorOpen) {
+        let c = [];
+        c[0] = ctx.shadowColor;
+        c[1] = ctx.strokeStyle;
+        c[2] = ctx.fillStyle;
+        c[3] = ctx.shadowOffsetX;
+        c[4] = ctx.shadowOffsetY;
+        c[5] = ctx.shadowBlur;
+        c[6] = ctx.font;
         ctx.strokeStyle = "red"
         ctx.fillStyle = "orange"
         ctx.shadowColor = "purple";
@@ -132,8 +147,64 @@ const draw = () => {
         ctx.font = 'bold 60px serif';
         ctx.strokeText("Собери все монеты", 500, 100);
         ctx.fillText("Собери все монеты", 500, 100)
-        ctx.strokeStyle = "white";
-        ctx.shadowColor = "transparent";
+        ctx.shadowColor = c[0];
+        ctx.strokeStyle = c[1]
+        ctx.fillStyle =  c[2];
+        ctx.shadowOffsetX = c[3];
+        ctx.shadowOffsetY = c[4];
+        ctx.shadowBlur = c[5];
+        ctx.font = c[6];
+      }
+      if (KPressed) {
+        ctx.strokeText("x " + (~~((indi.x + indi.width / 2 ) / 32) + ~~xP) + " y " + (~~((indi.y + 10) / 32) + ~~yP) , 50 , 130)
+        if (XPressed && plusPressed) {
+          xP+= 0.2;
+        }
+        if (YPressed && plusPressed) {
+          yP+= 0.2;
+        }
+        if (XPressed && minusPressed) {
+          xP-= 0.2;
+        }
+        if (YPressed && minusPressed) {
+          yP-= 0.2;
+        }
+        if (TPressed) {
+          if ((~~((indi.x + indi.width / 2 ) / 32) + ~~xP) * 32 > 0) {
+            indi.x = (~~((indi.x + indi.width / 2 ) / 32) + ~~xP) * 32;
+          }
+          if ((~~((indi.y + 10) / 32) + ~~yP) * 32 > 0) {
+            indi.y = (~~((indi.y + 10) / 32) + ~~yP) * 32;
+          }
+          TPressed = false;
+          XPressed = false;
+          YPressed = false;
+          yP = 0;
+          xP = 0;
+        }
+        if (MousePressed) {
+          xP = (~~(((Mouse[0] ) / NN[0] - DD[0] - FF[0]) / 32) - ~~((indi.x + indi.width / 2 ) / 32)) //- ~~((indi.x + indi.width / 2 ) / 32)
+          yP = ~~(((Mouse[1] + 10) / NN[1] - DD[1] - FF[1]) / 32)  - ~~((indi.y + 10) / 32) //- ~~((indi.y + 10) / 32)
+          indi.x = (~~((indi.x + indi.width / 2 ) / 32) + ~~xP) * 32;
+          indi.y = (~~((indi.y + 10) / 32) + ~~yP) * 32;
+          yP = 0;
+          xP = 0;
+          MousePressed = false;
+        }
+      }
+
+      if (XPressed && YPressed && PPressed && KPressed ) {
+        if (plusPressed) {
+
+          plusPressed = false;
+          if (lvl < maps.length - 1) {
+            NextLevel();
+          }
+        }
+        if (minusPressed) {
+          minusPressed = false;
+          PrevLevel();
+        }
       }
 
       /* Отрисовка смерти */
@@ -141,7 +212,7 @@ const draw = () => {
 
       //
       requestAnimationFrame(draw);
-
+      ReadTextFile();
 }
 
 

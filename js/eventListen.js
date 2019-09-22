@@ -30,6 +30,21 @@ function keyDownHandler (e) {
   case 189:
   minusPressed = true;
   break
+  case 80:
+  PPressed = !PPressed;
+  break
+  case 75:
+  KPressed = !KPressed;
+  break
+  case 84:
+  TPressed = !TPressed;
+  break
+  case 88:
+  XPressed = !XPressed;
+  break
+  case 89:
+  YPressed = !YPressed;
+  break
   }
   if ((e.which >= 48) && (e.which <= 57)){
     numbers[e.which - 48] = true;
@@ -65,4 +80,24 @@ function keyUpHandler (e) {
   if ((e.which >= 48) && (e.which <= 57)){
     numbers[e.which - 48] = false;
   }
+}
+
+if (document.attachEvent) document.attachEvent('onclick', handler);
+else document.addEventListener('click', handler);
+
+function handler(e) {
+  e = e || window.event;
+
+  var pageX = e.pageX;
+  var pageY = e.pageY;
+
+  // IE 8
+  if (pageX === undefined) {
+      pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+  }
+  Mouse[0] = pageX;
+  Mouse[1] = pageY;
+  MousePressed = true;
+  // console.log(pageX, pageY);
 }

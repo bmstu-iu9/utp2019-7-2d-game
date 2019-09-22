@@ -3,26 +3,47 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
 /* Картинки */
+const arts = []
 const gnd = new Image();
+arts[0] = gnd;
 const bg = new Image();
+arts[1] = bg;
 const hero = new Image();
+arts[2] = hero;
 const spikes = new Image();
+arts[3] = spikes;
 const fire = new Image();
+arts[4] = fire;
 const coin = new Image();
+arts[5] = coin;
 const lava = new Image();
+arts[6] = lava;
 const water = new Image();
+arts[7] = water;
 const background = new Image();
+arts[8] = background;
 const mgbg = new Image();
+arts[9] = water;
 const darkness = new Image();
+arts[10] = darkness;
 const up = new Image();
+arts[11] = up;
 const down = new Image();
+arts[12] = down;
 const rbl = new Image();
+arts[13] = rbl;
 const life = new Image();
+arts[14] = life;
 const doorOpn = new Image();
+arts[15] = doorOpn;
 const doorClsd = new Image();
+arts[16] = doorClsd;
 const Pgreen = new Image();
+arts[17] = Pgreen;
 const Pred= new Image();
+arts[18] = Pred;
 const Pblue = new Image();
+arts[19] = Pblue;
 const bulletsImages = [];
 const bulletsNames = ["STANDARD","RED  DEMON","GOLDEN  EYE","PINK  PANTER","SPACE KILLER","IVORY","ACID  HELL"];
 for (var i = 0; i < 7; i++) {
@@ -71,6 +92,8 @@ for (var i = 0; i < 7; i++) {
   let name = "images/weapons/bullet" + (i + 1) + "R.png";
   bulletsImages[i].src = name;
 }
+
+
 Pblue.src = "images/inventory/Pblue.png";
 Pgreen.src = "images/inventory/Pgreen.png";
 Pred.src = "images/inventory/Pred.png";
@@ -83,6 +106,13 @@ let spacePressed = false;
 let freeCamera = false;
 let plusPressed = false;
 let minusPressed = false;
+let PPressed = false;
+let KPressed = false;
+let TPressed = false;
+let XPressed = false;
+let YPressed = false;
+let MousePressed = false;
+let Mouse = [];
 let numbers = [];
 for (var i = 0; i < 9; i++) {
   numbers[i] = false;
@@ -100,4 +130,9 @@ let bullets = [];
 let deathlist = [];
 let chests = [];
 let BossArr = [];
+
+const getRandomInt = (min,max) => {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
 // все что должно очищаться в начале каждого уровня должно быть добавлено в RestartLevel()
