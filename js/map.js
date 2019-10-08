@@ -207,6 +207,44 @@ var map1 = [
     'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG'
 ];
 
+const map5 = [                                                                                                                                           
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggggggggggggGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGG                                        GGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGG                       F                       GGGGggggggggggGGGGG',                                                                             
+    'GGGGGGGGGGGG                F                                   ggggggggggggGGGG',                                                                                                                                            
+    'GGGGGGGG       F                            G     a C      F        ggGGGGgggGGG',
+    'GGGGGG                 GGG          D             GgG                   GGGgggGG',
+    'GGGGG                             a                                        gggGG',
+    'GGGG          G                  GGGGGG                   G     G            gGG',
+    'GGG                                                                          GGG',                                                                             
+    'Gg          SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS           GGG',                                                                                                                                            
+    'Gg       GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG      G     gG',
+    'Gg      GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggggggggggGGGGGg            gG',
+    'Gg       GGGGGGggggggggggggggggggggggggggggGGGGGCggggggggggggggggg   F        gG',
+    'GG        GGGGGgggggggggCggggggggggggggggggGGGGGGGssGggggggggggggg          G gG',
+    'GG         GGGGgGGGGGGGGGGGGGGGGGGGGGGGggggGGGGGGGGGGGGGGGggggGGGG            gG',                                                                             
+    'Gaaaa       GGGggggBGGGGGGGGGGGGGGGGgggFgggGGGGGGGGGGGGGGGGGGGGGGG   F        gG',                                                                                                                                            
+    'GGGGGG        GggggGGGGGGGGGGGGGgBGGgggggggGGGGGGGGGGGGGGGgggggggg            GG',
+    'GGGGGGG         GGGGGGGGGGGGGGGGgGGGgggGGGGGGGGGGGGGGGG                       GG',
+    'GBgggGGGG    F    GGGGgggggggggggggggggggggggggggggGGG   F   F   F   F        GG',
+    'GGgggGGGGGG        GGGCggggggggggggggggggggggggggggg                         GGG',
+    'GGGggggGGGGGG        GGGgggGGGGGGGGGgggggggggggggg                            GG',
+    'GGGGggggGGGGGGG    F           GGGGGGGGsssGGGGGG          G   gg    g    g    gG',
+    'GGGGGggggGGGGGGGG                 GGGGGGGGGGG                       G    G    gG',
+    'GGGGGGgggggGGGGGGGG             F  GGGGGGGG                                   gG',
+    'GGGGGGGggggggGGGGGGGGLLLGLLLGG   F  GGGGG    F    GGGSSSSSSSSSSSSSSSSSSSSSSSSSgG',
+    'GGGGGGGGGgggggggGGGGGGGGGGGGGGG   F  GG    F    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgG',
+    'GGGGGGGGGGGGggggGGGGGGGGGGGGGGGG         F    GGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggG',
+    'G          GGGGgGGGGGGGGGGGGGGGGG           GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGggggG',
+    'Gg                                       GGgGGGGGggggg              GGGGGGGgGGgG',
+    'GgG   @                               GGGGGggggggggggg              gggggggggGgG',
+    'GCG           GGGGG        1        GGGGGGGggggggggGGG   2    4    CggggggB BGBG',
+    'GGGGGGsGGGGGGGGGGGGGGssGGGGGGGGGGGGGGGGGGGGGGGGGggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+    'GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+];
+
 
 
 
@@ -216,3 +254,4 @@ maps[1] = map1;
 maps[2] = map2;
 maps[3] = map3;
 maps[4] = map4;
+maps[5] = map5;
